@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Top Reps</title>
+    <style>
+        body {
+        }
+
+        #title {
+            font-family: sans-serif;
+            text-align: center;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+        #viz {
+            width: 80vw;
+            height: 80vh;
+            padding: 10px 0px 10vh 10vw;
+        }
+
+        .bar {
+            fill: steelblue;
+            opacity: .7;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 14px;
+            fill: white;
+            text-shadow: 1px 1px .5px blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <svg id="viz">
+
+    </svg>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+
+
+        d3.json("/data/data.json", function (error, data) {
+            if (error) {
+                console.warn("Error loading data", error);
+            } else {
+                parseData(data);
+                renderChart(data);
+                updateChart(dataObj.ReportData);
+            }
+        });
+
+        function refreshData() {
+            d3.json("/data/data.json", function (error, data) {
+                if (error) {
+                    console.warn("Error refreshing data", error);
+                } else {
+                    parseData(data);
+                    updateChart(dataObj.ReportData);
+                }
+            });
+        }
+
+        function parseData(data) {
+            d3.select("#title").text(data.ReportTitle);
+            dataObj = {};
+            interval = data.ReloadInterval;
+            DataGroup = data.ReportType;
+            ReportDuration = data.ReportDuration;
+            ReloadInterval = data.ReloadInterval;
+            what = {};
+            for (let i in data.ReportDatas) {
+                key = data.ReportDatas[i].Title;
+                value = data.ReportDatas[i].data;
+                what[key] = value;
+            }
+            console.log("what ", what);
+            dataObj.ReportData = what[DataGroup];
+
+        };
+        function renderChart(dataObj) {
+            let data = dataObj.ReportData;
+            h = parseInt(d3.select("#viz").style("height"));
+            w = parseInt(d3.select("#viz").style("width"));
+            svg = d3.select("#viz"); //VARIABLES
+            margin = { top: 20, right: 40, bottom: 20, left: 60 };
+            padding_bottom = 25;
+            TRANS_DURATION = 2000;
+            group = "UserName";
+            measure = "total";
+
+            yScale = d3.scaleBand() //SCALES
+                .range([padding_bottom, h]),
+            xScale = d3.scaleLinear()
+                .range([0, w]);
+
+            yAxis = d3.axisLeft(yScale), //DEFINE AND ADD AXIS
+                 xAxis = d3.axisBottom(xScale);
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + (h + margin.bottom) + ")")
+                .append("g")
+                .append("text")
+                .attr('id', 'x-axis-label')
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end");
+            svg.append("g")
+                .attr("class", "y axis")
+                .append("g")
+                .append("text")
+                .attr('id', 'y-axis-label')
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end");
+            window.setInterval(() => refreshData(), dataObj.ReloadInterval);
+        };
+        function updateChart(data) {
+            console.log(data);
+            console.log("updating");
+
+            var barHeight = (h / data.length);
+            console.log("data length ", data.length);
+            console.log("bar height", barHeight);
+            yScale.domain(data.map(function (d) { return d[group]; }));
+            xScale.domain([0, d3.max(data, function (d) { return d[measure]; }) + margin.right]);
+
+            svg.select('.x.axis')
+                .transition().duration(TRANS_DURATION)
+                .call(xAxis)
+                .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", function () { return "rotate(-45)"; });
+            var xLabel = svg.select('#x-axis-label')
+                .text(measure); // this and yLabel is being rendered over TODO fix
+            svg.select('.y.axis')
+                .transition().duration(TRANS_DURATION)
+                .call(yAxis)
+                .selectAll("text")
+                .attr("dy", "-.8em")
+                .attr("dx", ".98em")
+                .attr("transform", function () { return "rotate(-35)"; });
+            var yLabel = svg.select('#y-axis-label');
+            yLabel.text(group);
+
+            //BARS
+            var bars = svg.selectAll(".bar")
+                .data(data, function (d) {
+                    return d[group];
+                });
+            bars.enter()
+                .append("rect")
+                .attr("class", "bar")
+            .merge(bars)
+                .attr("x", 25)
+                .attr("ry", 5)
+                .transition().duration(TRANS_DURATION)
+                .attr("width", function (d) {
+                    //console.log("rects ", d);
+                    return xScale(d[measure]);
+                })
+                .attr("y", function (d) { return yScale(d[group]) - margin.bottom / 2; })
+                .attr("height", function () { return Math.abs(barHeight - 10); });
+            bars.exit().remove();
+
+            //TEXT
+            var texts = svg.selectAll(".text")
+                .data(data, function (d) {
+                    return d[group];
+                });
+            texts.enter()
+                .append("text")
+                .attr("class", "text")
+            .merge(texts)
+                .attr("x", 35)
+                .attr("dy", barHeight / 2)
+                .transition().duration(TRANS_DURATION)
+                .attr("y", function (d) { return yScale(d[group]) - margin.bottom / 2; })
+                .text(function (d) { return measure + ": " + d[measure]; });
+            texts.exit().remove();
+        };
+
+
+    </script>
+</body>
+</html>

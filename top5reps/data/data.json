@@ -1,0 +1,63 @@
+{
+  "ReportTitle": "Top 5 Calls + Min",
+  "ReportPath": "Team/Carahsoft/Top 5 Calls + Min\\",
+  "Report_ID": "11",
+  "Access_ID": "81",
+  "ReportDate": "Last Updated: 12/08/16 03:30",
+  "ReportFormat": "Bar",
+  "ReportDuration": "20",
+  "ReportType": "Carahsoft",
+  "ReloadInterval": 2000,
+  "ReportDatas": [
+    {
+      "data": [
+        {
+          "total": 565,
+          "UserName": "Avery Wilson"
+        },
+        {
+          "total": 435,
+          "UserName": "Nicole Foss"
+        },
+        {
+          "total": 432,
+          "UserName": "Karen Hanscom"
+        },
+        {
+          "total": 328,
+          "UserName": "Craig P. Abod"
+        },
+        {
+          "total": 316,
+          "UserName": "Robert McQueeney"
+        }
+      ],
+      "Title": "Carahsoft"
+    },
+    {
+      "data": [
+        {
+          "total": 236,
+          "UserName": "Gina Wilson"
+        },
+        {
+          "total": 216,
+          "UserName": "Karen Hanscom"
+        },
+        {
+          "total": 184,
+          "UserName": "Nancy Milad"
+        },
+        {
+          "total": 159,
+          "UserName": "Tim Breswick"
+        },
+        {
+          "total": 150,
+          "UserName": "Amanda Rego"
+        }
+      ],
+      "Title": "Adobe"
+    }
+  ]
+}

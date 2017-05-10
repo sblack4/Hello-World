@@ -1,0 +1,204 @@
+{
+    "ReportTitle": "Carah-Birthdays",
+    "ReportPath": "Carahsoft/Monitors/CarahBirthdays\\",
+    "Report_ID": "60",
+    "Access_ID": "146",
+    "ReportDate": "Last Updated: 03/09/17 02:17",
+    "ReloadInterval": 38880000,
+    "ReportDatas": null,
+    "MonitorDatas": [{
+        "RowCount": 1,
+        "Tab_ID": "0",
+        "Title": "",
+        "Report_ID": "2125",
+        "IncludeDonut": "False",
+        "SummaryTitle": "",
+        "DonutGroupBy": "Rep",
+        "DonutSumBy": "Years",
+        "SortColKey": "Years",
+        "SortDir": "DESC",
+        "HeaderInfo": [{
+            "OriginalName": "Users.UserName",
+            "colKey": "Rep",
+            "headerName": "Rep",
+            "format": "STRING",
+            "initialWidth": 60
+        }, {
+            "OriginalName": "'callaccounting/headshots/'+Users.ADAccount+'.jpg'",
+            "colKey": "IMG",
+            "headerName": "IMG",
+            "format": "STRING",
+            "initialWidth": 60
+        }, {
+            "OriginalName": "TeamName",
+            "colKey": "TeamName",
+            "headerName": "TeamName",
+            "format": "STRING",
+            "initialWidth": 60
+        }, {
+            "OriginalName": "Organizations.Name",
+            "colKey": "Name",
+            "headerName": "Name",
+            "format": "STRING",
+            "initialWidth": 60
+        }, {
+            "OriginalName": "Users.StartDay",
+            "colKey": "StartDay",
+            "headerName": "StartDay",
+            "format": "DATE",
+            "initialWidth": 60
+        }, {
+            "OriginalName": "DATEDIFF(YEAR, Users.StartDay, GETDATE())",
+            "colKey": "Years",
+            "headerName": "Years",
+            "format": "INT",
+            "initialWidth": 60
+        }],
+        "Datas": [{
+            "Key": "Carahsoft",
+            "Data": [{
+                "Rep": "Leticia Guido",
+                "IMG": "callaccounting/headshots/lrojas.jpg",
+                "TeamName": "Customer Operations",
+                "Name": "Carahsoft",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Kevin Pillow",
+                "IMG": "callaccounting/headshots/kpillow.jpg",
+                "TeamName": "IT",
+                "Name": "Carahsoft",
+                "StartDay": "2015-03-13T00:00:00",
+                "Years": 2
+            }, {
+                "Rep": "Nathaniel Sottung",
+                "IMG": "callaccounting/headshots/nsottung.jpg",
+                "TeamName": "IT",
+                "Name": "Carahsoft",
+                "StartDay": "2017-03-13T00:00:00",
+                "Years": 0
+            }, {
+                "Rep": "Sean Kelley",
+                "IMG": "callaccounting/headshots/skelley.jpg",
+                "TeamName": "Symantec",
+                "Name": "Carahsoft",
+                "StartDay": "2006-03-13T00:00:00",
+                "Years": 11
+            }, {
+                "Rep": "Origa Amolo",
+                "IMG": "callaccounting/headshots/oamolo.jpg",
+                "TeamName": "Symantec",
+                "Name": "Carahsoft",
+                "StartDay": "2017-03-13T00:00:00",
+                "Years": 0
+            }, {
+                "Rep": "Lacey Wean",
+                "IMG": "callaccounting/headshots/lwean.jpg",
+                "TeamName": "Adobe",
+                "Name": "Carahsoft",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Kyle Cooper",
+                "IMG": "callaccounting/headshots/kcooper.jpg",
+                "TeamName": "Adobe",
+                "Name": "Carahsoft",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Steven Kachel",
+                "IMG": "callaccounting/headshots/skachel.jpg",
+                "TeamName": "VMware",
+                "Name": "Carahsoft",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Daniel Lockbaum",
+                "IMG": "callaccounting/headshots/dlockbaum.jpg",
+                "TeamName": "VMware",
+                "Name": "Carahsoft",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Paige Keeney",
+                "IMG": "callaccounting/headshots/pkeeney.jpg",
+                "TeamName": "VMware",
+                "Name": "Carahsoft",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Chris Hiebert",
+                "IMG": "callaccounting/headshots/chiebert.jpg",
+                "TeamName": "VMware",
+                "Name": "Carahsoft",
+                "StartDay": "2006-03-13T00:00:00",
+                "Years": 11
+            }, {
+                "Rep": "Nick Pocs",
+                "IMG": "callaccounting/headshots/npocs.jpg",
+                "TeamName": "VMware",
+                "Name": "Carahsoft",
+                "StartDay": "2016-03-14T00:00:00",
+                "Years": 1
+            }, {
+                "Rep": "David Niedfeldt",
+                "IMG": "callaccounting/headshots/dniedfeldt.jpg",
+                "TeamName": "Intel",
+                "Name": "Carahsoft",
+                "StartDay": "2016-03-14T00:00:00",
+                "Years": 1
+            }, {
+                "Rep": "Shaya Assareh",
+                "IMG": "callaccounting/headshots/sassareh.jpg",
+                "TeamName": "Open Source",
+                "Name": "Carahsoft",
+                "StartDay": "2016-03-14T00:00:00",
+                "Years": 1
+            }, {
+                "Rep": "Melissa Sharp",
+                "IMG": "callaccounting/headshots/msharp.jpg",
+                "TeamName": "HP",
+                "Name": "Carahsoft",
+                "StartDay": "2016-03-14T00:00:00",
+                "Years": 1
+            }, {
+                "Rep": "Federico Pereira",
+                "IMG": "callaccounting/headshots/fpereira.jpg",
+                "TeamName": "F5",
+                "Name": "Carahsoft",
+                "StartDay": "2016-03-14T00:00:00",
+                "Years": 1
+            }, {
+                "Rep": "Kaitlyn Chun",
+                "IMG": "callaccounting/headshots/kchun.jpg",
+                "TeamName": "Proposals",
+                "Name": "Carahsoft",
+                "StartDay": "2017-03-13T00:00:00",
+                "Years": 0
+            }, {
+                "Rep": "Kyle Cooper",
+                "IMG": "callaccounting/headshots/kcooper.jpg",
+                "TeamName": "Adobe",
+                "Name": "Carahsoft Canada",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Lacey Wean",
+                "IMG": "callaccounting/headshots/lwean.jpg",
+                "TeamName": "Adobe CEGIS",
+                "Name": "Carahsoft Autodesk",
+                "StartDay": "2012-03-12T00:00:00",
+                "Years": 5
+            }, {
+                "Rep": "Kevin Pillow",
+                "IMG": "callaccounting/headshots/kpillow.jpg",
+                "TeamName": "IT",
+                "Name": "ESVA Inc.",
+                "StartDay": "2015-03-13T00:00:00",
+                "Years": 2
+            }],
+            "Image": null
+        }]
+    }],
+    "SummaryDatas": null
+}

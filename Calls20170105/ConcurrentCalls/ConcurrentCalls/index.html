@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Calls 2015-01-05</title>
+    <style>
+        #viz {
+            height: 93vh;
+            width: 96vw;
+            overflow: scroll;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .call {
+            width: .2px;
+            fill: steelblue;
+        }
+
+        #textStuff {
+            position: absolute;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        #line {
+            stroke: black;
+            stroke-width: .5;
+        }
+
+        a.numCalls {
+            top: 100px;
+            position: absolute;
+            display: inline;
+            left: 80px;
+            width: 275px;
+            min-height: 20px;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        a.numCalls:hover {
+            color: yellow;
+        }
+
+        table {
+            position:absolute;
+            display:block;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            height: 700px;
+            width: 96vw;
+            overflow:scroll;
+            font-size: 12px;
+            padding:0px;
+            margin:0px;
+            background-color: white;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 0px;
+            margin:0px;
+        }
+
+        tr:nth-child(even) {
+            background-color: grey;
+        }
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+        #title{
+            padding-bottom: 0;
+            margin-bottom:0;
+            text-align:center;
+            font-family:sans-serif;
+            margin-top: 15px;
+        }
+        .label{
+            font-family:sans-serif;
+            font-weight:bold;
+            font-size: 1.7vw;
+            fill:blueviolet;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <h4 id="title"> Every Call on 2017-01-05</h4>
+    <div id="textStuff">
+        <div class="numCalls">
+            <a class="numCalls" href="#"></a>
+        </div>
+        <div id="popup" class="hidden">
+            <table>
+                <tr id="headers"></tr>
+            </table>
+        </div>
+    </div>
+    <svg id="viz"></svg>
+    <script src="./bundle.js"></script>
+</body>
+</html>

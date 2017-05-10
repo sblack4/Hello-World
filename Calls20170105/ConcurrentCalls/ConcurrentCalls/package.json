@@ -1,0 +1,21 @@
+{
+  "name": "concurrent_calls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "browser": "browser-sync start --server --files \"index.html\" \"bundle.js\" ",
+    "watch":  "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/d3": "^4.4.0",
+    "@types/jquery": "^2.0.39",
+    "d3": "^4.4.1",
+    "jquery": "^3.1.1",
+    "source-map-loader": "^0.1.5",
+    "typescript": "^2.2.0-dev.20170107",
+    "webpack": "^1.14.0"
+  }
+}

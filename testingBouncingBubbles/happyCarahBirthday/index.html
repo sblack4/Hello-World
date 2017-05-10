@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <img id="image">
+    <script>
+        const REQUEST_INIT = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'cache-control': 'no-cache'
+            },
+            credentials: 'same-origin'
+        };
+        fetch('http://localhost:9876/Monitor/IMG/sblack.jpg', REQUEST_INIT)
+            .then((reply) => {
+                return reply.json();
+            }).then((data) => {
+                document.getElementById('image').src = `data:image/jpeg;base64,${data.fileContents}`;
+            }).catch((error) => {
+                console.error(error);
+            });
+    </script>
+
+</body>
+
+</html>
