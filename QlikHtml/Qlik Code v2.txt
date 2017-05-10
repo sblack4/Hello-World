@@ -1,0 +1,58 @@
+
+
+
+
+/* ===== For Kristen, Grouping Customers in CRM; Pick from Teams and Match to List ===== */
+PICK(
+MATCH(Team,
+'NULL',
+'Adobe',
+'Autodesk',
+'CA',
+'Customer Operations',
+'EMC',
+'ESVA',
+'F5',
+'FedResults',
+'Google',
+'HP',
+'HPE Software',
+'HR/SaaS',
+'IBM',
+'Intel',
+'Open Source',
+'Sales Operations',
+'SAP',
+'SAP/BO',
+'Splunk',
+'Storage',
+'Symantec',
+'VMware'
+),
+'-Ignore-',
+'Adobe',
+'Adobe',
+'CA',
+'-Ignore-',
+'EMC',
+'Intel',
+'F5',
+'CA',
+'F5',
+'HP',
+'HP',
+'HR/SaaS',
+'Intel',
+'Intel',
+'Open Source',
+'-Ignore-',
+'SAP',
+'SAP',
+'Intel',
+'-Ignore-',
+'Symantec',
+'VMware',
+
+) AS Team,
+
+

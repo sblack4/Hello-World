@@ -1,0 +1,364 @@
+﻿match([year], 'January 2014', 'January 2015', 'February 2014', 'February 2015', 'March 2014', 'March 2015', 'April 2014', 'April 2015', 'May 2014', 'May 2015', 'June 2014', 'June 2015', 'July 2014', 'July 2015', 'August 2014', 'August 2015', 'September 2014', 'September 2015', 'October 2014', 'October 2015', 'November 2014', 'November 2015', 'December 2014', 'December 2015', 'January 2016', 'February 2016')
+
+IF(year='January 2014',1,If(year='January 2015',2,If(year='February 2014',3,IF(year='February 2015',4,IF(year='March 2014',5,IF(year='March 2015',6,IF(year='April 2014',7,IF(year='April 2015',8,IF(year='May 2014',9,IF(year='May 2015',10,IF(year='June 2014',11,IF(year='June 2015',12,IF(year='July 2014',13,IF(year='July 2015',14,IF(year='August 2014',15,IF(year='August 2015',16,IF(year='September 2014',17,IF(year='September 2015',18,IF(year='October 2014',19,IF(year='October 2015',20,IF(year='November 2014',21,IF(year='November 2015',22,If(year='December 2014',23,If(year='December 2015',24))))))))))))))))))))))))
+
+Coloring by TotalOrder amount:
+If(SUM(TotalOrder)>150000000,green(),red())
+If(team=’adobe’,green,rgb(12,12,12)
+
+
+So you can order months(as strings) by ascending/descending:
+Match([Month Sent], 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')
+
+//If(Month(Month)>=Month(Today()),TeamName)
+
+
+
+Set analysis: 
+So if you want to create a measure that only measures ‘Invited’ or ‘Email Blast’ emails it’s easy; for Clicked% (Invites & Emails Blasts) it’s:
+                avg({$<[Type of Email]={'Invite', 'Email Blast'}>}[Clicked %]) 
+and for Opened% (Invites & Emails Blasts) it’s:
+                avg({$<[Type of Email]={'Invite', 'Email Blast'}>}[Opened %])
+
+
+Reference line by Team to percent:
+num(if(GetCurrentSelections()='Team: Adobe',.108,if(GetCurrentSelections()='Team: VMware',.146,.1029)), '##0%')
+
+Get rid of 'Wendnesday' and weird capitalizations for [Day of Week]:
+if(WildMatch(Capitalize([Day of Week]),'Wendnesday'),'Wednesday',Capitalize([Day of Week]))
+
+Fixing team misspellings: 
+if(WildMatch(Team, 'Vmware'), 'VMware',
+if(WildMatch(Team, 'HP | SAP'), 'HP/SAP',
+if(WildMatch(Team, 'SAP | HP'), 'HP/SAP',
+if(WildMatch(Team, 'SAP'), 'HP/SAP',Team))))
+
+//2016 Open % Goals: 
+num(
+	if(GetCurrentSelections()='Team: F5', .118,
+	if(GetCurrentSelections()='Team: HP/SAP', .0871,
+	if(GetCurrentSelections()='Team: Symantec', .1065,
+	if(GetCurrentSelections()='Team: Desktop', .1395,
+	if(GetCurrentSelections()='Team: Intel', .1557,
+	if(GetCurrentSelections()='Team: Splunk', .1023,
+	if(GetCurrentSelections()='Team: VMware', .146,
+	if(GetCurrentSelections()='Team: Storage', .1313,
+	if(GetCurrentSelections()='Team: Open Source', .1206,
+	if(GetCurrentSelections()='Team: Adobe', .108,
+	if(GetCurrentSelections()='Team: EMC', .16,
+	.1029)))))))))))
+, '##.00%')
+
+//2016 Click% Goals: 
+num(
+	if(GetCurrentSelections()='Team: F5', .0343,
+	if(GetCurrentSelections()='Team: HP/SAP', .02,
+	if(GetCurrentSelections()='Team: Symantec', .0367,
+	if(GetCurrentSelections()='Team: Desktop', .03,
+	if(GetCurrentSelections()='Team: Intel', .0625,
+	if(GetCurrentSelections()='Team: Splunk', .0354,
+	if(GetCurrentSelections()='Team: VMware', .03,
+	if(GetCurrentSelections()='Team: Storage', .04,
+	if(GetCurrentSelections()='Team: Open Source', .04,
+	if(GetCurrentSelections()='Team: Adobe', .03,
+	if(GetCurrentSelections()='Team: EMC', .0915,
+	.05)))))))))))
+, '##.00%')
+
+
+Linking to CarahSell in SimpleTable:
+'<a href="carahsell:quotes'&[Quote_id]&'">'&[Quote_id]&'</a>'
+Linking in Table with URLS: 
+'carahsell:usermanager'&Relation_ID
+
+
+
+DYNAMIC Measures:
+	The Measure:
+if(IsNull(GetFieldSelections([Teamname])),(sum(Callduration)*24*60), count(Callduration))
+	The Title:
+if(IsNull(GetFieldSelections(Teamname)),'Call Minutes', '# Calls' )
+
+TRY 
+	The Measure:
+if(IsNull(GetFieldSelections(Username)),(sum(Callduration)*24*60), count(Callduration))
+	The Title:
+if(IsNull(GetFieldSelections(Username)),'Call Minutes', '# Calls' )	
+
+
+TRY: 
+	The Dimension: 
+if(GetSelectedCount(Teamname)=1,Teamname, Username)
+	The Title:
+if(GetSelectedCount(Teamname)=1, 'Username', 'Teamname')
+
+
+TRY: 
+	The Dimension: 
+if(GetSelectedCount(Username)=1, maketime(hour(Calldate)),
+	if(GetSelectedCount(Teamname)=1, Username,
+	Teamname))
+
+	The Title:
+if(GetSelectedCount(Username)=1, 'Hours',
+	if(GetSelectedCount(Teamname)=1, 'Users',
+	'Teamname'))
+	
+	
+	
+//getting the dang-nabbit times from i don't know what kind of format:
+
+gets the time but in 24 (not 12) hour stamping:
+hour(CallTime)+Minute(CallTime)/100
+so...
+if(hour(CallTime)<12, 
+	hour(CallTime)&':'&Minute(CallTime)&' AM', 
+if(hour(CallTime)=12,
+	hour(CallTime)&':'&Minute(CallTime)&' PM',
+   hour(CallTime)-12&':'&Minute(CallTime)&' PM'))
+and finaly!...
+if(hour(CallTime)<12, 
+    if(minute(CallTime)>=10 , hour(CallTime)&':'&Minute(CallTime)&' AM', hour(CallTime)&':0'&Minute(CallTime)&' AM'),
+if(hour(CallTime)=12,
+    if(minute(CallTime)>=10 , hour(CallTime)&':'&Minute(CallTime)&' PM', hour(CallTime)&':0'&Minute(CallTime)&' PM'),
+   if(minute(CallTime)>=10 , (hour(CallTime)-12)&':'&Minute(CallTime)&' PM', (hour(CallTime)-12)&':0'&Minute(CallTime)&' PM')))
+   
+
+if(hour(min({1}CallTime))<12, 
+    if(minute(min({1}CallTime))>=10 , hour(min({1}CallTime))&':'&Minute(min({1}CallTime)), hour(min({1}CallTime))&':0'&Minute(min({1}CallTime))),
+if(hour(min({1}CallTime))=12,
+    if(minute(min({1}CallTime))>=10 , hour(min({1}CallTime))&':'&Minute(min({1}CallTime)), hour(min({1}CallTime))&':0'&Minute(min({1}CallTime))),
+   if(minute(min({1}CallTime))>=10 , (hour(min({1}CallTime))-12)&':'&Minute(min({1}CallTime)), (hour(min({1}CallTime))-12)&':0'&Minute(min({1}CallTime)))))
+
+   
+   
+   
+   
+   
+match([Hour Field], '1AM','2AM','3AM','4AM','5AM','6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM','6PM','7PM', '8PM', '9PM','10PM', '11PM','12AM')
+   
+ //For Organization_ID to Name  
+ if([Organization_ID]=1, 'Carahsoft',
+  if([Organization_ID]=2, 'FedResults',
+   if([Organization_ID]=4, 'ESVA Inc.',
+    if([Organization_ID]=7, 'Adobe Whitelabel',
+	 if([Organization_ID]=8, 'Carahsoft Canada',
+	  if([Organization_ID]=9, 'BrightResutls',
+	  if([Organization_ID]=10, 'Carahsoft Autodesk',
+	  if([Organization_ID]=0, 'No Team'
+	  )))));
+
+	  
+
+//Linking Relation ID to Correct table (customer, partner user or null)
+	  if([RelationTable]='customer', 'carahsell:customer',
+	  if([RelationTable]='partner', 'carahsell:partner',
+	  if([RelationTable]='user', 'carahsell:user', 'OUTSIDE NUMBER')))
+	  
+	  
+	// Cleans teh team name from the quotes table   
+
+pick(
+match(	
+Team,'Actifio','Adobe','Adobe Commercial','Appsec','Autodesk','Ben Karpowicz','Bmc','Brightresults','Ca','Ca Technologies','Carahsoft','Cegis','Chelsea Campbell','Civ','Civ-Doj','Clearcube','Cloud',
+'Contracts','Coraid','Craig','Customer Operations','Data Domain','Digital Media','Dlink','Dod-Usaf','Emc','Esva','F5','F5 Netwokrs Inc.','F5 Netwokrs, Inc.','F5 Networks','F5 Networks, Inc.','F5 Nwtwokrs, Inc','Fedresults',
+'Fireeye','Google','Hp','Hpe Software','Hr/Saas','Hytrust','Ibm','Ic Team','Intel','It','Kyle Cooper','Lmco To','Marketing','Matt Brokaw','Misc.','Open Souce','Open Source','Safenet','Sales Operations','Sales Rep Name','Salesforce','Samsung','Sap','Sap/Bo','Sapbo','Servicenow','Slg-C','Slg-Eopen Source','Splunk','Storage','Symantec','Symatnec','Technology','Terrago','Tj Shaw','Tripwire','Vanna Jarrett','Verizon','Vmware'
+),
+'Actifio','Adobe','Adobe','Appsec','Autodesk','Other ','Bmc','Brightresults','Ca Technologies','Ca Technologies','Carahsoft','Cegis','Other ','Other ','Other ','Other ','Cloud','Other ','Other ','Other ','Other ','Other ','Other ','Other ','Other ','EMC','ESVA','F5','F5','F5','F5','F5','F5','Fedresults','Fireeye','Google','HP','HP','Hr/Saas','Other ','IBM','IC Team','Intel','Other ','Other ','Other ','Other ','Other ','Other ','Open Source ','Open Source ','Safenet/Tripwire','Safenet','Other ','Salesforce','Other ','SAP','SAP','SAP','Service Now ','Other ','Open Source ','Splunk','Other ','Symantec','Symantec','Other ','Other ','Other ','Safenet/Tripwire','Other ','Verizon','Vmware'
+)
+
+	  concat([Customers First Name],[Customers Last Name], ' of ', [Customers Agency])
+	  
+	  if(Relation_ID<>0,
+      if([RelationTable]='customer', 'carahsell:customers',
+	  if([RelationTable]='partner', 'carahsell:partners',
+	  if([RelationTable]='user', 'carahsell:usermanager', 'OUTSIDE NUMBER')))&Relation_ID,'NO ID')
+
+left(
+if(Clicked=1,'Clicked, ')&
+if(Forwarded=1,'Forwarded, ')&
+if(HardBounce=1,'HardBounce, ')&
+if(Opened=1,'Opened, ')&
+if(ReadTime=1,'ReadTime, ')&
+if(Registered=1,'Registered, ')&
+if(SoftBounce=1,'SoftBounce, ')
+, -3)
+	  
+/* Sorting for text dates */
+MAX(DATE([Create Date], 'YYYYMMDD'))
+	  
+	
+	
+	
+PICK(
+MATCH(	
+Team,
+'Adobe',
+'Adobe Commercial',
+'Autodesk',
+'CA',
+'Craig',
+'EMC',
+'ESVA',
+'F5',
+'FedResults',
+'Google',
+'HPE Software',
+'HR/SaaS',
+'IBM',
+'IC',
+'Intel',
+'Marketing',
+'Open Source',
+'Sales Operations',
+'SAP/BO',
+'Splunk',
+'Storage',
+'Symantec',
+'VMware'
+),
+'Adobe',
+'Adobe',
+'Adobe',
+'CA',
+'-',
+'EMC',
+'-',
+'F5',
+'-',
+'F5',
+'HP',
+'-',
+'Intel',
+'-',
+'Intel',
+'-',
+'Open Source',
+'-',
+'SAP',
+'Intel',
+'Nimble',
+'Symantec',
+'VMware'
+)
+	  
+	  
+	  
+Match([Event Month], 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec') 
+
+Replace(
+replace(
+	replace(
+		replace(
+			replace(
+				replace(
+					replace(Team_, 'Autodesk', 'Adobe'
+						
+					), 'Google', 'F5'
+				), 'HPE Software', 'HP'
+			), 'IBM', 'Intel'
+		), 'SAP/BO', 'SAP'
+	), 'Splunk', 'Intel'
+), 'Storage','Nimble'
+)
+
+
+
+
+If(
+((Sum({$<[Event Month]=${([Event Month])}>}Goal)-If(After(Sum(Goal),-1)>=0, After(Sum(Goal),-1), 0))) > SUM(SubStringCount(_Team_, Team)), argb(75, 255, 179, 179)
+)
+
+
+// > Not Cumulative 
+If(Month(Today()) >= Match([Event Month], 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), 										
+SUM(SubStringCount(_Team_, Team))
+)
+
+// > Cumulative Bars 
+If(Month(Today()) >= Match([Event Month], 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec') , 
+RangeSum(Above(Sum(SubStringCount(_Team_, 'Adobe')),0,rowno()))
+)
+
+// > Cumulative PivotChart 
+If(Month(Today()) >= Match([Event Month], 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec') , 
+RangeSum(Sum(SubStringCount(_Team_, Team)), Before(Total Sum(SubStringCount(_Team_, Team)), 1, ColumnNo(Total)))
+)
+
+// > Cumulative PivotChart for TotalOrder
+If(Month(Today()) >= Match([MonthBooked], 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec') , 
+RangeSum(Above(Sum({$<Team={'Adobe'}>}TotalOrder),0,RowNo()))
+)
+
+
+
+PICK(
+	MATCH(	
+	Title,
+		'Vice President, Information Technology', 
+		'Assoc Vice Pres Info Technology', 
+		'It Manager', 
+		'Manager Information Technology', 
+		'Manager, Information Technology', 
+		'Manager, It', 
+		'Contracting Officer', 
+		'Buyer', 
+		'Purchasing Agent', 
+		'Chief Technology Officer', 
+		'Cto', 
+		'Cio', 
+		'Sheriff', 
+		'Director Of Information Technology', 
+		'Director Information Technology', 
+		'It Director', 
+		'Director, Information Technology', 
+		'Senior Software Engineer', 
+		'Network Engineer', 
+		'Network Administrator', 
+		'System Administrator', 
+		'Project Manager', 
+		'It Specialist', 
+		'Program Manager', 
+		'Systems Engineer', 
+		'Systems Analyst', 
+		'Engineering Manager', 
+		'Database Administrator', 
+		'Management Information Systems Manager', 
+		'Software Developer', 
+	),
+		'Vice President Information Technology', 
+		'Vice President Information Technology', 
+		'Information Technology Manager', 
+		'Information Technology Manager', 
+		'Information Technology Manager', 
+		'Information Technology Manager', 
+		'Contract Specialist', 
+		'Contract Specialist', 
+		'Contract Specialist', 
+		'Chief Information Officer', 
+		'Chief Information Officer', 
+		'Chief Information Officer', 
+		'Police Chief', 
+		'Information Technology Director', 
+		'Information Technology Director', 
+		'Information Technology Director', 
+		'Information Technology Director', 
+		'Software Engineer', 
+		'Network Manager', 
+		'Network Manager', 
+		'Systems Administrator', 
+		'Project Manager', 
+		'It Specialist', 
+		'Program Manager', 
+		'Systems Engineer', 
+		'Systems Analyst', 
+		'Engineering Manager', 
+		'Database Administrator', 
+		'Management Information Systems Manager', 
+		'Software Developer', 
+)
+
+
+
+
+
