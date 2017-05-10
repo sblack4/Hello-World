@@ -1,0 +1,17 @@
+﻿{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "removeComments": true,
+    "preserveConstEnums": true
+    //"sourceMap": true,
+    //"outFile": "/build/bundle.js"
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false
+}

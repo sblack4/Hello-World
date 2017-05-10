@@ -1,1 +1,9 @@
 node_modules
+packages
+bin
+
+static 
+__pychache__
+.vs
+bootstrap*
+fonts

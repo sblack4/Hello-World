@@ -1,0 +1,2746 @@
+{
+  "ReportTitle": "TestingTestingImJustSuggestingCSharpMightBeTheBestThingExceptFordotdotdot",
+  "query": "SELECT \r\n\tUsers.UserName \r\n\t, Teams.TeamName\r\n\r\n\t,COUNT(Quotes.Quote_ID) AS n_f3_records\r\n\t, SUM(CASE WHEN Quotes.Type LIKE '%Quote%' AND Quotes.Status LIKE '%Open%' THEN 1 ELSE 0 END) AS n_open_quotes\r\n\t, ISNULL(SUM(CASE WHEN Quotes.Type LIKE '%Quote%' THEN ForecastAmount ELSE 0 END), 0) AS fcst_smnt\r\n\r\nFROM Users \r\n\tLEFT OUTER JOIN Teams ON Teams.Team_ID = Users.Team_ID AND Teams.Organization_ID = 1\r\n\tLEFT OUTER JOIN Quotes ON Quotes.User_ID = Users.User_ID AND Quotes.Organization_ID = 1\r\n\r\nWHERE (1=1)\r\n\tAND Users.Organization_ID = 1\r\n\tAND (Quotes.CreateDate = '2016-11-30' OR Quotes.ModDate = '2016-11-30')\r\n\r\nGROUP BY UserName, TeamName \r\n",
+  "HeaderInfo": null,
+  "dt": [
+    {
+      "UserName": "Ani Khatchatoorian",
+      "TeamName": null,
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Alex Stanton",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Amy Taira",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Andrew Labus",
+      "TeamName": "Adobe",
+      "n_f3_records": 19,
+      "n_open_quotes": 11,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Braedon Schmelz",
+      "TeamName": "Adobe",
+      "n_f3_records": 9,
+      "n_open_quotes": 3,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Brett LeVine",
+      "TeamName": "Adobe",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 531018.14
+    },
+    {
+      "UserName": "Brian Withers",
+      "TeamName": "Adobe",
+      "n_f3_records": 10,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Bryce Sutherland",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Casey Stengel",
+      "TeamName": "Adobe",
+      "n_f3_records": 12,
+      "n_open_quotes": 9,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Chelsea A. Campbell",
+      "TeamName": "Adobe",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Clay O'Connor",
+      "TeamName": "Adobe",
+      "n_f3_records": 23,
+      "n_open_quotes": 8,
+      "fcst_smnt": 12.00
+    },
+    {
+      "UserName": "David Eaddy",
+      "TeamName": "Adobe",
+      "n_f3_records": 14,
+      "n_open_quotes": 9,
+      "fcst_smnt": 8.00
+    },
+    {
+      "UserName": "Emily Clavadetscher",
+      "TeamName": "Adobe",
+      "n_f3_records": 17,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Emily Higgins",
+      "TeamName": "Adobe",
+      "n_f3_records": 12,
+      "n_open_quotes": 5,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Erin Dorman",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Glenna Golding",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ivy Bae",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 2,
+      "fcst_smnt": 48850.58
+    },
+    {
+      "UserName": "Jacki Riedel",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 2,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Jason Frye",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jeff Farah",
+      "TeamName": "Adobe",
+      "n_f3_records": 135,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1611843.00
+    },
+    {
+      "UserName": "Jenna Hafey",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 937033.76
+    },
+    {
+      "UserName": "Jennifer Tran Nguyen",
+      "TeamName": "Adobe",
+      "n_f3_records": 46,
+      "n_open_quotes": 0,
+      "fcst_smnt": 46722.00
+    },
+    {
+      "UserName": "Jessica Giles",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Joel Quinones",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Joon Choi",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Josh Green",
+      "TeamName": "Adobe",
+      "n_f3_records": 4,
+      "n_open_quotes": 4,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Kelsey Leek",
+      "TeamName": "Adobe",
+      "n_f3_records": 9,
+      "n_open_quotes": 5,
+      "fcst_smnt": 598277.90
+    },
+    {
+      "UserName": "Kyle Cooper",
+      "TeamName": "Adobe",
+      "n_f3_records": 5,
+      "n_open_quotes": 5,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Lacey Wean",
+      "TeamName": "Adobe",
+      "n_f3_records": 16,
+      "n_open_quotes": 5,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Lara Silva",
+      "TeamName": "Adobe",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Laura Gauger",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Leticia Guido",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 25130.00
+    },
+    {
+      "UserName": "Lorin Hicks",
+      "TeamName": "Adobe",
+      "n_f3_records": 7,
+      "n_open_quotes": 1,
+      "fcst_smnt": 10800.00
+    },
+    {
+      "UserName": "Madeleine Bourne",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Marianna Manousos",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Marshall Sisson",
+      "TeamName": "Adobe",
+      "n_f3_records": 8,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Matt Brokaw",
+      "TeamName": "Adobe",
+      "n_f3_records": 11,
+      "n_open_quotes": 6,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Matt Heflin",
+      "TeamName": "Adobe",
+      "n_f3_records": 12,
+      "n_open_quotes": 4,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Matthew C. Jones",
+      "TeamName": "Adobe",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Molly McAnany",
+      "TeamName": "Adobe",
+      "n_f3_records": 33,
+      "n_open_quotes": 5,
+      "fcst_smnt": 79809.00
+    },
+    {
+      "UserName": "Nada Abu-Ulbah",
+      "TeamName": "Adobe",
+      "n_f3_records": 4,
+      "n_open_quotes": 3,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Nancy Milad",
+      "TeamName": "Adobe",
+      "n_f3_records": 25,
+      "n_open_quotes": 7,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Nicole Rasky",
+      "TeamName": "Adobe",
+      "n_f3_records": 14,
+      "n_open_quotes": 1,
+      "fcst_smnt": 70920.00
+    },
+    {
+      "UserName": "Page Torney",
+      "TeamName": "Adobe",
+      "n_f3_records": 13,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Paris Carter",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Phoebe Nerdahl",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Raven Smith",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Reema Awad",
+      "TeamName": "Adobe",
+      "n_f3_records": 42,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Sadia Ali",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Scott Schulman",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Sean Hiebert",
+      "TeamName": "Adobe",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Seth Money",
+      "TeamName": "Adobe",
+      "n_f3_records": 202,
+      "n_open_quotes": 2,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Shane Terry",
+      "TeamName": "Adobe",
+      "n_f3_records": 5,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Sherif Mattar",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Spencer MacLeod",
+      "TeamName": "Adobe",
+      "n_f3_records": 8,
+      "n_open_quotes": 7,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Stefan Mehl",
+      "TeamName": "Adobe",
+      "n_f3_records": 10,
+      "n_open_quotes": 2,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Stephanie Trippeer",
+      "TeamName": "Adobe",
+      "n_f3_records": 8,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Tiffany Chang",
+      "TeamName": "Adobe",
+      "n_f3_records": 10,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Tim Breswick",
+      "TeamName": "Adobe",
+      "n_f3_records": 17,
+      "n_open_quotes": 1,
+      "fcst_smnt": 14.00
+    },
+    {
+      "UserName": "TJ Shaw",
+      "TeamName": "Adobe",
+      "n_f3_records": 6,
+      "n_open_quotes": 3,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Wil Creech",
+      "TeamName": "Adobe",
+      "n_f3_records": 58,
+      "n_open_quotes": 10,
+      "fcst_smnt": 26.00
+    },
+    {
+      "UserName": "Will Beck",
+      "TeamName": "Adobe",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "David Oakes",
+      "TeamName": "Customer Operations",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Adam Glenos",
+      "TeamName": "EMC",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Alex Apostolou",
+      "TeamName": "EMC",
+      "n_f3_records": 33,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Emma Griffin",
+      "TeamName": "EMC",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 672691.24
+    },
+    {
+      "UserName": "Eric Goycochea",
+      "TeamName": "EMC",
+      "n_f3_records": 18,
+      "n_open_quotes": 7,
+      "fcst_smnt": 9.00
+    },
+    {
+      "UserName": "Erica Raymond",
+      "TeamName": "EMC",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Maryam Emdadi",
+      "TeamName": "EMC",
+      "n_f3_records": 5,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mattie Mayes",
+      "TeamName": "EMC",
+      "n_f3_records": 5,
+      "n_open_quotes": 5,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Micky Bezuayehu",
+      "TeamName": "EMC",
+      "n_f3_records": 6,
+      "n_open_quotes": 3,
+      "fcst_smnt": 315461.29
+    },
+    {
+      "UserName": "Patrick Spinosa",
+      "TeamName": "EMC",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Rus Khamzayev",
+      "TeamName": "EMC",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ryan Dunnigan",
+      "TeamName": "EMC",
+      "n_f3_records": 7,
+      "n_open_quotes": 2,
+      "fcst_smnt": 7.00
+    },
+    {
+      "UserName": "Seamus Bergen",
+      "TeamName": "EMC",
+      "n_f3_records": 4,
+      "n_open_quotes": 3,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Whitney Cregan",
+      "TeamName": "EMC",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Alex Greco",
+      "TeamName": "F5",
+      "n_f3_records": 6,
+      "n_open_quotes": 3,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Bijan Abrahim",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 24491.94
+    },
+    {
+      "UserName": "Brandon Weathers",
+      "TeamName": "F5",
+      "n_f3_records": 29,
+      "n_open_quotes": 16,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Chris Guinther",
+      "TeamName": "F5",
+      "n_f3_records": 5,
+      "n_open_quotes": 1,
+      "fcst_smnt": 239334.24
+    },
+    {
+      "UserName": "Coleman Walsh",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Harjeet Khalsa",
+      "TeamName": "F5",
+      "n_f3_records": 10,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Isaac Moore",
+      "TeamName": "F5",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jack Stelter",
+      "TeamName": "F5",
+      "n_f3_records": 12,
+      "n_open_quotes": 10,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Joe AbiJaoudi",
+      "TeamName": "F5",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 55049.64
+    },
+    {
+      "UserName": "Justin Knight",
+      "TeamName": "F5",
+      "n_f3_records": 9,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Katherine Vaghi",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Kiley Johnson",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Kyle Yolles",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mariah Morgan",
+      "TeamName": "F5",
+      "n_f3_records": 25,
+      "n_open_quotes": 16,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Marla Sihalath",
+      "TeamName": "F5",
+      "n_f3_records": 6,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mary Beth OHern",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Melissa Bowen",
+      "TeamName": "F5",
+      "n_f3_records": 20,
+      "n_open_quotes": 14,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Michael Edwards",
+      "TeamName": "F5",
+      "n_f3_records": 9,
+      "n_open_quotes": 6,
+      "fcst_smnt": 800464.81
+    },
+    {
+      "UserName": "Molly Teper",
+      "TeamName": "F5",
+      "n_f3_records": 6,
+      "n_open_quotes": 5,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nate Pavlot",
+      "TeamName": "F5",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nathan Mueller",
+      "TeamName": "F5",
+      "n_f3_records": 12,
+      "n_open_quotes": 10,
+      "fcst_smnt": 14002.00
+    },
+    {
+      "UserName": "Nathaniel Snead",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nicholas Mariano",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nicholas Marsilio",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Phil Dunn",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Phillip Brown",
+      "TeamName": "F5",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ryan Browne",
+      "TeamName": "F5",
+      "n_f3_records": 6,
+      "n_open_quotes": 6,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Spencer Miller",
+      "TeamName": "F5",
+      "n_f3_records": 73,
+      "n_open_quotes": 42,
+      "fcst_smnt": 9.00
+    },
+    {
+      "UserName": "Travis Meyers",
+      "TeamName": "F5",
+      "n_f3_records": 8,
+      "n_open_quotes": 6,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Travis Saa",
+      "TeamName": "F5",
+      "n_f3_records": 10,
+      "n_open_quotes": 3,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Tyler Giles",
+      "TeamName": "F5",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Tyler Person",
+      "TeamName": "F5",
+      "n_f3_records": 16,
+      "n_open_quotes": 10,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Andrew Pierpoint",
+      "TeamName": "Google",
+      "n_f3_records": 4,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Ben Simpson",
+      "TeamName": "Google",
+      "n_f3_records": 6,
+      "n_open_quotes": 1,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Daniel Nampha",
+      "TeamName": "Google",
+      "n_f3_records": 4,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Elyse Conroy",
+      "TeamName": "Google",
+      "n_f3_records": 18,
+      "n_open_quotes": 12,
+      "fcst_smnt": 10.00
+    },
+    {
+      "UserName": "Jordan Arvoy",
+      "TeamName": "Google",
+      "n_f3_records": 7,
+      "n_open_quotes": 3,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Meghan Reynolds",
+      "TeamName": "Google",
+      "n_f3_records": 7,
+      "n_open_quotes": 4,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Sampson Hijar",
+      "TeamName": "Google",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Andrew Duke",
+      "TeamName": "HP",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Brenna Curtin",
+      "TeamName": "HP",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 17927.01
+    },
+    {
+      "UserName": "Brian Finn",
+      "TeamName": "HP",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "CJ Corey",
+      "TeamName": "HP",
+      "n_f3_records": 23,
+      "n_open_quotes": 22,
+      "fcst_smnt": 80688.75
+    },
+    {
+      "UserName": "Eric Mast",
+      "TeamName": "HP",
+      "n_f3_records": 8,
+      "n_open_quotes": 5,
+      "fcst_smnt": 442052.79
+    },
+    {
+      "UserName": "Jesse Robbins",
+      "TeamName": "HP",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 18321.09
+    },
+    {
+      "UserName": "Liam Redden",
+      "TeamName": "HP",
+      "n_f3_records": 6,
+      "n_open_quotes": 5,
+      "fcst_smnt": 306014.10
+    },
+    {
+      "UserName": "Megan Wyman",
+      "TeamName": "HP",
+      "n_f3_records": 14,
+      "n_open_quotes": 13,
+      "fcst_smnt": 632042.52
+    },
+    {
+      "UserName": "Melissa Sharp",
+      "TeamName": "HP",
+      "n_f3_records": 5,
+      "n_open_quotes": 5,
+      "fcst_smnt": 724821.00
+    },
+    {
+      "UserName": "Rob Pickle",
+      "TeamName": "HP",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Robert Otto",
+      "TeamName": "HP",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 11106.48
+    },
+    {
+      "UserName": "Ryan Talento",
+      "TeamName": "HP",
+      "n_f3_records": 13,
+      "n_open_quotes": 13,
+      "fcst_smnt": 639974.04
+    },
+    {
+      "UserName": "Aaron Giannini",
+      "TeamName": "Intel",
+      "n_f3_records": 6,
+      "n_open_quotes": 3,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Amanda Nieves",
+      "TeamName": "Intel",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 58520.00
+    },
+    {
+      "UserName": "Andres Azcuna",
+      "TeamName": "Intel",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Brian Hogan",
+      "TeamName": "Intel",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Chris J. Fagan",
+      "TeamName": "Intel",
+      "n_f3_records": 8,
+      "n_open_quotes": 6,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Dan Ashley",
+      "TeamName": "Intel",
+      "n_f3_records": 4,
+      "n_open_quotes": 3,
+      "fcst_smnt": 97852.00
+    },
+    {
+      "UserName": "Dan Waite",
+      "TeamName": "Intel",
+      "n_f3_records": 18,
+      "n_open_quotes": 10,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Danielle Allen",
+      "TeamName": "Intel",
+      "n_f3_records": 18,
+      "n_open_quotes": 14,
+      "fcst_smnt": 54491.65
+    },
+    {
+      "UserName": "David Heerick",
+      "TeamName": "Intel",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "David Niedfeldt",
+      "TeamName": "Intel",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Dylan Byars",
+      "TeamName": "Intel",
+      "n_f3_records": 5,
+      "n_open_quotes": 3,
+      "fcst_smnt": 998902.95
+    },
+    {
+      "UserName": "Edward Walinsky",
+      "TeamName": "Intel",
+      "n_f3_records": 9,
+      "n_open_quotes": 7,
+      "fcst_smnt": 1340664.01
+    },
+    {
+      "UserName": "Elizabeth Heinz",
+      "TeamName": "Intel",
+      "n_f3_records": 7,
+      "n_open_quotes": 3,
+      "fcst_smnt": 673806.30
+    },
+    {
+      "UserName": "Eric Pankau",
+      "TeamName": "Intel",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 6026.86
+    },
+    {
+      "UserName": "Eric Reynolds",
+      "TeamName": "Intel",
+      "n_f3_records": 3,
+      "n_open_quotes": 3,
+      "fcst_smnt": 177045.83
+    },
+    {
+      "UserName": "Firass Abu-Ulbah",
+      "TeamName": "Intel",
+      "n_f3_records": 12,
+      "n_open_quotes": 7,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Jeb Beidleman",
+      "TeamName": "Intel",
+      "n_f3_records": 3,
+      "n_open_quotes": 3,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jenna Tabatabaian",
+      "TeamName": "Intel",
+      "n_f3_records": 5,
+      "n_open_quotes": 3,
+      "fcst_smnt": 47149.22
+    },
+    {
+      "UserName": "Jennifer Goncalves",
+      "TeamName": "Intel",
+      "n_f3_records": 5,
+      "n_open_quotes": 3,
+      "fcst_smnt": 661516.70
+    },
+    {
+      "UserName": "Kevin Dyer",
+      "TeamName": "Intel",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Kyle Vieira",
+      "TeamName": "Intel",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Laura Howton",
+      "TeamName": "Intel",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Leslie Ramos",
+      "TeamName": "Intel",
+      "n_f3_records": 3,
+      "n_open_quotes": 3,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Maggie Manfredi",
+      "TeamName": "Intel",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Matthew Lanham",
+      "TeamName": "Intel",
+      "n_f3_records": 15,
+      "n_open_quotes": 15,
+      "fcst_smnt": 163703.86
+    },
+    {
+      "UserName": "Matthew Rice",
+      "TeamName": "Intel",
+      "n_f3_records": 5,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Michael Adams",
+      "TeamName": "Intel",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mitchell Sheets",
+      "TeamName": "Intel",
+      "n_f3_records": 5,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nathanael Hale",
+      "TeamName": "Intel",
+      "n_f3_records": 6,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nicholas Cumba",
+      "TeamName": "Intel",
+      "n_f3_records": 3,
+      "n_open_quotes": 2,
+      "fcst_smnt": 11091.65
+    },
+    {
+      "UserName": "Nick Pham",
+      "TeamName": "Intel",
+      "n_f3_records": 23,
+      "n_open_quotes": 16,
+      "fcst_smnt": 666627.64
+    },
+    {
+      "UserName": "Nykolaus Pinnock",
+      "TeamName": "Intel",
+      "n_f3_records": 16,
+      "n_open_quotes": 12,
+      "fcst_smnt": 18908.00
+    },
+    {
+      "UserName": "Paul Kolb",
+      "TeamName": "Intel",
+      "n_f3_records": 6,
+      "n_open_quotes": 5,
+      "fcst_smnt": 4616.38
+    },
+    {
+      "UserName": "Robert Miller",
+      "TeamName": "Intel",
+      "n_f3_records": 6,
+      "n_open_quotes": 5,
+      "fcst_smnt": 49882.40
+    },
+    {
+      "UserName": "Steve Jacyna",
+      "TeamName": "Intel",
+      "n_f3_records": 21,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Travis von Schmidt",
+      "TeamName": "Intel",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Virginia Foley",
+      "TeamName": "Intel",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 508751.74
+    },
+    {
+      "UserName": "Zachary Alire",
+      "TeamName": "Intel",
+      "n_f3_records": 3,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Clinton Werth",
+      "TeamName": "IT",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Learning Carahsell",
+      "TeamName": "IT",
+      "n_f3_records": 5,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Erin Scanlan",
+      "TeamName": "Marketing",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Kaitlin Rogers",
+      "TeamName": "Marketing",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Bassel Sibay",
+      "TeamName": "Open Source",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Brandon Walsh",
+      "TeamName": "Open Source",
+      "n_f3_records": 15,
+      "n_open_quotes": 13,
+      "fcst_smnt": 16945.80
+    },
+    {
+      "UserName": "Brian Glaser",
+      "TeamName": "Open Source",
+      "n_f3_records": 22,
+      "n_open_quotes": 5,
+      "fcst_smnt": 466428.90
+    },
+    {
+      "UserName": "Bridget Behrens",
+      "TeamName": "Open Source",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Charles Basil",
+      "TeamName": "Open Source",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Chris Barnewolt",
+      "TeamName": "Open Source",
+      "n_f3_records": 29,
+      "n_open_quotes": 14,
+      "fcst_smnt": 164181.40
+    },
+    {
+      "UserName": "Chris Bast",
+      "TeamName": "Open Source",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Chris Torres",
+      "TeamName": "Open Source",
+      "n_f3_records": 7,
+      "n_open_quotes": 3,
+      "fcst_smnt": 153547.75
+    },
+    {
+      "UserName": "Clay Taylor",
+      "TeamName": "Open Source",
+      "n_f3_records": 14,
+      "n_open_quotes": 2,
+      "fcst_smnt": 17337.90
+    },
+    {
+      "UserName": "Collin Furth",
+      "TeamName": "Open Source",
+      "n_f3_records": 5,
+      "n_open_quotes": 1,
+      "fcst_smnt": 153551.22
+    },
+    {
+      "UserName": "Erin Fornwalt",
+      "TeamName": "Open Source",
+      "n_f3_records": 12,
+      "n_open_quotes": 5,
+      "fcst_smnt": 1093610.93
+    },
+    {
+      "UserName": "Garrett Burke",
+      "TeamName": "Open Source",
+      "n_f3_records": 26,
+      "n_open_quotes": 25,
+      "fcst_smnt": 701717.41
+    },
+    {
+      "UserName": "Gavin Green",
+      "TeamName": "Open Source",
+      "n_f3_records": 6,
+      "n_open_quotes": 1,
+      "fcst_smnt": 89165.67
+    },
+    {
+      "UserName": "Harrison Waddell",
+      "TeamName": "Open Source",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Henry Escobar",
+      "TeamName": "Open Source",
+      "n_f3_records": 53,
+      "n_open_quotes": 16,
+      "fcst_smnt": 525888.09
+    },
+    {
+      "UserName": "Hunter MacBain",
+      "TeamName": "Open Source",
+      "n_f3_records": 14,
+      "n_open_quotes": 9,
+      "fcst_smnt": 908303.69
+    },
+    {
+      "UserName": "James Betz",
+      "TeamName": "Open Source",
+      "n_f3_records": 11,
+      "n_open_quotes": 2,
+      "fcst_smnt": 255678.50
+    },
+    {
+      "UserName": "Jason Barnes",
+      "TeamName": "Open Source",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 3278.88
+    },
+    {
+      "UserName": "JD Eller",
+      "TeamName": "Open Source",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jennifer Lohmann",
+      "TeamName": "Open Source",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 2733.90
+    },
+    {
+      "UserName": "John ReShore",
+      "TeamName": "Open Source",
+      "n_f3_records": 133,
+      "n_open_quotes": 126,
+      "fcst_smnt": 5222533.82
+    },
+    {
+      "UserName": "Josh Landerer",
+      "TeamName": "Open Source",
+      "n_f3_records": 10,
+      "n_open_quotes": 5,
+      "fcst_smnt": 29476.54
+    },
+    {
+      "UserName": "Justin Drunagel",
+      "TeamName": "Open Source",
+      "n_f3_records": 10,
+      "n_open_quotes": 3,
+      "fcst_smnt": 1361090.42
+    },
+    {
+      "UserName": "Justin Meadows",
+      "TeamName": "Open Source",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 21003.54
+    },
+    {
+      "UserName": "Kareem Sibay",
+      "TeamName": "Open Source",
+      "n_f3_records": 37,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Kari Six",
+      "TeamName": "Open Source",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 436172.13
+    },
+    {
+      "UserName": "Katie Krug",
+      "TeamName": "Open Source",
+      "n_f3_records": 14,
+      "n_open_quotes": 7,
+      "fcst_smnt": 187318.21
+    },
+    {
+      "UserName": "Kevin Howard",
+      "TeamName": "Open Source",
+      "n_f3_records": 6,
+      "n_open_quotes": 4,
+      "fcst_smnt": 5668.12
+    },
+    {
+      "UserName": "Kevin Maslyn",
+      "TeamName": "Open Source",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 376687.70
+    },
+    {
+      "UserName": "Megan Halley",
+      "TeamName": "Open Source",
+      "n_f3_records": 3,
+      "n_open_quotes": 2,
+      "fcst_smnt": 102910.93
+    },
+    {
+      "UserName": "Michael Bisacquino",
+      "TeamName": "Open Source",
+      "n_f3_records": 128,
+      "n_open_quotes": 105,
+      "fcst_smnt": 7643846.38
+    },
+    {
+      "UserName": "Michael Bronowski",
+      "TeamName": "Open Source",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 61399.42
+    },
+    {
+      "UserName": "Michael Jaffee",
+      "TeamName": "Open Source",
+      "n_f3_records": 20,
+      "n_open_quotes": 7,
+      "fcst_smnt": 158880.10
+    },
+    {
+      "UserName": "Michael Sheehan",
+      "TeamName": "Open Source",
+      "n_f3_records": 11,
+      "n_open_quotes": 1,
+      "fcst_smnt": 14511.67
+    },
+    {
+      "UserName": "Nicholas DiDonato",
+      "TeamName": "Open Source",
+      "n_f3_records": 24,
+      "n_open_quotes": 13,
+      "fcst_smnt": 3282134.73
+    },
+    {
+      "UserName": "Noah DiDonato",
+      "TeamName": "Open Source",
+      "n_f3_records": 12,
+      "n_open_quotes": 9,
+      "fcst_smnt": 665681.96
+    },
+    {
+      "UserName": "Pat Barbato",
+      "TeamName": "Open Source",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Patrick Jones",
+      "TeamName": "Open Source",
+      "n_f3_records": 9,
+      "n_open_quotes": 7,
+      "fcst_smnt": 356047.13
+    },
+    {
+      "UserName": "Rich Savage",
+      "TeamName": "Open Source",
+      "n_f3_records": 10,
+      "n_open_quotes": 4,
+      "fcst_smnt": 29412.56
+    },
+    {
+      "UserName": "Sean Cooper",
+      "TeamName": "Open Source",
+      "n_f3_records": 10,
+      "n_open_quotes": 3,
+      "fcst_smnt": 42524.12
+    },
+    {
+      "UserName": "Sean OSullivan",
+      "TeamName": "Open Source",
+      "n_f3_records": 40,
+      "n_open_quotes": 23,
+      "fcst_smnt": 1131550.24
+    },
+    {
+      "UserName": "Shane Cashman",
+      "TeamName": "Open Source",
+      "n_f3_records": 9,
+      "n_open_quotes": 4,
+      "fcst_smnt": 222177.78
+    },
+    {
+      "UserName": "Shaya Assareh",
+      "TeamName": "Open Source",
+      "n_f3_records": 7,
+      "n_open_quotes": 5,
+      "fcst_smnt": 29302.56
+    },
+    {
+      "UserName": "Stephanie Dorough",
+      "TeamName": "Open Source",
+      "n_f3_records": 15,
+      "n_open_quotes": 10,
+      "fcst_smnt": 1711082.71
+    },
+    {
+      "UserName": "Steve Moxham",
+      "TeamName": "Open Source",
+      "n_f3_records": 40,
+      "n_open_quotes": 31,
+      "fcst_smnt": 1993823.96
+    },
+    {
+      "UserName": "Steven Vibar",
+      "TeamName": "Open Source",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1078.20
+    },
+    {
+      "UserName": "Teri Liles",
+      "TeamName": "Open Source",
+      "n_f3_records": 11,
+      "n_open_quotes": 4,
+      "fcst_smnt": 3945.86
+    },
+    {
+      "UserName": "Tim Kim",
+      "TeamName": "Open Source",
+      "n_f3_records": 7,
+      "n_open_quotes": 2,
+      "fcst_smnt": 316471.12
+    },
+    {
+      "UserName": "TJ Gallagher",
+      "TeamName": "Open Source",
+      "n_f3_records": 25,
+      "n_open_quotes": 25,
+      "fcst_smnt": 1223248.67
+    },
+    {
+      "UserName": "Walid Mansoor",
+      "TeamName": "Open Source",
+      "n_f3_records": 8,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "William Howe",
+      "TeamName": "Open Source",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 34301.52
+    },
+    {
+      "UserName": "William Rose",
+      "TeamName": "Open Source",
+      "n_f3_records": 11,
+      "n_open_quotes": 2,
+      "fcst_smnt": 831242.89
+    },
+    {
+      "UserName": "Zach Murray",
+      "TeamName": "Open Source",
+      "n_f3_records": 6,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Aaron Dixon",
+      "TeamName": "Salesforce",
+      "n_f3_records": 6,
+      "n_open_quotes": 5,
+      "fcst_smnt": 140144.49
+    },
+    {
+      "UserName": "Allison Mackin",
+      "TeamName": "Salesforce",
+      "n_f3_records": 6,
+      "n_open_quotes": 6,
+      "fcst_smnt": 488400.97
+    },
+    {
+      "UserName": "Andrew Secrist",
+      "TeamName": "Salesforce",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 128413.86
+    },
+    {
+      "UserName": "Beth Drake",
+      "TeamName": "Salesforce",
+      "n_f3_records": 7,
+      "n_open_quotes": 3,
+      "fcst_smnt": 87272.19
+    },
+    {
+      "UserName": "Brian King",
+      "TeamName": "Salesforce",
+      "n_f3_records": 5,
+      "n_open_quotes": 3,
+      "fcst_smnt": 453548.79
+    },
+    {
+      "UserName": "Jack Weisbrod",
+      "TeamName": "Salesforce",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 17725.11
+    },
+    {
+      "UserName": "Jenalyne Kassay",
+      "TeamName": "Salesforce",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 16182.13
+    },
+    {
+      "UserName": "Josh Dunn",
+      "TeamName": "Salesforce",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 8011.64
+    },
+    {
+      "UserName": "Kate McDonald",
+      "TeamName": "Salesforce",
+      "n_f3_records": 16,
+      "n_open_quotes": 15,
+      "fcst_smnt": 5532295.87
+    },
+    {
+      "UserName": "Lauren Garufi",
+      "TeamName": "Salesforce",
+      "n_f3_records": 4,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Stephen Dickerson",
+      "TeamName": "Salesforce",
+      "n_f3_records": 5,
+      "n_open_quotes": 5,
+      "fcst_smnt": 2709.10
+    },
+    {
+      "UserName": "Zak Kennedy",
+      "TeamName": "Salesforce",
+      "n_f3_records": 10,
+      "n_open_quotes": 7,
+      "fcst_smnt": 69521.91
+    },
+    {
+      "UserName": "Amanda Miller",
+      "TeamName": "SAP",
+      "n_f3_records": 14,
+      "n_open_quotes": 8,
+      "fcst_smnt": 3544237.70
+    },
+    {
+      "UserName": "Andrew D Duke",
+      "TeamName": "SAP",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Bill McDonald",
+      "TeamName": "SAP",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Brad Kuhns",
+      "TeamName": "SAP",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Christina Tulino",
+      "TeamName": "SAP",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 5352162.09
+    },
+    {
+      "UserName": "Justin Bhatti",
+      "TeamName": "SAP",
+      "n_f3_records": 5,
+      "n_open_quotes": 4,
+      "fcst_smnt": 57746.06
+    },
+    {
+      "UserName": "Kevin Dickerson",
+      "TeamName": "SAP",
+      "n_f3_records": 24,
+      "n_open_quotes": 24,
+      "fcst_smnt": 522274.76
+    },
+    {
+      "UserName": "Mimi N. Nguyen",
+      "TeamName": "SAP",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 145321.19
+    },
+    {
+      "UserName": "Steven Hand",
+      "TeamName": "SAP",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1143600.00
+    },
+    {
+      "UserName": "Alex Hall",
+      "TeamName": "Splunk",
+      "n_f3_records": 16,
+      "n_open_quotes": 14,
+      "fcst_smnt": 90818.91
+    },
+    {
+      "UserName": "Ben Alkire",
+      "TeamName": "Splunk",
+      "n_f3_records": 6,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Dallon Cochran",
+      "TeamName": "Splunk",
+      "n_f3_records": 10,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ebben Yazel",
+      "TeamName": "Splunk",
+      "n_f3_records": 10,
+      "n_open_quotes": 5,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Jacki Ingros",
+      "TeamName": "Splunk",
+      "n_f3_records": 288,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jennifer Velasquez",
+      "TeamName": "Splunk",
+      "n_f3_records": 4,
+      "n_open_quotes": 4,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "John Howton",
+      "TeamName": "Splunk",
+      "n_f3_records": 11,
+      "n_open_quotes": 4,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Jonathan Prictoe",
+      "TeamName": "Splunk",
+      "n_f3_records": 13,
+      "n_open_quotes": 5,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Jordan Ellison",
+      "TeamName": "Splunk",
+      "n_f3_records": 23,
+      "n_open_quotes": 11,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Kevin Crowley",
+      "TeamName": "Splunk",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Rebecca Brockschmidt",
+      "TeamName": "Splunk",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Robert Peters",
+      "TeamName": "Splunk",
+      "n_f3_records": 17,
+      "n_open_quotes": 13,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Ryan Beck",
+      "TeamName": "Splunk",
+      "n_f3_records": 9,
+      "n_open_quotes": 5,
+      "fcst_smnt": 733898.97
+    },
+    {
+      "UserName": "Shelbi Williams",
+      "TeamName": "Splunk",
+      "n_f3_records": 3,
+      "n_open_quotes": 3,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Stephanie Crews",
+      "TeamName": "Splunk",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "TJ Puccio",
+      "TeamName": "Splunk",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Travis Mueller",
+      "TeamName": "Splunk",
+      "n_f3_records": 21,
+      "n_open_quotes": 8,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Will Schreiber",
+      "TeamName": "Splunk",
+      "n_f3_records": 8,
+      "n_open_quotes": 4,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Aaron Sulkin",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Alex Walentisch",
+      "TeamName": "Symantec",
+      "n_f3_records": 20,
+      "n_open_quotes": 10,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Alex Whitworth",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Alexander Cameron",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Alexandra Edeline",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Andrew Morgan",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Angela Wood",
+      "TeamName": "Symantec",
+      "n_f3_records": 4,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Annie Marshall",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ashley O'Neill",
+      "TeamName": "Symantec",
+      "n_f3_records": 1053,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Aubrey Rositano",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Blair Monroe",
+      "TeamName": "Symantec",
+      "n_f3_records": 24,
+      "n_open_quotes": 14,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Brad Perry",
+      "TeamName": "Symantec",
+      "n_f3_records": 6,
+      "n_open_quotes": 6,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Brad Woodworth",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Brandy Anderson",
+      "TeamName": "Symantec",
+      "n_f3_records": 21,
+      "n_open_quotes": 17,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Brendon Donohoe",
+      "TeamName": "Symantec",
+      "n_f3_records": 13,
+      "n_open_quotes": 8,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Bryan Jenkins",
+      "TeamName": "Symantec",
+      "n_f3_records": 18,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Calvin Poe",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Caroline Filippone",
+      "TeamName": "Symantec",
+      "n_f3_records": 6,
+      "n_open_quotes": 3,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Chris Choi",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Crystal Jenkins",
+      "TeamName": "Symantec",
+      "n_f3_records": 13,
+      "n_open_quotes": 9,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Dallas Lee",
+      "TeamName": "Symantec",
+      "n_f3_records": 8,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Daniel Sanchez",
+      "TeamName": "Symantec",
+      "n_f3_records": 53,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Danielle Deal",
+      "TeamName": "Symantec",
+      "n_f3_records": 69,
+      "n_open_quotes": 52,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Denise Schreffler",
+      "TeamName": "Symantec",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Dillon Mayhew",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Dylan Gaiteri",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "EJ Poell",
+      "TeamName": "Symantec",
+      "n_f3_records": 13,
+      "n_open_quotes": 13,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Erin Foor",
+      "TeamName": "Symantec",
+      "n_f3_records": 36,
+      "n_open_quotes": 22,
+      "fcst_smnt": 19.00
+    },
+    {
+      "UserName": "Grant Jones",
+      "TeamName": "Symantec",
+      "n_f3_records": 62,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jack Bonifant",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jack Ryan",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Jamal Henderson",
+      "TeamName": "Symantec",
+      "n_f3_records": 21,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Javier Ayala",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jessica Robinson",
+      "TeamName": "Symantec",
+      "n_f3_records": 85,
+      "n_open_quotes": 65,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Jimmy Katz",
+      "TeamName": "Symantec",
+      "n_f3_records": 59,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "John Ragan",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jonah Dowd",
+      "TeamName": "Symantec",
+      "n_f3_records": 113,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Kathleen Everett",
+      "TeamName": "Symantec",
+      "n_f3_records": 6,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Marcos Munaires",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mary Lind",
+      "TeamName": "Symantec",
+      "n_f3_records": 4,
+      "n_open_quotes": 4,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Matt Ingram",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Michael Klein",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Michael Lillie",
+      "TeamName": "Symantec",
+      "n_f3_records": 18,
+      "n_open_quotes": 3,
+      "fcst_smnt": 8.00
+    },
+    {
+      "UserName": "Miles Conquest",
+      "TeamName": "Symantec",
+      "n_f3_records": 63,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nick Nguyen",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Nikhil Porecha",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Patrice Edwards",
+      "TeamName": "Symantec",
+      "n_f3_records": 10,
+      "n_open_quotes": 5,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Rachel Calhoun",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 3,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Rachel Wildey",
+      "TeamName": "Symantec",
+      "n_f3_records": 4,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Regan Houston",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Richard Maigue",
+      "TeamName": "Symantec",
+      "n_f3_records": 9,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Rizky Hidayat",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ryan Altamirano",
+      "TeamName": "Symantec",
+      "n_f3_records": 62,
+      "n_open_quotes": 44,
+      "fcst_smnt": 27.00
+    },
+    {
+      "UserName": "Ryan Conrad",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ryan Farrar",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Ryan Rice",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Stephanie Mersman",
+      "TeamName": "Symantec",
+      "n_f3_records": 8,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Stuart Bost",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Terrence Watson",
+      "TeamName": "Symantec",
+      "n_f3_records": 20,
+      "n_open_quotes": 5,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Todd Lancaster",
+      "TeamName": "Symantec",
+      "n_f3_records": 3,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Troy Bonenfant",
+      "TeamName": "Symantec",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Troy Meraw",
+      "TeamName": "Symantec",
+      "n_f3_records": 7,
+      "n_open_quotes": 3,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Tyler Long",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Tyler Nelson",
+      "TeamName": "Symantec",
+      "n_f3_records": 2,
+      "n_open_quotes": 1,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Will Christopher",
+      "TeamName": "Symantec",
+      "n_f3_records": 99,
+      "n_open_quotes": 97,
+      "fcst_smnt": 38.00
+    },
+    {
+      "UserName": "Will Cultice",
+      "TeamName": "Symantec",
+      "n_f3_records": 5,
+      "n_open_quotes": 5,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Allen McClain",
+      "TeamName": "Verizon",
+      "n_f3_records": 24,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mitch Tumolo",
+      "TeamName": "Verizon",
+      "n_f3_records": 49,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Alex Boyd",
+      "TeamName": "VMware",
+      "n_f3_records": 19,
+      "n_open_quotes": 6,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Andrew Offen",
+      "TeamName": "VMware",
+      "n_f3_records": 18,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Angela Villatoro",
+      "TeamName": "VMware",
+      "n_f3_records": 7,
+      "n_open_quotes": 3,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Ashley Kreuer",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Bebe Pleasant",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Braden Voorhies",
+      "TeamName": "VMware",
+      "n_f3_records": 16,
+      "n_open_quotes": 6,
+      "fcst_smnt": 52435.14
+    },
+    {
+      "UserName": "Brittany Simpkins",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Cameron Parsons",
+      "TeamName": "VMware",
+      "n_f3_records": 43,
+      "n_open_quotes": 8,
+      "fcst_smnt": 19.00
+    },
+    {
+      "UserName": "Candace Mansfield",
+      "TeamName": "VMware",
+      "n_f3_records": 93,
+      "n_open_quotes": 93,
+      "fcst_smnt": 36.00
+    },
+    {
+      "UserName": "Casey Swartz",
+      "TeamName": "VMware",
+      "n_f3_records": 6,
+      "n_open_quotes": 3,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Chris Harrison",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Christina Cafiero",
+      "TeamName": "VMware",
+      "n_f3_records": 31,
+      "n_open_quotes": 22,
+      "fcst_smnt": 16.00
+    },
+    {
+      "UserName": "Christine Saba",
+      "TeamName": "VMware",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Collin Dewberry",
+      "TeamName": "VMware",
+      "n_f3_records": 16,
+      "n_open_quotes": 6,
+      "fcst_smnt": 6.00
+    },
+    {
+      "UserName": "Corey Rooney",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1075.50
+    },
+    {
+      "UserName": "Cristyn Tepper",
+      "TeamName": "VMware",
+      "n_f3_records": 10,
+      "n_open_quotes": 6,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Daniel Lockbaum",
+      "TeamName": "VMware",
+      "n_f3_records": 9,
+      "n_open_quotes": 6,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Daniela Fiore",
+      "TeamName": "VMware",
+      "n_f3_records": 7,
+      "n_open_quotes": 5,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Donald Murphy",
+      "TeamName": "VMware",
+      "n_f3_records": 4,
+      "n_open_quotes": 2,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Doug Schlichting",
+      "TeamName": "VMware",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Erich Ehinger",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Evan Lyons",
+      "TeamName": "VMware",
+      "n_f3_records": 20,
+      "n_open_quotes": 14,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Evan Slack",
+      "TeamName": "VMware",
+      "n_f3_records": 24,
+      "n_open_quotes": 5,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Gilma Marquez",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Heather Bean",
+      "TeamName": "VMware",
+      "n_f3_records": 114,
+      "n_open_quotes": 100,
+      "fcst_smnt": 31.00
+    },
+    {
+      "UserName": "Heather Searfoss",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Indy Stevens",
+      "TeamName": "VMware",
+      "n_f3_records": 5,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Jackie Grifka",
+      "TeamName": "VMware",
+      "n_f3_records": 19,
+      "n_open_quotes": 9,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "James Briar",
+      "TeamName": "VMware",
+      "n_f3_records": 38,
+      "n_open_quotes": 2,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "James Wells",
+      "TeamName": "VMware",
+      "n_f3_records": 16,
+      "n_open_quotes": 7,
+      "fcst_smnt": 7.00
+    },
+    {
+      "UserName": "Jamie Sweatman",
+      "TeamName": "VMware",
+      "n_f3_records": 29,
+      "n_open_quotes": 25,
+      "fcst_smnt": 481041.33
+    },
+    {
+      "UserName": "Jason Cayanong",
+      "TeamName": "VMware",
+      "n_f3_records": 28,
+      "n_open_quotes": 9,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Jenny Ryals",
+      "TeamName": "VMware",
+      "n_f3_records": 16,
+      "n_open_quotes": 6,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Jessica Spielvogel",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "John Rentz",
+      "TeamName": "VMware",
+      "n_f3_records": 5,
+      "n_open_quotes": 2,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Jonathan Garner",
+      "TeamName": "VMware",
+      "n_f3_records": 51,
+      "n_open_quotes": 47,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Jordan Hoddy",
+      "TeamName": "VMware",
+      "n_f3_records": 2,
+      "n_open_quotes": 2,
+      "fcst_smnt": 17054.24
+    },
+    {
+      "UserName": "Kelly Miller",
+      "TeamName": "VMware",
+      "n_f3_records": 17,
+      "n_open_quotes": 11,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Kevin Connors",
+      "TeamName": "VMware",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "Lauren Lombardo",
+      "TeamName": "VMware",
+      "n_f3_records": 54,
+      "n_open_quotes": 39,
+      "fcst_smnt": 3.00
+    },
+    {
+      "UserName": "Lindsay Phillips",
+      "TeamName": "VMware",
+      "n_f3_records": 37,
+      "n_open_quotes": 5,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Mark Davis",
+      "TeamName": "VMware",
+      "n_f3_records": 73,
+      "n_open_quotes": 42,
+      "fcst_smnt": 905340.70
+    },
+    {
+      "UserName": "Mason Jolly",
+      "TeamName": "VMware",
+      "n_f3_records": 21,
+      "n_open_quotes": 18,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Matt Penny",
+      "TeamName": "VMware",
+      "n_f3_records": 58,
+      "n_open_quotes": 28,
+      "fcst_smnt": 12.00
+    },
+    {
+      "UserName": "Megan Archer",
+      "TeamName": "VMware",
+      "n_f3_records": 9,
+      "n_open_quotes": 9,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Meggie Slack",
+      "TeamName": "VMware",
+      "n_f3_records": 15,
+      "n_open_quotes": 7,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Michelle Carl",
+      "TeamName": "VMware",
+      "n_f3_records": 8,
+      "n_open_quotes": 2,
+      "fcst_smnt": 2.00
+    },
+    {
+      "UserName": "Michelle Tsiolis",
+      "TeamName": "VMware",
+      "n_f3_records": 3,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Mike Marcinek",
+      "TeamName": "VMware",
+      "n_f3_records": 4,
+      "n_open_quotes": 1,
+      "fcst_smnt": 2800427.56
+    },
+    {
+      "UserName": "Nick Pocs",
+      "TeamName": "VMware",
+      "n_f3_records": 27,
+      "n_open_quotes": 20,
+      "fcst_smnt": 7.00
+    },
+    {
+      "UserName": "Paige Keeney",
+      "TeamName": "VMware",
+      "n_f3_records": 27,
+      "n_open_quotes": 17,
+      "fcst_smnt": 1111378.95
+    },
+    {
+      "UserName": "Patrick Murray",
+      "TeamName": "VMware",
+      "n_f3_records": 6,
+      "n_open_quotes": 1,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Ryan Schaffstall",
+      "TeamName": "VMware",
+      "n_f3_records": 27,
+      "n_open_quotes": 5,
+      "fcst_smnt": 4.00
+    },
+    {
+      "UserName": "Sam Isler",
+      "TeamName": "VMware",
+      "n_f3_records": 8,
+      "n_open_quotes": 5,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Samantha Sweeny",
+      "TeamName": "VMware",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Scott Bryant",
+      "TeamName": "VMware",
+      "n_f3_records": 16,
+      "n_open_quotes": 12,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Steven Kachel",
+      "TeamName": "VMware",
+      "n_f3_records": 23,
+      "n_open_quotes": 14,
+      "fcst_smnt": 5.00
+    },
+    {
+      "UserName": "Tess Van Gorder",
+      "TeamName": "VMware",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Tim Boltz",
+      "TeamName": "VMware",
+      "n_f3_records": 9,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "William Graessle",
+      "TeamName": "VMware",
+      "n_f3_records": 7,
+      "n_open_quotes": 5,
+      "fcst_smnt": 1.00
+    },
+    {
+      "UserName": "William Hathaway",
+      "TeamName": "VMware",
+      "n_f3_records": 1,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    },
+    {
+      "UserName": "Willie Wolfman",
+      "TeamName": "VMware",
+      "n_f3_records": 2,
+      "n_open_quotes": 0,
+      "fcst_smnt": 0.00
+    }
+  ],
+  "ReportData": null,
+  "ReportDataTemp": null
+}

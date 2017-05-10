@@ -1,0 +1,288 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
+<script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+
+
+
+<script>
+    var API_IP = '49417';
+    var API_URL = 'http://localhost:'+API_IP+'/data';
+
+
+    $(document).ready(function () {
+        console.log("script engaged");
+        //Morris.Bar({
+        //    element: 'barChart',
+        //    data: [{ "index": 0, "cpm": 63.183333, "total email": 115 }, { "index": 1, "cpm": 0.0, "total email": 5 }, { "index": 2, "cpm": 46.9, "total email": 195 }, { "index": 3, "cpm": 22.449999, "total email": 220 }, { "index": 4, "cpm": 50.849999, "total email": 288 }, { "index": 5, "cpm": 82.866666, "total email": 219 }, { "index": 6, "cpm": 6.916666, "total email": 184 }],
+        //    xkey: 'index',
+        //    ykeys: ['cpm', 'total email'],
+        //    labels: ['Series A', 'Series B']
+        //});
+
+        // code dataJson as AJAX to http://localhost:8000/data
+        
+
+
+
+
+        var margin = { top: 20, right: 30, bottom: 30, left: 40 },
+            width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+
+        var chart = d3.select(".chart")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        // everything is in this d3.json method because it is the ajax call to my localhost api
+        d3.json(API_URL, function (error, data) {
+            if (error) {
+                console.warn(error);
+            }
+
+            d3.select('div#bar_chart')
+                .html(JSON.stringify(data, null, 4));
+            console.log(data);
+
+
+
+            var data = $.parseJSON(data);
+            
+            dataArray = Array();
+
+            for (i in data) {
+                console.log(data[i]["username"]);
+                dataArray.push(data[i]["username"]);
+            }
+
+
+
+
+            x.domain(dataArray);
+            y.domain([0, d3.max(data, function (d) { return d.cpm; })]);
+
+            //chart.append("g")
+            //    .attr("class", "x axis")
+            //    .attr("transform", "translate(0," + height + ")")
+            //    .call(xAxis);
+
+            chart.append("g")
+                .attr("class", "y axis")
+                .call(yAxis);
+
+            chart.selectAll(".bar")
+                .data(data)
+              .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", function (d, i) { return x(d["username"]); })
+                .text(function (d) { return d.cpm;})
+                .attr("y", function (d) { return y(d.cpm); })
+                .attr("height", function (d) { return height - y(d.cpm); })
+                .attr("width", x.rangeBand());
+
+            chart.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+              .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", "1em")
+                .style("text-anchor", "end")
+                .text("Calls + Minutes");
+
+            chart.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+              .selectAll("text")
+                .attr("y", 12)
+                .attr("x", -23)
+                .attr("dy", ".35em")
+                .attr("transform", "rotate(12)")
+                .style("text-anchor", "start");
+
+            Morris.Bar({
+                element: 'bar-example',
+                data: data,
+                xkey: 'username',
+                ykeys: ['cpm'],
+                labels: ['Series A'],
+                xLabelAngle: 60,
+            });
+        });
+
+
+
+        function type(d) {
+            d.cpm = +d.cpm; // coerce to number
+            return d;
+        }
+
+        $('.bar').hover(function () {
+            console.log("hover");
+            var text = $(this).text();
+            $('#CPM').html(text);
+        });
+
+        
+        $(document).on("click",".bar", function () {
+            var text = $(this).text();
+            $('#CPM').html(text);
+            console.log("BOOOOOOOO");
+        });
+
+    });
+
+</script>
+
+
+
+<style>
+    .bar {
+        fill: steelblue;
+    }
+    .bar:hover {
+        fill: red; 
+    }
+
+    .axis text {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+        display: none;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jumbotron">
+    <h1>Flask</h1>
+    <p class="lead">Flask.  Yay.</p>
+    <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">leanr &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2> dot init </h2>
+        <p>
+            lorem ipsum dolor
+        </p>
+        <p><a class="btn btn-default" href="http://flask.pocoo.org/docs/">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>more s</h2>
+        <p>pip install brains</p>
+        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>clouds</h2>
+        <p> you can easily convert your solid state drive to a gaseous state drive enabling cloud stuff</p>
+        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>ZoomCharts</h2>
+        <p> zoom zoom</p>
+        <p><a class="btn btn-default" href="/zoomCharts">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h3>barChart by D3!</h3>
+<svg class="chart" style="display:block;">
+
+</svg>
+<div style="display:block; margin-bottom:50px;">
+    <div id="CPM_title" style="float:left; display:inline; height:30px;">CPM:</div>
+    <div id="CPM" style="float:left; display:inline; height:30px; font-weight:bold;"></div>
+</div>
+
+
+
+
+<h3 style="display:block;">JSON Data from API</h3>
+<div id="bar_chart"></div>
+
+<h3>Morris.js</h3>
+<div id="bar-example" class="bar-example"></div>
+
+<h3>Dimple.js</h3>
+<div id="chartContainer">
+    <script src="http://dimplejs.org/dist/dimple.v2.2.0.min.js"></script>
+
+    <script>
+       
+
+    var svg = dimple.newSvg("#chartContainer", 590, 400);
+    d3.json(API_URL, function (data) {
+
+        var data = $.parseJSON(data);
+
+        dataArray = Array();
+
+        for (i in data) {
+            console.log(data[i]["username"]);
+            dataArray.push(data[i]["username"]);
+        }
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(90, 30, 480, 330)
+        myChart.addMeasureAxis("x", "cpm");
+        var y = myChart.addCategoryAxis("y", "username");
+        //y.addOrderRule("Date");
+        myChart.addSeries(null, dimple.plot.bar);
+        myChart.draw();
+    });
+    </script>
+
+
+</div>
+
+
+    {% endblock %}

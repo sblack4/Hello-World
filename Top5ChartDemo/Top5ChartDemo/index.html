@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Top Reps Draft</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-muted">Top Reps <i id="selectedDim" style="padding-left:40px;"></i> <i id="selectedTeam" style="padding-left:40px;"></i></h3>
+        <div class="header clearfix">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Top n Reps: </span>
+                <input id="n_reps" type="text" class="form-control" placeholder="10" aria-describedby="basic-addon1">
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+                <button id="clearFilters" type="button" class="btn btn-default">Clear Filters</button>
+                <button id="callsDim" type="button" class="btn btn-default dataButton">CPM</button>
+                <button id="occsDim" type="button" class="btn btn-default dataButton">OCCS</button>
+                <button id="quoteDim" type="button" class="btn btn-default dataButton">Quotes</button>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="TeamButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Team
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="TeamDim">
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!--<div class="container vizContainer">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p> Top Reps </p>
+                </div>
+                <div class="panel-body vizContainer">
+                    <svg id="viz"></svg>
+                </div>
+            </div>
+        </div>
+            <footer class="footer">
+                <p>© 2016 Carahzoft, Inc.</p>
+            </footer>-->
+
+    </div> <!-- /container -->
+    <svg id="viz"></svg>
+
+    <div id="javascript">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+        <script src="scripts/d3.v4.js"></script>
+        <script src="scripts/crossfilter.js"></script>
+        <script src="scripts/core.js"></script>
+        <script src="scripts/selections.js"></script>
+        <script src="scripts/bars.js"></script>
+        <script src="scripts/main.js"></script>
+    </div>
+
+</body>
+</html>

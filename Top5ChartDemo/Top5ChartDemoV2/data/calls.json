@@ -1,0 +1,3377 @@
+{
+  "ReportTitle": "TestingTestingImJustSuggestingCSharpMightBeTheBestThingExceptFordotdotdot",
+  "query": "SELECT \r\n\tUsers.UserName \r\n\t, Teams.TeamName\r\n\r\n\t, COUNT(Calls.Call_ID) AS n_calls\r\n\t, SUM(Calls.Duration)/60.0 AS min_calls\r\n\t, COUNT(Calls.Call_ID) + SUM(Calls.Duration)/60.0 AS CPM\r\n\r\nFROM Users \r\n\tLEFT OUTER JOIN Calls ON Calls.User_ID = Users.User_ID AND Calls.Organization_ID = 1\r\n\tLEFT OUTER JOIN Teams ON Teams.Team_ID = Calls.Team_ID\r\n\r\nWHERE (1=1)\r\n\tAND Calls.CallDate = '20161130'\r\n\tAND Calls.Excluded = 0\r\n\tAND Users.Organization_ID = 1\r\n\r\nGROUP BY UserName, TeamName \r\nORDER BY CPM DESC",
+  "HeaderInfo": [
+    {
+      "Customer": "Craig Abod",
+      "GroupingField": "UserName",
+      "CountingField": "CPM",
+      "ReportType": 6, 
+      "xAxisMax":  200
+    }
+  ],
+  "dt": [
+    {
+      "UserName": "Alex Hall",
+      "TeamName": "Splunk",
+      "n_calls": 124,
+      "min_calls": 98.983333,
+      "CPM": 222.983333
+    },
+    {
+      "UserName": "Coleman Walsh",
+      "TeamName": "F5",
+      "n_calls": 93,
+      "min_calls": 83.133333,
+      "CPM": 176.133333
+    },
+    {
+      "UserName": "Harjeet Khalsa",
+      "TeamName": "F5",
+      "n_calls": 87,
+      "min_calls": 88.900000,
+      "CPM": 175.900000
+    },
+    {
+      "UserName": "Amanda Rego",
+      "TeamName": "Adobe",
+      "n_calls": 83,
+      "min_calls": 52.983333,
+      "CPM": 135.983333
+    },
+    {
+      "UserName": "Robert McQueeney",
+      "TeamName": "Splunk",
+      "n_calls": 45,
+      "min_calls": 90.166666,
+      "CPM": 135.166666
+    },
+    {
+      "UserName": "Porter Lloyd",
+      "TeamName": "Google",
+      "n_calls": 74,
+      "min_calls": 56.166666,
+      "CPM": 130.166666
+    },
+    {
+      "UserName": "Jessica Smith",
+      "TeamName": "Recruiting",
+      "n_calls": 20,
+      "min_calls": 106.916666,
+      "CPM": 126.916666
+    },
+    {
+      "UserName": "Craig P. Abod",
+      "TeamName": "Craig",
+      "n_calls": 28,
+      "min_calls": 98.416666,
+      "CPM": 126.416666
+    },
+    {
+      "UserName": "Ryan Altamirano",
+      "TeamName": "Symantec",
+      "n_calls": 55,
+      "min_calls": 64.950000,
+      "CPM": 119.950000
+    },
+    {
+      "UserName": "Brandon Walsh",
+      "TeamName": "Open Source",
+      "n_calls": 59,
+      "min_calls": 60.733333,
+      "CPM": 119.733333
+    },
+    {
+      "UserName": "Kristin Finn",
+      "TeamName": "Recruiting",
+      "n_calls": 22,
+      "min_calls": 95.933333,
+      "CPM": 117.933333
+    },
+    {
+      "UserName": "Daniel Sanchez",
+      "TeamName": "Symantec",
+      "n_calls": 67,
+      "min_calls": 47.983333,
+      "CPM": 114.983333
+    },
+    {
+      "UserName": "Jason Cayanong",
+      "TeamName": "VMware",
+      "n_calls": 22,
+      "min_calls": 90.950000,
+      "CPM": 112.950000
+    },
+    {
+      "UserName": "Alex Dougherty",
+      "TeamName": "VMware",
+      "n_calls": 44,
+      "min_calls": 67.350000,
+      "CPM": 111.350000
+    },
+    {
+      "UserName": "Patrick Jones",
+      "TeamName": "Open Source",
+      "n_calls": 13,
+      "min_calls": 96.966666,
+      "CPM": 109.966666
+    },
+    {
+      "UserName": "Rob Pickle",
+      "TeamName": "HP",
+      "n_calls": 13,
+      "min_calls": 95.583333,
+      "CPM": 108.583333
+    },
+    {
+      "UserName": "Kevin Connors",
+      "TeamName": "VMware",
+      "n_calls": 40,
+      "min_calls": 67.450000,
+      "CPM": 107.450000
+    },
+    {
+      "UserName": "TJ Shaw",
+      "TeamName": "Adobe",
+      "n_calls": 24,
+      "min_calls": 78.133333,
+      "CPM": 102.133333
+    },
+    {
+      "UserName": "Hosai Zia",
+      "TeamName": "Google",
+      "n_calls": 58,
+      "min_calls": 43.566666,
+      "CPM": 101.566666
+    },
+    {
+      "UserName": "Mitch Tumolo",
+      "TeamName": "Verizon",
+      "n_calls": 50,
+      "min_calls": 50.233333,
+      "CPM": 100.233333
+    },
+    {
+      "UserName": "Megan Halley",
+      "TeamName": "Open Source",
+      "n_calls": 18,
+      "min_calls": 82.016666,
+      "CPM": 100.016666
+    },
+    {
+      "UserName": "Jimmy Otto",
+      "TeamName": "Adobe",
+      "n_calls": 53,
+      "min_calls": 46.433333,
+      "CPM": 99.433333
+    },
+    {
+      "UserName": "Alex J. Holt",
+      "TeamName": "Adobe",
+      "n_calls": 42,
+      "min_calls": 56.033333,
+      "CPM": 98.033333
+    },
+    {
+      "UserName": "Nana Yaw",
+      "TeamName": "IT",
+      "n_calls": 6,
+      "min_calls": 88.466666,
+      "CPM": 94.466666
+    },
+    {
+      "UserName": "Caroline Malaby",
+      "TeamName": "IBM",
+      "n_calls": 49,
+      "min_calls": 45.233333,
+      "CPM": 94.233333
+    },
+    {
+      "UserName": "Danielle Allen",
+      "TeamName": "Intel",
+      "n_calls": 8,
+      "min_calls": 85.900000,
+      "CPM": 93.900000
+    },
+    {
+      "UserName": "Evan Lyons",
+      "TeamName": "VMware",
+      "n_calls": 7,
+      "min_calls": 83.416666,
+      "CPM": 90.416666
+    },
+    {
+      "UserName": "Kevin Crowley",
+      "TeamName": "Splunk",
+      "n_calls": 17,
+      "min_calls": 73.300000,
+      "CPM": 90.300000
+    },
+    {
+      "UserName": "Bryce Sutherland",
+      "TeamName": "Adobe",
+      "n_calls": 8,
+      "min_calls": 80.233333,
+      "CPM": 88.233333
+    },
+    {
+      "UserName": "Patrick Murray",
+      "TeamName": "VMware",
+      "n_calls": 52,
+      "min_calls": 35.833333,
+      "CPM": 87.833333
+    },
+    {
+      "UserName": "Chris J. Fagan",
+      "TeamName": "Intel",
+      "n_calls": 38,
+      "min_calls": 49.416666,
+      "CPM": 87.416666
+    },
+    {
+      "UserName": "Tyler Person",
+      "TeamName": "F5",
+      "n_calls": 45,
+      "min_calls": 41.650000,
+      "CPM": 86.650000
+    },
+    {
+      "UserName": "Michael Jaffee",
+      "TeamName": "Open Source",
+      "n_calls": 13,
+      "min_calls": 73.383333,
+      "CPM": 86.383333
+    },
+    {
+      "UserName": "Michael Edwards",
+      "TeamName": "F5",
+      "n_calls": 5,
+      "min_calls": 81.283333,
+      "CPM": 86.283333
+    },
+    {
+      "UserName": "Kevin Dickerson",
+      "TeamName": "SAP",
+      "n_calls": 23,
+      "min_calls": 62.833333,
+      "CPM": 85.833333
+    },
+    {
+      "UserName": "Angela Wood",
+      "TeamName": "Symantec",
+      "n_calls": 17,
+      "min_calls": 68.550000,
+      "CPM": 85.550000
+    },
+    {
+      "UserName": "Katherine Ossio",
+      "TeamName": "Symantec",
+      "n_calls": 32,
+      "min_calls": 53.200000,
+      "CPM": 85.200000
+    },
+    {
+      "UserName": "Cameron Parsons",
+      "TeamName": "VMware",
+      "n_calls": 18,
+      "min_calls": 67.166666,
+      "CPM": 85.166666
+    },
+    {
+      "UserName": "Ronald Davis",
+      "TeamName": "Adobe",
+      "n_calls": 43,
+      "min_calls": 41.366666,
+      "CPM": 84.366666
+    },
+    {
+      "UserName": "Luca Calzoni",
+      "TeamName": "Intel",
+      "n_calls": 35,
+      "min_calls": 48.283333,
+      "CPM": 83.283333
+    },
+    {
+      "UserName": "Hunter MacBain",
+      "TeamName": "Open Source",
+      "n_calls": 14,
+      "min_calls": 67.466666,
+      "CPM": 81.466666
+    },
+    {
+      "UserName": "Amanda Nieves",
+      "TeamName": "Intel",
+      "n_calls": 9,
+      "min_calls": 72.416666,
+      "CPM": 81.416666
+    },
+    {
+      "UserName": "Paul Kolb",
+      "TeamName": "Intel",
+      "n_calls": 11,
+      "min_calls": 69.800000,
+      "CPM": 80.800000
+    },
+    {
+      "UserName": "Bethany Blackwell",
+      "TeamName": "Salesforce",
+      "n_calls": 7,
+      "min_calls": 72.200000,
+      "CPM": 79.200000
+    },
+    {
+      "UserName": "William Howe",
+      "TeamName": "Open Source",
+      "n_calls": 36,
+      "min_calls": 41.750000,
+      "CPM": 77.750000
+    },
+    {
+      "UserName": "Phillip Brown",
+      "TeamName": "F5",
+      "n_calls": 43,
+      "min_calls": 34.316666,
+      "CPM": 77.316666
+    },
+    {
+      "UserName": "Stephanie Trippeer",
+      "TeamName": "Adobe",
+      "n_calls": 12,
+      "min_calls": 64.816666,
+      "CPM": 76.816666
+    },
+    {
+      "UserName": "Zide Baser",
+      "TeamName": "Symantec",
+      "n_calls": 48,
+      "min_calls": 28.716666,
+      "CPM": 76.716666
+    },
+    {
+      "UserName": "Maggie Wilder",
+      "TeamName": "VMware",
+      "n_calls": 42,
+      "min_calls": 34.583333,
+      "CPM": 76.583333
+    },
+    {
+      "UserName": "Allen McClain",
+      "TeamName": "Verizon",
+      "n_calls": 31,
+      "min_calls": 44.933333,
+      "CPM": 75.933333
+    },
+    {
+      "UserName": "Lorin Hicks",
+      "TeamName": "Adobe",
+      "n_calls": 8,
+      "min_calls": 66.066666,
+      "CPM": 74.066666
+    },
+    {
+      "UserName": "Tim Breswick",
+      "TeamName": "Adobe",
+      "n_calls": 8,
+      "min_calls": 65.766666,
+      "CPM": 73.766666
+    },
+    {
+      "UserName": "Jonathan Prictoe",
+      "TeamName": "Splunk",
+      "n_calls": 40,
+      "min_calls": 33.000000,
+      "CPM": 73.000000
+    },
+    {
+      "UserName": "Matt Brooks",
+      "TeamName": "Google",
+      "n_calls": 41,
+      "min_calls": 31.816666,
+      "CPM": 72.816666
+    },
+    {
+      "UserName": "Chris Torres",
+      "TeamName": "Open Source",
+      "n_calls": 21,
+      "min_calls": 51.733333,
+      "CPM": 72.733333
+    },
+    {
+      "UserName": "Matthew Elgin",
+      "TeamName": "VMware",
+      "n_calls": 31,
+      "min_calls": 40.783333,
+      "CPM": 71.783333
+    },
+    {
+      "UserName": "Steven Hand",
+      "TeamName": "SAP",
+      "n_calls": 8,
+      "min_calls": 63.650000,
+      "CPM": 71.650000
+    },
+    {
+      "UserName": "Elliot Dean",
+      "TeamName": "Adobe",
+      "n_calls": 37,
+      "min_calls": 33.966666,
+      "CPM": 70.966666
+    },
+    {
+      "UserName": "Catherine Rothrauff",
+      "TeamName": "VMware",
+      "n_calls": 10,
+      "min_calls": 60.416666,
+      "CPM": 70.416666
+    },
+    {
+      "UserName": "Tim Kim",
+      "TeamName": "Open Source",
+      "n_calls": 11,
+      "min_calls": 59.400000,
+      "CPM": 70.400000
+    },
+    {
+      "UserName": "Brian King",
+      "TeamName": "Salesforce",
+      "n_calls": 8,
+      "min_calls": 61.983333,
+      "CPM": 69.983333
+    },
+    {
+      "UserName": "Troy Meraw",
+      "TeamName": "Symantec",
+      "n_calls": 4,
+      "min_calls": 65.900000,
+      "CPM": 69.900000
+    },
+    {
+      "UserName": "Jordan Arvoy",
+      "TeamName": "Google",
+      "n_calls": 25,
+      "min_calls": 44.033333,
+      "CPM": 69.033333
+    },
+    {
+      "UserName": "Daniela Salazar",
+      "TeamName": "F5",
+      "n_calls": 35,
+      "min_calls": 33.116666,
+      "CPM": 68.116666
+    },
+    {
+      "UserName": "Kelsey Gordon",
+      "TeamName": "Symantec",
+      "n_calls": 42,
+      "min_calls": 25.700000,
+      "CPM": 67.700000
+    },
+    {
+      "UserName": "Molly McAnany",
+      "TeamName": "Adobe",
+      "n_calls": 27,
+      "min_calls": 39.883333,
+      "CPM": 66.883333
+    },
+    {
+      "UserName": "Ava Brown",
+      "TeamName": "VMware",
+      "n_calls": 34,
+      "min_calls": 32.533333,
+      "CPM": 66.533333
+    },
+    {
+      "UserName": "Angela Villatoro",
+      "TeamName": "VMware",
+      "n_calls": 30,
+      "min_calls": 35.650000,
+      "CPM": 65.650000
+    },
+    {
+      "UserName": "Kyle Yolles",
+      "TeamName": "F5",
+      "n_calls": 33,
+      "min_calls": 32.583333,
+      "CPM": 65.583333
+    },
+    {
+      "UserName": "Jamie Sweatman",
+      "TeamName": "VMware",
+      "n_calls": 21,
+      "min_calls": 44.100000,
+      "CPM": 65.100000
+    },
+    {
+      "UserName": "Nick Shuart",
+      "TeamName": "VMware",
+      "n_calls": 33,
+      "min_calls": 31.550000,
+      "CPM": 64.550000
+    },
+    {
+      "UserName": "Megan Archer",
+      "TeamName": "VMware",
+      "n_calls": 30,
+      "min_calls": 34.200000,
+      "CPM": 64.200000
+    },
+    {
+      "UserName": "Alexander Cameron",
+      "TeamName": "Symantec",
+      "n_calls": 32,
+      "min_calls": 32.200000,
+      "CPM": 64.200000
+    },
+    {
+      "UserName": "Jennifer Lohmann",
+      "TeamName": "Open Source",
+      "n_calls": 17,
+      "min_calls": 47.050000,
+      "CPM": 64.050000
+    },
+    {
+      "UserName": "Seth Money",
+      "TeamName": "Adobe",
+      "n_calls": 6,
+      "min_calls": 57.816666,
+      "CPM": 63.816666
+    },
+    {
+      "UserName": "Sherif Mattar",
+      "TeamName": "Adobe",
+      "n_calls": 38,
+      "min_calls": 25.700000,
+      "CPM": 63.700000
+    },
+    {
+      "UserName": "Caroline Filippone",
+      "TeamName": "Symantec",
+      "n_calls": 3,
+      "min_calls": 60.333333,
+      "CPM": 63.333333
+    },
+    {
+      "UserName": "Rich Savage",
+      "TeamName": "Open Source",
+      "n_calls": 16,
+      "min_calls": 47.266666,
+      "CPM": 63.266666
+    },
+    {
+      "UserName": "Christina Cafiero",
+      "TeamName": "VMware",
+      "n_calls": 18,
+      "min_calls": 44.250000,
+      "CPM": 62.250000
+    },
+    {
+      "UserName": "Evan Slack",
+      "TeamName": "VMware",
+      "n_calls": 9,
+      "min_calls": 52.950000,
+      "CPM": 61.950000
+    },
+    {
+      "UserName": "EJ Poell",
+      "TeamName": "Symantec",
+      "n_calls": 36,
+      "min_calls": 25.883333,
+      "CPM": 61.883333
+    },
+    {
+      "UserName": "Dan Ashley",
+      "TeamName": "Intel",
+      "n_calls": 38,
+      "min_calls": 23.816666,
+      "CPM": 61.816666
+    },
+    {
+      "UserName": "Braedon Schmelz",
+      "TeamName": "Adobe",
+      "n_calls": 6,
+      "min_calls": 55.266666,
+      "CPM": 61.266666
+    },
+    {
+      "UserName": "Nicholas Marsilio",
+      "TeamName": "F5",
+      "n_calls": 32,
+      "min_calls": 29.100000,
+      "CPM": 61.100000
+    },
+    {
+      "UserName": "Nick Pham",
+      "TeamName": "Intel",
+      "n_calls": 16,
+      "min_calls": 44.983333,
+      "CPM": 60.983333
+    },
+    {
+      "UserName": "Joseph Allen",
+      "TeamName": "Adobe",
+      "n_calls": 32,
+      "min_calls": 28.966666,
+      "CPM": 60.966666
+    },
+    {
+      "UserName": "Erin Foor",
+      "TeamName": "Symantec",
+      "n_calls": 3,
+      "min_calls": 57.400000,
+      "CPM": 60.400000
+    },
+    {
+      "UserName": "Jennifer Velasquez",
+      "TeamName": "Splunk",
+      "n_calls": 34,
+      "min_calls": 25.883333,
+      "CPM": 59.883333
+    },
+    {
+      "UserName": "Teri Liles",
+      "TeamName": "Open Source",
+      "n_calls": 14,
+      "min_calls": 45.533333,
+      "CPM": 59.533333
+    },
+    {
+      "UserName": "Jimmy Katz",
+      "TeamName": "Symantec",
+      "n_calls": 36,
+      "min_calls": 23.066666,
+      "CPM": 59.066666
+    },
+    {
+      "UserName": "Julia Plant",
+      "TeamName": "Adobe",
+      "n_calls": 22,
+      "min_calls": 36.916666,
+      "CPM": 58.916666
+    },
+    {
+      "UserName": "Alex Boyd",
+      "TeamName": "VMware",
+      "n_calls": 26,
+      "min_calls": 32.866666,
+      "CPM": 58.866666
+    },
+    {
+      "UserName": "Chris Barnewolt",
+      "TeamName": "Open Source",
+      "n_calls": 30,
+      "min_calls": 28.433333,
+      "CPM": 58.433333
+    },
+    {
+      "UserName": "Allison Mackin",
+      "TeamName": "Salesforce",
+      "n_calls": 6,
+      "min_calls": 52.366666,
+      "CPM": 58.366666
+    },
+    {
+      "UserName": "Michael Lillie",
+      "TeamName": "Symantec",
+      "n_calls": 32,
+      "min_calls": 25.916666,
+      "CPM": 57.916666
+    },
+    {
+      "UserName": "Jacki Riedel",
+      "TeamName": "Adobe",
+      "n_calls": 1,
+      "min_calls": 56.550000,
+      "CPM": 57.550000
+    },
+    {
+      "UserName": "Collin Furth",
+      "TeamName": "Open Source",
+      "n_calls": 4,
+      "min_calls": 53.300000,
+      "CPM": 57.300000
+    },
+    {
+      "UserName": "Candace Mansfield",
+      "TeamName": "VMware",
+      "n_calls": 20,
+      "min_calls": 36.966666,
+      "CPM": 56.966666
+    },
+    {
+      "UserName": "Kevin Maslyn",
+      "TeamName": "Open Source",
+      "n_calls": 32,
+      "min_calls": 24.783333,
+      "CPM": 56.783333
+    },
+    {
+      "UserName": "Alex Apostolou",
+      "TeamName": "EMC",
+      "n_calls": 36,
+      "min_calls": 20.450000,
+      "CPM": 56.450000
+    },
+    {
+      "UserName": "Jenny Ryals",
+      "TeamName": "VMware",
+      "n_calls": 3,
+      "min_calls": 53.433333,
+      "CPM": 56.433333
+    },
+    {
+      "UserName": "Patrice Edwards",
+      "TeamName": "Symantec",
+      "n_calls": 15,
+      "min_calls": 41.216666,
+      "CPM": 56.216666
+    },
+    {
+      "UserName": "Joe AbiJaoudi",
+      "TeamName": "F5",
+      "n_calls": 30,
+      "min_calls": 25.833333,
+      "CPM": 55.833333
+    },
+    {
+      "UserName": "Kristen Talbot",
+      "TeamName": "Adobe",
+      "n_calls": 34,
+      "min_calls": 21.766666,
+      "CPM": 55.766666
+    },
+    {
+      "UserName": "John ReShore",
+      "TeamName": "Open Source",
+      "n_calls": 16,
+      "min_calls": 39.733333,
+      "CPM": 55.733333
+    },
+    {
+      "UserName": "Melissa Bowen",
+      "TeamName": "F5",
+      "n_calls": 3,
+      "min_calls": 52.100000,
+      "CPM": 55.100000
+    },
+    {
+      "UserName": "Megan Salvail",
+      "TeamName": "Adobe",
+      "n_calls": 28,
+      "min_calls": 26.933333,
+      "CPM": 54.933333
+    },
+    {
+      "UserName": "Lauren Lombardo",
+      "TeamName": "VMware",
+      "n_calls": 15,
+      "min_calls": 39.850000,
+      "CPM": 54.850000
+    },
+    {
+      "UserName": "Sam Isler",
+      "TeamName": "VMware",
+      "n_calls": 7,
+      "min_calls": 47.683333,
+      "CPM": 54.683333
+    },
+    {
+      "UserName": "Mohammed Hamididdin",
+      "TeamName": "VMware",
+      "n_calls": 4,
+      "min_calls": 50.633333,
+      "CPM": 54.633333
+    },
+    {
+      "UserName": "Molly Teper",
+      "TeamName": "F5",
+      "n_calls": 36,
+      "min_calls": 18.483333,
+      "CPM": 54.483333
+    },
+    {
+      "UserName": "Jonathan Garner",
+      "TeamName": "VMware",
+      "n_calls": 11,
+      "min_calls": 43.400000,
+      "CPM": 54.400000
+    },
+    {
+      "UserName": "Matthew Rice",
+      "TeamName": "Intel",
+      "n_calls": 31,
+      "min_calls": 23.166666,
+      "CPM": 54.166666
+    },
+    {
+      "UserName": "Julie Denworth",
+      "TeamName": "Marketing",
+      "n_calls": 6,
+      "min_calls": 47.833333,
+      "CPM": 53.833333
+    },
+    {
+      "UserName": "Miles Conquest",
+      "TeamName": "Symantec",
+      "n_calls": 30,
+      "min_calls": 23.500000,
+      "CPM": 53.500000
+    },
+    {
+      "UserName": "Grant Jones",
+      "TeamName": "Symantec",
+      "n_calls": 28,
+      "min_calls": 25.400000,
+      "CPM": 53.400000
+    },
+    {
+      "UserName": "Aaron Dixon",
+      "TeamName": "Salesforce",
+      "n_calls": 10,
+      "min_calls": 43.116666,
+      "CPM": 53.116666
+    },
+    {
+      "UserName": "Jessica Robinson",
+      "TeamName": "Symantec",
+      "n_calls": 10,
+      "min_calls": 42.483333,
+      "CPM": 52.483333
+    },
+    {
+      "UserName": "Virginia Foley",
+      "TeamName": "Intel",
+      "n_calls": 16,
+      "min_calls": 36.233333,
+      "CPM": 52.233333
+    },
+    {
+      "UserName": "Ashley O'Neill",
+      "TeamName": "Symantec",
+      "n_calls": 32,
+      "min_calls": 20.166666,
+      "CPM": 52.166666
+    },
+    {
+      "UserName": "James Wells",
+      "TeamName": "VMware",
+      "n_calls": 9,
+      "min_calls": 42.850000,
+      "CPM": 51.850000
+    },
+    {
+      "UserName": "Kari Six",
+      "TeamName": "Open Source",
+      "n_calls": 23,
+      "min_calls": 28.450000,
+      "CPM": 51.450000
+    },
+    {
+      "UserName": "Phillip Carroll",
+      "TeamName": "IBM",
+      "n_calls": 8,
+      "min_calls": 43.200000,
+      "CPM": 51.200000
+    },
+    {
+      "UserName": "Brian Glaser",
+      "TeamName": "Open Source",
+      "n_calls": 20,
+      "min_calls": 31.016666,
+      "CPM": 51.016666
+    },
+    {
+      "UserName": "Jonathan Bordatto",
+      "TeamName": "SAP",
+      "n_calls": 5,
+      "min_calls": 45.950000,
+      "CPM": 50.950000
+    },
+    {
+      "UserName": "Brandon Weathers",
+      "TeamName": "F5",
+      "n_calls": 22,
+      "min_calls": 28.933333,
+      "CPM": 50.933333
+    },
+    {
+      "UserName": "Melanny Lopez",
+      "TeamName": "EMC",
+      "n_calls": 35,
+      "min_calls": 15.850000,
+      "CPM": 50.850000
+    },
+    {
+      "UserName": "Meghan Reynolds",
+      "TeamName": "Google",
+      "n_calls": 26,
+      "min_calls": 24.683333,
+      "CPM": 50.683333
+    },
+    {
+      "UserName": "Erin Fornwalt",
+      "TeamName": "Open Source",
+      "n_calls": 14,
+      "min_calls": 36.466666,
+      "CPM": 50.466666
+    },
+    {
+      "UserName": "Madeline Hall",
+      "TeamName": "Contracts",
+      "n_calls": 1,
+      "min_calls": 49.016666,
+      "CPM": 50.016666
+    },
+    {
+      "UserName": "Nick Pocs",
+      "TeamName": "VMware",
+      "n_calls": 16,
+      "min_calls": 33.683333,
+      "CPM": 49.683333
+    },
+    {
+      "UserName": "Gina Wilson",
+      "TeamName": "Adobe",
+      "n_calls": 19,
+      "min_calls": 30.366666,
+      "CPM": 49.366666
+    },
+    {
+      "UserName": "Travis Saa",
+      "TeamName": "F5",
+      "n_calls": 28,
+      "min_calls": 21.166666,
+      "CPM": 49.166666
+    },
+    {
+      "UserName": "Marcos Munaires",
+      "TeamName": "Symantec",
+      "n_calls": 32,
+      "min_calls": 16.766666,
+      "CPM": 48.766666
+    },
+    {
+      "UserName": "Elizabeth Heinz",
+      "TeamName": "Intel",
+      "n_calls": 6,
+      "min_calls": 42.283333,
+      "CPM": 48.283333
+    },
+    {
+      "UserName": "Matt Ingram",
+      "TeamName": "Symantec",
+      "n_calls": 22,
+      "min_calls": 26.016666,
+      "CPM": 48.016666
+    },
+    {
+      "UserName": "Brandy Anderson",
+      "TeamName": "Symantec",
+      "n_calls": 17,
+      "min_calls": 30.783333,
+      "CPM": 47.783333
+    },
+    {
+      "UserName": "Justin Drunagel",
+      "TeamName": "Open Source",
+      "n_calls": 12,
+      "min_calls": 35.483333,
+      "CPM": 47.483333
+    },
+    {
+      "UserName": "Nicole Rasky",
+      "TeamName": "Adobe",
+      "n_calls": 22,
+      "min_calls": 25.366666,
+      "CPM": 47.366666
+    },
+    {
+      "UserName": "Stephanie Dorough",
+      "TeamName": "Open Source",
+      "n_calls": 11,
+      "min_calls": 36.133333,
+      "CPM": 47.133333
+    },
+    {
+      "UserName": "Gilma Marquez",
+      "TeamName": "VMware",
+      "n_calls": 27,
+      "min_calls": 20.066666,
+      "CPM": 47.066666
+    },
+    {
+      "UserName": "Stefan Mehl",
+      "TeamName": "Adobe",
+      "n_calls": 16,
+      "min_calls": 30.766666,
+      "CPM": 46.766666
+    },
+    {
+      "UserName": "Martin Gavin",
+      "TeamName": "VMware",
+      "n_calls": 2,
+      "min_calls": 43.883333,
+      "CPM": 45.883333
+    },
+    {
+      "UserName": "Lara Silva",
+      "TeamName": "Adobe",
+      "n_calls": 9,
+      "min_calls": 35.833333,
+      "CPM": 44.833333
+    },
+    {
+      "UserName": "Terrence Watson",
+      "TeamName": "Symantec",
+      "n_calls": 14,
+      "min_calls": 30.816666,
+      "CPM": 44.816666
+    },
+    {
+      "UserName": "Nathanael Hale",
+      "TeamName": "Intel",
+      "n_calls": 8,
+      "min_calls": 36.683333,
+      "CPM": 44.683333
+    },
+    {
+      "UserName": "Ryan Schaffstall",
+      "TeamName": "VMware",
+      "n_calls": 8,
+      "min_calls": 36.466666,
+      "CPM": 44.466666
+    },
+    {
+      "UserName": "Travis von Schmidt",
+      "TeamName": "Intel",
+      "n_calls": 17,
+      "min_calls": 27.400000,
+      "CPM": 44.400000
+    },
+    {
+      "UserName": "Casey Stengel",
+      "TeamName": "Adobe",
+      "n_calls": 20,
+      "min_calls": 24.283333,
+      "CPM": 44.283333
+    },
+    {
+      "UserName": "Madeleine Bourne",
+      "TeamName": "Adobe",
+      "n_calls": 19,
+      "min_calls": 25.233333,
+      "CPM": 44.233333
+    },
+    {
+      "UserName": "Rachel Calhoun",
+      "TeamName": "Symantec",
+      "n_calls": 7,
+      "min_calls": 36.916666,
+      "CPM": 43.916666
+    },
+    {
+      "UserName": "Alex Walentisch",
+      "TeamName": "Symantec",
+      "n_calls": 10,
+      "min_calls": 33.333333,
+      "CPM": 43.333333
+    },
+    {
+      "UserName": "Heather McGuinness",
+      "TeamName": "Customer Operations",
+      "n_calls": 5,
+      "min_calls": 38.250000,
+      "CPM": 43.250000
+    },
+    {
+      "UserName": "Shannon Bisselink",
+      "TeamName": "Marketing",
+      "n_calls": 3,
+      "min_calls": 39.366666,
+      "CPM": 42.366666
+    },
+    {
+      "UserName": "Heather Bean",
+      "TeamName": "VMware",
+      "n_calls": 7,
+      "min_calls": 35.233333,
+      "CPM": 42.233333
+    },
+    {
+      "UserName": "Sean Kelley",
+      "TeamName": "Symantec",
+      "n_calls": 6,
+      "min_calls": 36.133333,
+      "CPM": 42.133333
+    },
+    {
+      "UserName": "Martin Frishe",
+      "TeamName": "Splunk",
+      "n_calls": 2,
+      "min_calls": 40.116666,
+      "CPM": 42.116666
+    },
+    {
+      "UserName": "Andrew Giannotti",
+      "TeamName": "Adobe",
+      "n_calls": 21,
+      "min_calls": 20.850000,
+      "CPM": 41.850000
+    },
+    {
+      "UserName": "Nykolaus Pinnock",
+      "TeamName": "Intel",
+      "n_calls": 21,
+      "min_calls": 20.383333,
+      "CPM": 41.383333
+    },
+    {
+      "UserName": "Eric Mast",
+      "TeamName": "HP",
+      "n_calls": 6,
+      "min_calls": 35.383333,
+      "CPM": 41.383333
+    },
+    {
+      "UserName": "Kristi Mann",
+      "TeamName": "IBM",
+      "n_calls": 9,
+      "min_calls": 32.150000,
+      "CPM": 41.150000
+    },
+    {
+      "UserName": "Zak Kennedy",
+      "TeamName": "Salesforce",
+      "n_calls": 11,
+      "min_calls": 29.883333,
+      "CPM": 40.883333
+    },
+    {
+      "UserName": "Will Christopher",
+      "TeamName": "Symantec",
+      "n_calls": 26,
+      "min_calls": 14.750000,
+      "CPM": 40.750000
+    },
+    {
+      "UserName": "Jack Ryan",
+      "TeamName": "Symantec",
+      "n_calls": 19,
+      "min_calls": 21.666666,
+      "CPM": 40.666666
+    },
+    {
+      "UserName": "Rizky Hidayat",
+      "TeamName": "Symantec",
+      "n_calls": 12,
+      "min_calls": 28.516666,
+      "CPM": 40.516666
+    },
+    {
+      "UserName": "Daniela Fiore",
+      "TeamName": "VMware",
+      "n_calls": 10,
+      "min_calls": 30.233333,
+      "CPM": 40.233333
+    },
+    {
+      "UserName": "Meggie Slack",
+      "TeamName": "VMware",
+      "n_calls": 7,
+      "min_calls": 33.083333,
+      "CPM": 40.083333
+    },
+    {
+      "UserName": "Josh Landerer",
+      "TeamName": "Open Source",
+      "n_calls": 20,
+      "min_calls": 19.950000,
+      "CPM": 39.950000
+    },
+    {
+      "UserName": "Rachel Wildey",
+      "TeamName": "Symantec",
+      "n_calls": 14,
+      "min_calls": 25.816666,
+      "CPM": 39.816666
+    },
+    {
+      "UserName": "Katherine Vaghi",
+      "TeamName": "F5",
+      "n_calls": 13,
+      "min_calls": 26.716666,
+      "CPM": 39.716666
+    },
+    {
+      "UserName": "Emily Clavadetscher",
+      "TeamName": "Adobe",
+      "n_calls": 16,
+      "min_calls": 23.333333,
+      "CPM": 39.333333
+    },
+    {
+      "UserName": "Nate Pavlot",
+      "TeamName": "F5",
+      "n_calls": 23,
+      "min_calls": 16.066666,
+      "CPM": 39.066666
+    },
+    {
+      "UserName": "Alex Greco",
+      "TeamName": "F5",
+      "n_calls": 8,
+      "min_calls": 30.983333,
+      "CPM": 38.983333
+    },
+    {
+      "UserName": "Tim Boltz",
+      "TeamName": "VMware",
+      "n_calls": 3,
+      "min_calls": 35.966666,
+      "CPM": 38.966666
+    },
+    {
+      "UserName": "Jacki Ingros",
+      "TeamName": "Splunk",
+      "n_calls": 17,
+      "min_calls": 21.816666,
+      "CPM": 38.816666
+    },
+    {
+      "UserName": "Seamus Bergen",
+      "TeamName": "EMC",
+      "n_calls": 9,
+      "min_calls": 29.650000,
+      "CPM": 38.650000
+    },
+    {
+      "UserName": "Lacey Wean",
+      "TeamName": "Adobe",
+      "n_calls": 6,
+      "min_calls": 32.650000,
+      "CPM": 38.650000
+    },
+    {
+      "UserName": "Paris Carter",
+      "TeamName": "Adobe",
+      "n_calls": 16,
+      "min_calls": 22.150000,
+      "CPM": 38.150000
+    },
+    {
+      "UserName": "Sean OSullivan",
+      "TeamName": "Open Source",
+      "n_calls": 6,
+      "min_calls": 32.033333,
+      "CPM": 38.033333
+    },
+    {
+      "UserName": "Joe Tabatabaian",
+      "TeamName": "IBM",
+      "n_calls": 7,
+      "min_calls": 31.000000,
+      "CPM": 38.000000
+    },
+    {
+      "UserName": "Patrick Spinosa",
+      "TeamName": "EMC",
+      "n_calls": 13,
+      "min_calls": 24.683333,
+      "CPM": 37.683333
+    },
+    {
+      "UserName": "Sadia Ali",
+      "TeamName": "Adobe",
+      "n_calls": 5,
+      "min_calls": 32.583333,
+      "CPM": 37.583333
+    },
+    {
+      "UserName": "Noah DiDonato",
+      "TeamName": "Open Source",
+      "n_calls": 11,
+      "min_calls": 26.316666,
+      "CPM": 37.316666
+    },
+    {
+      "UserName": "Andrew Pierpoint",
+      "TeamName": "Google",
+      "n_calls": 18,
+      "min_calls": 19.233333,
+      "CPM": 37.233333
+    },
+    {
+      "UserName": "Nick Nguyen",
+      "TeamName": "Symantec",
+      "n_calls": 23,
+      "min_calls": 13.316666,
+      "CPM": 36.316666
+    },
+    {
+      "UserName": "Mark Demerse",
+      "TeamName": "EMC",
+      "n_calls": 17,
+      "min_calls": 19.283333,
+      "CPM": 36.283333
+    },
+    {
+      "UserName": "Alex Stanton",
+      "TeamName": "Adobe",
+      "n_calls": 9,
+      "min_calls": 27.050000,
+      "CPM": 36.050000
+    },
+    {
+      "UserName": "Samantha Hermes",
+      "TeamName": "Marketing",
+      "n_calls": 5,
+      "min_calls": 30.933333,
+      "CPM": 35.933333
+    },
+    {
+      "UserName": "Matt Heflin",
+      "TeamName": "Adobe",
+      "n_calls": 17,
+      "min_calls": 18.833333,
+      "CPM": 35.833333
+    },
+    {
+      "UserName": "Justine Bullock",
+      "TeamName": "HP",
+      "n_calls": 7,
+      "min_calls": 28.600000,
+      "CPM": 35.600000
+    },
+    {
+      "UserName": "Ryan Odom",
+      "TeamName": "Intel",
+      "n_calls": 22,
+      "min_calls": 13.583333,
+      "CPM": 35.583333
+    },
+    {
+      "UserName": "Shannon Redmon",
+      "TeamName": "EMC",
+      "n_calls": 27,
+      "min_calls": 8.400000,
+      "CPM": 35.400000
+    },
+    {
+      "UserName": "Chris Choi",
+      "TeamName": "Symantec",
+      "n_calls": 20,
+      "min_calls": 14.783333,
+      "CPM": 34.783333
+    },
+    {
+      "UserName": "Kathy Kelly",
+      "TeamName": "Recruiting",
+      "n_calls": 6,
+      "min_calls": 28.333333,
+      "CPM": 34.333333
+    },
+    {
+      "UserName": "Ryan Beck",
+      "TeamName": "Splunk",
+      "n_calls": 14,
+      "min_calls": 20.216666,
+      "CPM": 34.216666
+    },
+    {
+      "UserName": "Stephen Dickerson",
+      "TeamName": "Salesforce",
+      "n_calls": 10,
+      "min_calls": 24.200000,
+      "CPM": 34.200000
+    },
+    {
+      "UserName": "Tyler Long",
+      "TeamName": "Symantec",
+      "n_calls": 22,
+      "min_calls": 12.183333,
+      "CPM": 34.183333
+    },
+    {
+      "UserName": "Brett Gibson",
+      "TeamName": "F5",
+      "n_calls": 18,
+      "min_calls": 16.183333,
+      "CPM": 34.183333
+    },
+    {
+      "UserName": "Michael Moore",
+      "TeamName": "IT",
+      "n_calls": 5,
+      "min_calls": 28.933333,
+      "CPM": 33.933333
+    },
+    {
+      "UserName": "Katie Krug",
+      "TeamName": "Open Source",
+      "n_calls": 16,
+      "min_calls": 17.866666,
+      "CPM": 33.866666
+    },
+    {
+      "UserName": "Lauren Dower",
+      "TeamName": "Marketing",
+      "n_calls": 3,
+      "min_calls": 30.733333,
+      "CPM": 33.733333
+    },
+    {
+      "UserName": "Nancy Milad",
+      "TeamName": "Adobe",
+      "n_calls": 8,
+      "min_calls": 25.583333,
+      "CPM": 33.583333
+    },
+    {
+      "UserName": "Andres Azcuna",
+      "TeamName": "Intel",
+      "n_calls": 1,
+      "min_calls": 32.433333,
+      "CPM": 33.433333
+    },
+    {
+      "UserName": "Ryan Dunnigan",
+      "TeamName": "EMC",
+      "n_calls": 9,
+      "min_calls": 24.166666,
+      "CPM": 33.166666
+    },
+    {
+      "UserName": "Nada Abu-Ulbah",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 29.716666,
+      "CPM": 32.716666
+    },
+    {
+      "UserName": "Emma Griffin",
+      "TeamName": "EMC",
+      "n_calls": 21,
+      "min_calls": 11.533333,
+      "CPM": 32.533333
+    },
+    {
+      "UserName": "Tony Arenas",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 30.466666,
+      "CPM": 32.466666
+    },
+    {
+      "UserName": "Will Schreiber",
+      "TeamName": "Splunk",
+      "n_calls": 15,
+      "min_calls": 16.850000,
+      "CPM": 31.850000
+    },
+    {
+      "UserName": "Bijan Abrahim",
+      "TeamName": "F5",
+      "n_calls": 17,
+      "min_calls": 14.700000,
+      "CPM": 31.700000
+    },
+    {
+      "UserName": "Shannon Levinsohn",
+      "TeamName": "Customer Operations",
+      "n_calls": 3,
+      "min_calls": 28.650000,
+      "CPM": 31.650000
+    },
+    {
+      "UserName": "Jamal Henderson",
+      "TeamName": "Symantec",
+      "n_calls": 20,
+      "min_calls": 11.333333,
+      "CPM": 31.333333
+    },
+    {
+      "UserName": "Andrew Offen",
+      "TeamName": "VMware",
+      "n_calls": 18,
+      "min_calls": 13.250000,
+      "CPM": 31.250000
+    },
+    {
+      "UserName": "Danielle Deal",
+      "TeamName": "Symantec",
+      "n_calls": 18,
+      "min_calls": 13.000000,
+      "CPM": 31.000000
+    },
+    {
+      "UserName": "Hunter Mozer",
+      "TeamName": "Adobe",
+      "n_calls": 1,
+      "min_calls": 29.716666,
+      "CPM": 30.716666
+    },
+    {
+      "UserName": "Shane Terry",
+      "TeamName": "Adobe",
+      "n_calls": 1,
+      "min_calls": 29.583333,
+      "CPM": 30.583333
+    },
+    {
+      "UserName": "Chris Guinther",
+      "TeamName": "F5",
+      "n_calls": 8,
+      "min_calls": 22.550000,
+      "CPM": 30.550000
+    },
+    {
+      "UserName": "Jonah Dowd",
+      "TeamName": "Symantec",
+      "n_calls": 17,
+      "min_calls": 13.400000,
+      "CPM": 30.400000
+    },
+    {
+      "UserName": "Chelsea A. Campbell",
+      "TeamName": "Adobe",
+      "n_calls": 7,
+      "min_calls": 23.316666,
+      "CPM": 30.316666
+    },
+    {
+      "UserName": "Caroline Murphy",
+      "TeamName": "Customer Operations",
+      "n_calls": 3,
+      "min_calls": 27.250000,
+      "CPM": 30.250000
+    },
+    {
+      "UserName": "Jesse Robbins",
+      "TeamName": "HP",
+      "n_calls": 9,
+      "min_calls": 21.083333,
+      "CPM": 30.083333
+    },
+    {
+      "UserName": "Michelle Carl",
+      "TeamName": "VMware",
+      "n_calls": 6,
+      "min_calls": 24.066666,
+      "CPM": 30.066666
+    },
+    {
+      "UserName": "TJ Gallagher",
+      "TeamName": "Open Source",
+      "n_calls": 21,
+      "min_calls": 8.950000,
+      "CPM": 29.950000
+    },
+    {
+      "UserName": "John Rentz",
+      "TeamName": "VMware",
+      "n_calls": 7,
+      "min_calls": 22.566666,
+      "CPM": 29.566666
+    },
+    {
+      "UserName": "Deric Brown",
+      "TeamName": "F5",
+      "n_calls": 18,
+      "min_calls": 11.400000,
+      "CPM": 29.400000
+    },
+    {
+      "UserName": "John Lee",
+      "TeamName": "VMware",
+      "n_calls": 4,
+      "min_calls": 25.383333,
+      "CPM": 29.383333
+    },
+    {
+      "UserName": "Daniel Nampha",
+      "TeamName": "Google",
+      "n_calls": 16,
+      "min_calls": 13.050000,
+      "CPM": 29.050000
+    },
+    {
+      "UserName": "Michael Adams",
+      "TeamName": "Intel",
+      "n_calls": 6,
+      "min_calls": 22.950000,
+      "CPM": 28.950000
+    },
+    {
+      "UserName": "Nicholas DiDonato",
+      "TeamName": "Open Source",
+      "n_calls": 7,
+      "min_calls": 21.916666,
+      "CPM": 28.916666
+    },
+    {
+      "UserName": "James Betz",
+      "TeamName": "Open Source",
+      "n_calls": 9,
+      "min_calls": 19.550000,
+      "CPM": 28.550000
+    },
+    {
+      "UserName": "Whitney Cregan",
+      "TeamName": "EMC",
+      "n_calls": 12,
+      "min_calls": 16.450000,
+      "CPM": 28.450000
+    },
+    {
+      "UserName": "Bill McDonald",
+      "TeamName": "SAP",
+      "n_calls": 4,
+      "min_calls": 24.133333,
+      "CPM": 28.133333
+    },
+    {
+      "UserName": "Haley Hogan",
+      "TeamName": "SAP",
+      "n_calls": 13,
+      "min_calls": 14.850000,
+      "CPM": 27.850000
+    },
+    {
+      "UserName": "Diane Tiblin",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 26.650000,
+      "CPM": 27.650000
+    },
+    {
+      "UserName": "Rus Khamzayev",
+      "TeamName": "EMC",
+      "n_calls": 4,
+      "min_calls": 23.616666,
+      "CPM": 27.616666
+    },
+    {
+      "UserName": "Robert Peters",
+      "TeamName": "Splunk",
+      "n_calls": 12,
+      "min_calls": 15.450000,
+      "CPM": 27.450000
+    },
+    {
+      "UserName": "Paige Keeney",
+      "TeamName": "VMware",
+      "n_calls": 7,
+      "min_calls": 19.750000,
+      "CPM": 26.750000
+    },
+    {
+      "UserName": "Eric Goycochea",
+      "TeamName": "EMC",
+      "n_calls": 6,
+      "min_calls": 20.716666,
+      "CPM": 26.716666
+    },
+    {
+      "UserName": "Steven Kachel",
+      "TeamName": "VMware",
+      "n_calls": 10,
+      "min_calls": 16.700000,
+      "CPM": 26.700000
+    },
+    {
+      "UserName": "Justin Bhatti",
+      "TeamName": "SAP",
+      "n_calls": 12,
+      "min_calls": 14.550000,
+      "CPM": 26.550000
+    },
+    {
+      "UserName": "Daniel Garay",
+      "TeamName": "Open Source",
+      "n_calls": 15,
+      "min_calls": 11.483333,
+      "CPM": 26.483333
+    },
+    {
+      "UserName": "Drew Berry",
+      "TeamName": "Symantec",
+      "n_calls": 2,
+      "min_calls": 24.316666,
+      "CPM": 26.316666
+    },
+    {
+      "UserName": "Justin Knight",
+      "TeamName": "F5",
+      "n_calls": 1,
+      "min_calls": 25.266666,
+      "CPM": 26.266666
+    },
+    {
+      "UserName": "Amirah Langston",
+      "TeamName": "Marketing",
+      "n_calls": 2,
+      "min_calls": 24.183333,
+      "CPM": 26.183333
+    },
+    {
+      "UserName": "Carly Fleming",
+      "TeamName": "F5",
+      "n_calls": 7,
+      "min_calls": 19.166666,
+      "CPM": 26.166666
+    },
+    {
+      "UserName": "Kellie D'Amico",
+      "TeamName": "Marketing",
+      "n_calls": 5,
+      "min_calls": 21.133333,
+      "CPM": 26.133333
+    },
+    {
+      "UserName": "Ivy Bae",
+      "TeamName": "Adobe",
+      "n_calls": 10,
+      "min_calls": 16.050000,
+      "CPM": 26.050000
+    },
+    {
+      "UserName": "Elizabeth Loftin",
+      "TeamName": "HP",
+      "n_calls": 7,
+      "min_calls": 19.033333,
+      "CPM": 26.033333
+    },
+    {
+      "UserName": "Michael Harris",
+      "TeamName": "SAP",
+      "n_calls": 5,
+      "min_calls": 20.866666,
+      "CPM": 25.866666
+    },
+    {
+      "UserName": "Collin Dewberry",
+      "TeamName": "VMware",
+      "n_calls": 11,
+      "min_calls": 14.850000,
+      "CPM": 25.850000
+    },
+    {
+      "UserName": "Connor Douglas",
+      "TeamName": "Open Source",
+      "n_calls": 12,
+      "min_calls": 13.833333,
+      "CPM": 25.833333
+    },
+    {
+      "UserName": "Ben Simpson",
+      "TeamName": "Google",
+      "n_calls": 10,
+      "min_calls": 15.283333,
+      "CPM": 25.283333
+    },
+    {
+      "UserName": "Edward Walinsky",
+      "TeamName": "Intel",
+      "n_calls": 7,
+      "min_calls": 18.066666,
+      "CPM": 25.066666
+    },
+    {
+      "UserName": "Liam Redden",
+      "TeamName": "HP",
+      "n_calls": 4,
+      "min_calls": 21.016666,
+      "CPM": 25.016666
+    },
+    {
+      "UserName": "Andrew Morgan",
+      "TeamName": "Symantec",
+      "n_calls": 9,
+      "min_calls": 15.700000,
+      "CPM": 24.700000
+    },
+    {
+      "UserName": "Leslie Ramos",
+      "TeamName": "Intel",
+      "n_calls": 4,
+      "min_calls": 20.583333,
+      "CPM": 24.583333
+    },
+    {
+      "UserName": "Jordan Ellison",
+      "TeamName": "Splunk",
+      "n_calls": 5,
+      "min_calls": 19.150000,
+      "CPM": 24.150000
+    },
+    {
+      "UserName": "Beth Drake",
+      "TeamName": "Salesforce",
+      "n_calls": 6,
+      "min_calls": 18.100000,
+      "CPM": 24.100000
+    },
+    {
+      "UserName": "Michael Bisacquino",
+      "TeamName": "Open Source",
+      "n_calls": 8,
+      "min_calls": 16.050000,
+      "CPM": 24.050000
+    },
+    {
+      "UserName": "Peter Pellicani",
+      "TeamName": "VMware",
+      "n_calls": 15,
+      "min_calls": 8.733333,
+      "CPM": 23.733333
+    },
+    {
+      "UserName": "Alec Smith",
+      "TeamName": "Splunk",
+      "n_calls": 8,
+      "min_calls": 15.683333,
+      "CPM": 23.683333
+    },
+    {
+      "UserName": "Deborah Sweeney",
+      "TeamName": "Adobe",
+      "n_calls": 13,
+      "min_calls": 10.316666,
+      "CPM": 23.316666
+    },
+    {
+      "UserName": "James Briar",
+      "TeamName": "VMware",
+      "n_calls": 10,
+      "min_calls": 13.250000,
+      "CPM": 23.250000
+    },
+    {
+      "UserName": "Troy Bonenfant",
+      "TeamName": "Symantec",
+      "n_calls": 12,
+      "min_calls": 11.100000,
+      "CPM": 23.100000
+    },
+    {
+      "UserName": "Ebben Yazel",
+      "TeamName": "Splunk",
+      "n_calls": 9,
+      "min_calls": 13.866666,
+      "CPM": 22.866666
+    },
+    {
+      "UserName": "Christina Ward",
+      "TeamName": "Marketing",
+      "n_calls": 5,
+      "min_calls": 17.800000,
+      "CPM": 22.800000
+    },
+    {
+      "UserName": "Megan Wyman",
+      "TeamName": "HP",
+      "n_calls": 6,
+      "min_calls": 16.683333,
+      "CPM": 22.683333
+    },
+    {
+      "UserName": "Calvin Poe",
+      "TeamName": "Symantec",
+      "n_calls": 13,
+      "min_calls": 9.466666,
+      "CPM": 22.466666
+    },
+    {
+      "UserName": "TJ Puccio",
+      "TeamName": "Splunk",
+      "n_calls": 4,
+      "min_calls": 18.366666,
+      "CPM": 22.366666
+    },
+    {
+      "UserName": "Justin Yepes",
+      "TeamName": "Open Source",
+      "n_calls": 14,
+      "min_calls": 8.166666,
+      "CPM": 22.166666
+    },
+    {
+      "UserName": "Marianne Trigg",
+      "TeamName": "Customer Operations",
+      "n_calls": 8,
+      "min_calls": 14.133333,
+      "CPM": 22.133333
+    },
+    {
+      "UserName": "Kara Bigelow",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 20.066666,
+      "CPM": 22.066666
+    },
+    {
+      "UserName": "Amy Taira",
+      "TeamName": "Adobe",
+      "n_calls": 4,
+      "min_calls": 17.933333,
+      "CPM": 21.933333
+    },
+    {
+      "UserName": "Dane Carlisle",
+      "TeamName": "EMC",
+      "n_calls": 13,
+      "min_calls": 8.783333,
+      "CPM": 21.783333
+    },
+    {
+      "UserName": "Matt Penny",
+      "TeamName": "VMware",
+      "n_calls": 5,
+      "min_calls": 16.766666,
+      "CPM": 21.766666
+    },
+    {
+      "UserName": "Hiwa Sheikh",
+      "TeamName": "Intel",
+      "n_calls": 7,
+      "min_calls": 14.733333,
+      "CPM": 21.733333
+    },
+    {
+      "UserName": "Tiffany Chang",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 19.666666,
+      "CPM": 21.666666
+    },
+    {
+      "UserName": "Linda Evans",
+      "TeamName": "Customer Operations",
+      "n_calls": 4,
+      "min_calls": 17.183333,
+      "CPM": 21.183333
+    },
+    {
+      "UserName": "Megan Wine",
+      "TeamName": "Marketing",
+      "n_calls": 4,
+      "min_calls": 17.133333,
+      "CPM": 21.133333
+    },
+    {
+      "UserName": "Blair Monroe",
+      "TeamName": "Symantec",
+      "n_calls": 7,
+      "min_calls": 14.033333,
+      "CPM": 21.033333
+    },
+    {
+      "UserName": "Scott Bryant",
+      "TeamName": "VMware",
+      "n_calls": 5,
+      "min_calls": 15.933333,
+      "CPM": 20.933333
+    },
+    {
+      "UserName": "Steve Moxham",
+      "TeamName": "Open Source",
+      "n_calls": 13,
+      "min_calls": 7.833333,
+      "CPM": 20.833333
+    },
+    {
+      "UserName": "Azra Ansari",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 18.633333,
+      "CPM": 20.633333
+    },
+    {
+      "UserName": "Raven Smith",
+      "TeamName": "Adobe",
+      "n_calls": 10,
+      "min_calls": 10.633333,
+      "CPM": 20.633333
+    },
+    {
+      "UserName": "Brendon Donohoe",
+      "TeamName": "Symantec",
+      "n_calls": 4,
+      "min_calls": 16.283333,
+      "CPM": 20.283333
+    },
+    {
+      "UserName": "Melissa Sharp",
+      "TeamName": "HP",
+      "n_calls": 4,
+      "min_calls": 16.183333,
+      "CPM": 20.183333
+    },
+    {
+      "UserName": "Daniel Lockbaum",
+      "TeamName": "VMware",
+      "n_calls": 3,
+      "min_calls": 16.783333,
+      "CPM": 19.783333
+    },
+    {
+      "UserName": "William Rose",
+      "TeamName": "Open Source",
+      "n_calls": 4,
+      "min_calls": 15.716666,
+      "CPM": 19.716666
+    },
+    {
+      "UserName": "Rahul R. Patel",
+      "TeamName": "Customer Operations",
+      "n_calls": 4,
+      "min_calls": 15.650000,
+      "CPM": 19.650000
+    },
+    {
+      "UserName": "Spencer MacLeod",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 16.583333,
+      "CPM": 19.583333
+    },
+    {
+      "UserName": "Valerie Lagman",
+      "TeamName": "Customer Operations",
+      "n_calls": 11,
+      "min_calls": 8.566666,
+      "CPM": 19.566666
+    },
+    {
+      "UserName": "Averie George",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 18.516666,
+      "CPM": 19.516666
+    },
+    {
+      "UserName": "Matt Brokaw",
+      "TeamName": "Adobe",
+      "n_calls": 5,
+      "min_calls": 14.483333,
+      "CPM": 19.483333
+    },
+    {
+      "UserName": "Mitchell Sheets",
+      "TeamName": "Intel",
+      "n_calls": 9,
+      "min_calls": 10.333333,
+      "CPM": 19.333333
+    },
+    {
+      "UserName": "Richard Maigue",
+      "TeamName": "Symantec",
+      "n_calls": 3,
+      "min_calls": 16.316666,
+      "CPM": 19.316666
+    },
+    {
+      "UserName": "Kyle Flanagan",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 16.283333,
+      "CPM": 19.283333
+    },
+    {
+      "UserName": "David Eaddy",
+      "TeamName": "Adobe",
+      "n_calls": 7,
+      "min_calls": 12.233333,
+      "CPM": 19.233333
+    },
+    {
+      "UserName": "Jennifer Goncalves",
+      "TeamName": "Intel",
+      "n_calls": 7,
+      "min_calls": 12.133333,
+      "CPM": 19.133333
+    },
+    {
+      "UserName": "Kareem Sibay",
+      "TeamName": "Open Source",
+      "n_calls": 4,
+      "min_calls": 14.900000,
+      "CPM": 18.900000
+    },
+    {
+      "UserName": "Garrett Burke",
+      "TeamName": "Open Source",
+      "n_calls": 6,
+      "min_calls": 12.766666,
+      "CPM": 18.766666
+    },
+    {
+      "UserName": "Travis Mueller",
+      "TeamName": "Splunk",
+      "n_calls": 3,
+      "min_calls": 15.750000,
+      "CPM": 18.750000
+    },
+    {
+      "UserName": "Lindsay Phillips",
+      "TeamName": "VMware",
+      "n_calls": 8,
+      "min_calls": 10.750000,
+      "CPM": 18.750000
+    },
+    {
+      "UserName": "Sean Cooper",
+      "TeamName": "Open Source",
+      "n_calls": 6,
+      "min_calls": 12.733333,
+      "CPM": 18.733333
+    },
+    {
+      "UserName": "Elyse Conroy",
+      "TeamName": "Google",
+      "n_calls": 1,
+      "min_calls": 17.700000,
+      "CPM": 18.700000
+    },
+    {
+      "UserName": "Jennifer Taha",
+      "TeamName": "Proposals",
+      "n_calls": 2,
+      "min_calls": 16.633333,
+      "CPM": 18.633333
+    },
+    {
+      "UserName": "Aileen M. Smith",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 17.433333,
+      "CPM": 18.433333
+    },
+    {
+      "UserName": "Reema Awad",
+      "TeamName": "Adobe",
+      "n_calls": 6,
+      "min_calls": 12.416666,
+      "CPM": 18.416666
+    },
+    {
+      "UserName": "William Hathaway",
+      "TeamName": "VMware",
+      "n_calls": 6,
+      "min_calls": 12.316666,
+      "CPM": 18.316666
+    },
+    {
+      "UserName": "Mark Davis",
+      "TeamName": "VMware",
+      "n_calls": 8,
+      "min_calls": 10.300000,
+      "CPM": 18.300000
+    },
+    {
+      "UserName": "Tonya Murphy",
+      "TeamName": "VMware",
+      "n_calls": 1,
+      "min_calls": 17.133333,
+      "CPM": 18.133333
+    },
+    {
+      "UserName": "Natalie Gregory",
+      "TeamName": "Open Source",
+      "n_calls": 5,
+      "min_calls": 13.016666,
+      "CPM": 18.016666
+    },
+    {
+      "UserName": "Cassie Conlon",
+      "TeamName": "Customer Operations",
+      "n_calls": 5,
+      "min_calls": 12.900000,
+      "CPM": 17.900000
+    },
+    {
+      "UserName": "Aaron Sulkin",
+      "TeamName": "Symantec",
+      "n_calls": 6,
+      "min_calls": 11.766666,
+      "CPM": 17.766666
+    },
+    {
+      "UserName": "Andrew Lauchengco",
+      "TeamName": "EMC",
+      "n_calls": 8,
+      "min_calls": 9.733333,
+      "CPM": 17.733333
+    },
+    {
+      "UserName": "Mariah Morgan",
+      "TeamName": "F5",
+      "n_calls": 5,
+      "min_calls": 12.683333,
+      "CPM": 17.683333
+    },
+    {
+      "UserName": "Sean Hiebert",
+      "TeamName": "Adobe",
+      "n_calls": 6,
+      "min_calls": 11.533333,
+      "CPM": 17.533333
+    },
+    {
+      "UserName": "Ryan Browne",
+      "TeamName": "F5",
+      "n_calls": 9,
+      "min_calls": 8.400000,
+      "CPM": 17.400000
+    },
+    {
+      "UserName": "Chris Brown",
+      "TeamName": "Intel",
+      "n_calls": 1,
+      "min_calls": 16.233333,
+      "CPM": 17.233333
+    },
+    {
+      "UserName": "Glenna Golding",
+      "TeamName": "Adobe",
+      "n_calls": 6,
+      "min_calls": 11.233333,
+      "CPM": 17.233333
+    },
+    {
+      "UserName": "Marla Sihalath",
+      "TeamName": "F5",
+      "n_calls": 4,
+      "min_calls": 13.200000,
+      "CPM": 17.200000
+    },
+    {
+      "UserName": "Patrick Gallagher",
+      "TeamName": "SAP",
+      "n_calls": 2,
+      "min_calls": 15.200000,
+      "CPM": 17.200000
+    },
+    {
+      "UserName": "Ashley Bautista",
+      "TeamName": "EMC",
+      "n_calls": 10,
+      "min_calls": 7.183333,
+      "CPM": 17.183333
+    },
+    {
+      "UserName": "Kelsey Leek",
+      "TeamName": "Adobe",
+      "n_calls": 5,
+      "min_calls": 12.133333,
+      "CPM": 17.133333
+    },
+    {
+      "UserName": "Matthew C. Jones",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 13.983333,
+      "CPM": 16.983333
+    },
+    {
+      "UserName": "David Niedfeldt",
+      "TeamName": "Intel",
+      "n_calls": 7,
+      "min_calls": 9.766666,
+      "CPM": 16.766666
+    },
+    {
+      "UserName": "Lauren Elliott",
+      "TeamName": "Intel",
+      "n_calls": 1,
+      "min_calls": 15.733333,
+      "CPM": 16.733333
+    },
+    {
+      "UserName": "Andrew Labus",
+      "TeamName": "Adobe",
+      "n_calls": 9,
+      "min_calls": 7.583333,
+      "CPM": 16.583333
+    },
+    {
+      "UserName": "Kelly Miller",
+      "TeamName": "VMware",
+      "n_calls": 3,
+      "min_calls": 13.466666,
+      "CPM": 16.466666
+    },
+    {
+      "UserName": "Brad Perry",
+      "TeamName": "Symantec",
+      "n_calls": 4,
+      "min_calls": 12.433333,
+      "CPM": 16.433333
+    },
+    {
+      "UserName": "Nancy Oberg",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 14.033333,
+      "CPM": 16.033333
+    },
+    {
+      "UserName": "Mohamed Bah",
+      "TeamName": "Open Source",
+      "n_calls": 11,
+      "min_calls": 4.933333,
+      "CPM": 15.933333
+    },
+    {
+      "UserName": "Denise Schreffler",
+      "TeamName": "Symantec",
+      "n_calls": 7,
+      "min_calls": 8.933333,
+      "CPM": 15.933333
+    },
+    {
+      "UserName": "John Howton",
+      "TeamName": "Splunk",
+      "n_calls": 8,
+      "min_calls": 7.683333,
+      "CPM": 15.683333
+    },
+    {
+      "UserName": "Jillian Szczepanek",
+      "TeamName": "Customer Operations",
+      "n_calls": 5,
+      "min_calls": 10.683333,
+      "CPM": 15.683333
+    },
+    {
+      "UserName": "Emily Higgins",
+      "TeamName": "Adobe",
+      "n_calls": 8,
+      "min_calls": 7.516666,
+      "CPM": 15.516666
+    },
+    {
+      "UserName": "Jennifer Tran Nguyen",
+      "TeamName": "Adobe",
+      "n_calls": 5,
+      "min_calls": 10.516666,
+      "CPM": 15.516666
+    },
+    {
+      "UserName": "Ryan Farrar",
+      "TeamName": "Symantec",
+      "n_calls": 4,
+      "min_calls": 11.483333,
+      "CPM": 15.483333
+    },
+    {
+      "UserName": "Josh Green",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 12.433333,
+      "CPM": 15.433333
+    },
+    {
+      "UserName": "Kassy Huffman",
+      "TeamName": "Customer Operations",
+      "n_calls": 3,
+      "min_calls": 12.383333,
+      "CPM": 15.383333
+    },
+    {
+      "UserName": "Crystal Jenkins",
+      "TeamName": "Symantec",
+      "n_calls": 6,
+      "min_calls": 9.350000,
+      "CPM": 15.350000
+    },
+    {
+      "UserName": "Isabella Thorp",
+      "TeamName": "EMC",
+      "n_calls": 7,
+      "min_calls": 8.283333,
+      "CPM": 15.283333
+    },
+    {
+      "UserName": "Kevin Howard",
+      "TeamName": "Open Source",
+      "n_calls": 8,
+      "min_calls": 7.283333,
+      "CPM": 15.283333
+    },
+    {
+      "UserName": "Erica Raymond",
+      "TeamName": "EMC",
+      "n_calls": 11,
+      "min_calls": 4.216666,
+      "CPM": 15.216666
+    },
+    {
+      "UserName": "Mary Lange",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 14.166666,
+      "CPM": 15.166666
+    },
+    {
+      "UserName": "Natalie Farver",
+      "TeamName": "Marketing",
+      "n_calls": 2,
+      "min_calls": 13.116666,
+      "CPM": 15.116666
+    },
+    {
+      "UserName": "Chris Jezior",
+      "TeamName": "Marketing",
+      "n_calls": 2,
+      "min_calls": 13.100000,
+      "CPM": 15.100000
+    },
+    {
+      "UserName": "Will Cultice",
+      "TeamName": "Symantec",
+      "n_calls": 10,
+      "min_calls": 4.766666,
+      "CPM": 14.766666
+    },
+    {
+      "UserName": "Priya Pai",
+      "TeamName": "SAP",
+      "n_calls": 1,
+      "min_calls": 13.750000,
+      "CPM": 14.750000
+    },
+    {
+      "UserName": "David Crawford",
+      "TeamName": "Symantec",
+      "n_calls": 9,
+      "min_calls": 5.650000,
+      "CPM": 14.650000
+    },
+    {
+      "UserName": "Alexandra Edeline",
+      "TeamName": "Symantec",
+      "n_calls": 1,
+      "min_calls": 13.600000,
+      "CPM": 14.600000
+    },
+    {
+      "UserName": "Jackie Grifka",
+      "TeamName": "VMware",
+      "n_calls": 3,
+      "min_calls": 11.433333,
+      "CPM": 14.433333
+    },
+    {
+      "UserName": "Niklus Cesena",
+      "TeamName": "Intel",
+      "n_calls": 5,
+      "min_calls": 9.300000,
+      "CPM": 14.300000
+    },
+    {
+      "UserName": "Jack Weisbrod",
+      "TeamName": "Salesforce",
+      "n_calls": 7,
+      "min_calls": 7.200000,
+      "CPM": 14.200000
+    },
+    {
+      "UserName": "William Graessle",
+      "TeamName": "VMware",
+      "n_calls": 5,
+      "min_calls": 9.183333,
+      "CPM": 14.183333
+    },
+    {
+      "UserName": "Firass Abu-Ulbah",
+      "TeamName": "Intel",
+      "n_calls": 5,
+      "min_calls": 9.166666,
+      "CPM": 14.166666
+    },
+    {
+      "UserName": "Steve Jacyna",
+      "TeamName": "Intel",
+      "n_calls": 3,
+      "min_calls": 11.000000,
+      "CPM": 14.000000
+    },
+    {
+      "UserName": "Ryan Talento",
+      "TeamName": "HP",
+      "n_calls": 5,
+      "min_calls": 8.883333,
+      "CPM": 13.883333
+    },
+    {
+      "UserName": "Amanda Miller",
+      "TeamName": "SAP",
+      "n_calls": 5,
+      "min_calls": 8.850000,
+      "CPM": 13.850000
+    },
+    {
+      "UserName": "Karen Hanscom",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 10.400000,
+      "CPM": 13.400000
+    },
+    {
+      "UserName": "Page Torney",
+      "TeamName": "Adobe",
+      "n_calls": 4,
+      "min_calls": 9.116666,
+      "CPM": 13.116666
+    },
+    {
+      "UserName": "Zachary Alire",
+      "TeamName": "Intel",
+      "n_calls": 4,
+      "min_calls": 9.033333,
+      "CPM": 13.033333
+    },
+    {
+      "UserName": "Alex Sciacca",
+      "TeamName": "SAP",
+      "n_calls": 6,
+      "min_calls": 6.850000,
+      "CPM": 12.850000
+    },
+    {
+      "UserName": "Lauren Garufi",
+      "TeamName": "Salesforce",
+      "n_calls": 3,
+      "min_calls": 9.466666,
+      "CPM": 12.466666
+    },
+    {
+      "UserName": "Travis Meyers",
+      "TeamName": "F5",
+      "n_calls": 6,
+      "min_calls": 6.416666,
+      "CPM": 12.416666
+    },
+    {
+      "UserName": "CJ Corey",
+      "TeamName": "HP",
+      "n_calls": 3,
+      "min_calls": 9.333333,
+      "CPM": 12.333333
+    },
+    {
+      "UserName": "Henry Escobar",
+      "TeamName": "Open Source",
+      "n_calls": 4,
+      "min_calls": 8.200000,
+      "CPM": 12.200000
+    },
+    {
+      "UserName": "Spencer Miller",
+      "TeamName": "F5",
+      "n_calls": 6,
+      "min_calls": 6.016666,
+      "CPM": 12.016666
+    },
+    {
+      "UserName": "Clay O'Connor",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 8.883333,
+      "CPM": 11.883333
+    },
+    {
+      "UserName": "Michael Sheehan",
+      "TeamName": "Open Source",
+      "n_calls": 6,
+      "min_calls": 5.716666,
+      "CPM": 11.716666
+    },
+    {
+      "UserName": "Kate McDonald",
+      "TeamName": "Salesforce",
+      "n_calls": 2,
+      "min_calls": 9.700000,
+      "CPM": 11.700000
+    },
+    {
+      "UserName": "Dan Waite",
+      "TeamName": "Intel",
+      "n_calls": 3,
+      "min_calls": 8.683333,
+      "CPM": 11.683333
+    },
+    {
+      "UserName": "Rebecca Brockschmidt",
+      "TeamName": "Splunk",
+      "n_calls": 3,
+      "min_calls": 8.616666,
+      "CPM": 11.616666
+    },
+    {
+      "UserName": "Sehar Wahla",
+      "TeamName": "VMware",
+      "n_calls": 2,
+      "min_calls": 9.383333,
+      "CPM": 11.383333
+    },
+    {
+      "UserName": "Joel Quinones",
+      "TeamName": "Adobe",
+      "n_calls": 5,
+      "min_calls": 6.066666,
+      "CPM": 11.066666
+    },
+    {
+      "UserName": "Rhonda Cumba",
+      "TeamName": "Marketing",
+      "n_calls": 2,
+      "min_calls": 8.766666,
+      "CPM": 10.766666
+    },
+    {
+      "UserName": "Taylor Roden",
+      "TeamName": "Marketing",
+      "n_calls": 4,
+      "min_calls": 6.633333,
+      "CPM": 10.633333
+    },
+    {
+      "UserName": "Wil Creech",
+      "TeamName": "Adobe",
+      "n_calls": 4,
+      "min_calls": 6.583333,
+      "CPM": 10.583333
+    },
+    {
+      "UserName": "Todd Lancaster",
+      "TeamName": "Symantec",
+      "n_calls": 7,
+      "min_calls": 3.566666,
+      "CPM": 10.566666
+    },
+    {
+      "UserName": "Leticia Guido",
+      "TeamName": "Adobe",
+      "n_calls": 4,
+      "min_calls": 6.500000,
+      "CPM": 10.500000
+    },
+    {
+      "UserName": "Jessica Giles",
+      "TeamName": "Adobe",
+      "n_calls": 4,
+      "min_calls": 6.483333,
+      "CPM": 10.483333
+    },
+    {
+      "UserName": "Ashley Weston",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 8.416666,
+      "CPM": 10.416666
+    },
+    {
+      "UserName": "Mimi N. Nguyen",
+      "TeamName": "SAP",
+      "n_calls": 4,
+      "min_calls": 6.283333,
+      "CPM": 10.283333
+    },
+    {
+      "UserName": "Emma Stebbins",
+      "TeamName": "Customer Operations",
+      "n_calls": 5,
+      "min_calls": 5.166666,
+      "CPM": 10.166666
+    },
+    {
+      "UserName": "Daniel Bauer",
+      "TeamName": "SAP",
+      "n_calls": 1,
+      "min_calls": 9.050000,
+      "CPM": 10.050000
+    },
+    {
+      "UserName": "Shaya Assareh",
+      "TeamName": "Open Source",
+      "n_calls": 3,
+      "min_calls": 7.000000,
+      "CPM": 10.000000
+    },
+    {
+      "UserName": "Jeff Dowdy",
+      "TeamName": "F5",
+      "n_calls": 4,
+      "min_calls": 5.650000,
+      "CPM": 9.650000
+    },
+    {
+      "UserName": "Brenna Curtin",
+      "TeamName": "HP",
+      "n_calls": 4,
+      "min_calls": 5.516666,
+      "CPM": 9.516666
+    },
+    {
+      "UserName": "Casey Swartz",
+      "TeamName": "VMware",
+      "n_calls": 4,
+      "min_calls": 5.500000,
+      "CPM": 9.500000
+    },
+    {
+      "UserName": "Kaitlin Rogers",
+      "TeamName": "Marketing",
+      "n_calls": 5,
+      "min_calls": 4.483333,
+      "CPM": 9.483333
+    },
+    {
+      "UserName": "John Liebold",
+      "TeamName": "F5",
+      "n_calls": 3,
+      "min_calls": 6.483333,
+      "CPM": 9.483333
+    },
+    {
+      "UserName": "Nicholas Cumba",
+      "TeamName": "Intel",
+      "n_calls": 3,
+      "min_calls": 6.416666,
+      "CPM": 9.416666
+    },
+    {
+      "UserName": "Dallon Cochran",
+      "TeamName": "Splunk",
+      "n_calls": 4,
+      "min_calls": 5.366666,
+      "CPM": 9.366666
+    },
+    {
+      "UserName": "Cassy Dalil",
+      "TeamName": "Customer Operations",
+      "n_calls": 3,
+      "min_calls": 6.016666,
+      "CPM": 9.016666
+    },
+    {
+      "UserName": "Mary Lind",
+      "TeamName": "Symantec",
+      "n_calls": 2,
+      "min_calls": 6.916666,
+      "CPM": 8.916666
+    },
+    {
+      "UserName": "Tatiana Cruz",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 7.783333,
+      "CPM": 8.783333
+    },
+    {
+      "UserName": "Courtney Kelly",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 6.750000,
+      "CPM": 8.750000
+    },
+    {
+      "UserName": "Brett LeVine",
+      "TeamName": "Adobe",
+      "n_calls": 4,
+      "min_calls": 4.600000,
+      "CPM": 8.600000
+    },
+    {
+      "UserName": "Josh Hasan",
+      "TeamName": "Sales Operations",
+      "n_calls": 3,
+      "min_calls": 5.533333,
+      "CPM": 8.533333
+    },
+    {
+      "UserName": "Veronica Howell",
+      "TeamName": "VMware",
+      "n_calls": 3,
+      "min_calls": 5.433333,
+      "CPM": 8.433333
+    },
+    {
+      "UserName": "Harrison Smyth",
+      "TeamName": "VMware",
+      "n_calls": 1,
+      "min_calls": 7.216666,
+      "CPM": 8.216666
+    },
+    {
+      "UserName": "Jenna Tabatabaian",
+      "TeamName": "Intel",
+      "n_calls": 3,
+      "min_calls": 5.183333,
+      "CPM": 8.183333
+    },
+    {
+      "UserName": "Lindsay Brown",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 7.133333,
+      "CPM": 8.133333
+    },
+    {
+      "UserName": "Vanessa Lagman",
+      "TeamName": "Customer Operations",
+      "n_calls": 4,
+      "min_calls": 3.433333,
+      "CPM": 7.433333
+    },
+    {
+      "UserName": "Jack Stelter",
+      "TeamName": "F5",
+      "n_calls": 2,
+      "min_calls": 5.366666,
+      "CPM": 7.366666
+    },
+    {
+      "UserName": "David Holl",
+      "TeamName": "Proposals",
+      "n_calls": 3,
+      "min_calls": 4.266666,
+      "CPM": 7.266666
+    },
+    {
+      "UserName": "Terri Kinslow",
+      "TeamName": "SAP",
+      "n_calls": 1,
+      "min_calls": 6.050000,
+      "CPM": 7.050000
+    },
+    {
+      "UserName": "Annie Marshall",
+      "TeamName": "Symantec",
+      "n_calls": 2,
+      "min_calls": 4.900000,
+      "CPM": 6.900000
+    },
+    {
+      "UserName": "Erin Scanlan",
+      "TeamName": "Marketing",
+      "n_calls": 3,
+      "min_calls": 3.700000,
+      "CPM": 6.700000
+    },
+    {
+      "UserName": "Sam Foxhall",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 3.600000,
+      "CPM": 6.600000
+    },
+    {
+      "UserName": "Dylan Byars",
+      "TeamName": "Intel",
+      "n_calls": 3,
+      "min_calls": 3.300000,
+      "CPM": 6.300000
+    },
+    {
+      "UserName": "Kathleen Kendall",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 4.150000,
+      "CPM": 6.150000
+    },
+    {
+      "UserName": "Will Beck",
+      "TeamName": "Adobe",
+      "n_calls": 1,
+      "min_calls": 5.133333,
+      "CPM": 6.133333
+    },
+    {
+      "UserName": "Will Jones",
+      "TeamName": "VMware",
+      "n_calls": 1,
+      "min_calls": 5.066666,
+      "CPM": 6.066666
+    },
+    {
+      "UserName": "Mike Marcinek",
+      "TeamName": "VMware",
+      "n_calls": 2,
+      "min_calls": 3.916666,
+      "CPM": 5.916666
+    },
+    {
+      "UserName": "Thomas Pascarella",
+      "TeamName": "HP",
+      "n_calls": 4,
+      "min_calls": 1.866666,
+      "CPM": 5.866666
+    },
+    {
+      "UserName": "Chris Clarke",
+      "TeamName": "Symantec",
+      "n_calls": 2,
+      "min_calls": 3.850000,
+      "CPM": 5.850000
+    },
+    {
+      "UserName": "Brooke Allewelt",
+      "TeamName": "HP",
+      "n_calls": 2,
+      "min_calls": 3.533333,
+      "CPM": 5.533333
+    },
+    {
+      "UserName": "Mark Sewell",
+      "TeamName": "Open Source",
+      "n_calls": 3,
+      "min_calls": 2.350000,
+      "CPM": 5.350000
+    },
+    {
+      "UserName": "Michael Bronowski",
+      "TeamName": "Open Source",
+      "n_calls": 2,
+      "min_calls": 3.333333,
+      "CPM": 5.333333
+    },
+    {
+      "UserName": "Michael A. Shrader",
+      "TeamName": "Intel",
+      "n_calls": 3,
+      "min_calls": 2.233333,
+      "CPM": 5.233333
+    },
+    {
+      "UserName": "Bonnie Sanchez",
+      "TeamName": "Customer Operations",
+      "n_calls": 3,
+      "min_calls": 2.183333,
+      "CPM": 5.183333
+    },
+    {
+      "UserName": "Lydia Rasamalle",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 4.050000,
+      "CPM": 5.050000
+    },
+    {
+      "UserName": "Cortney Steiner",
+      "TeamName": "Adobe",
+      "n_calls": 3,
+      "min_calls": 1.983333,
+      "CPM": 4.983333
+    },
+    {
+      "UserName": "Jenalyne Kassay",
+      "TeamName": "Salesforce",
+      "n_calls": 3,
+      "min_calls": 1.983333,
+      "CPM": 4.983333
+    },
+    {
+      "UserName": "Ashley Akers",
+      "TeamName": "Marketing",
+      "n_calls": 2,
+      "min_calls": 2.833333,
+      "CPM": 4.833333
+    },
+    {
+      "UserName": "Ellen Lord",
+      "TeamName": "Contracts",
+      "n_calls": 2,
+      "min_calls": 2.750000,
+      "CPM": 4.750000
+    },
+    {
+      "UserName": "Maribeth Jones",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 2.616666,
+      "CPM": 4.616666
+    },
+    {
+      "UserName": "Isabel Hernandez",
+      "TeamName": "Marketing",
+      "n_calls": 2,
+      "min_calls": 2.500000,
+      "CPM": 4.500000
+    },
+    {
+      "UserName": "Steven Black",
+      "TeamName": "IT",
+      "n_calls": 1,
+      "min_calls": 3.233333,
+      "CPM": 4.233333
+    },
+    {
+      "UserName": "Julie McCullock",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 2.200000,
+      "CPM": 4.200000
+    },
+    {
+      "UserName": "Maggie Manfredi",
+      "TeamName": "Intel",
+      "n_calls": 2,
+      "min_calls": 1.950000,
+      "CPM": 3.950000
+    },
+    {
+      "UserName": "Brian Withers",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 1.733333,
+      "CPM": 3.733333
+    },
+    {
+      "UserName": "Brooke Silverman",
+      "TeamName": "Salesforce",
+      "n_calls": 2,
+      "min_calls": 1.700000,
+      "CPM": 3.700000
+    },
+    {
+      "UserName": "Chad Mills",
+      "TeamName": "Verizon",
+      "n_calls": 1,
+      "min_calls": 2.650000,
+      "CPM": 3.650000
+    },
+    {
+      "UserName": "Tori Sousa",
+      "TeamName": "Sales Operations",
+      "n_calls": 1,
+      "min_calls": 2.633333,
+      "CPM": 3.633333
+    },
+    {
+      "UserName": "Chris Hiebert",
+      "TeamName": "VMware",
+      "n_calls": 1,
+      "min_calls": 2.616666,
+      "CPM": 3.616666
+    },
+    {
+      "UserName": "Jamie Lee",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 1.566666,
+      "CPM": 3.566666
+    },
+    {
+      "UserName": "David Oakes",
+      "TeamName": "Customer Operations",
+      "n_calls": 2,
+      "min_calls": 1.550000,
+      "CPM": 3.550000
+    },
+    {
+      "UserName": "Justin Park",
+      "TeamName": "IT",
+      "n_calls": 2,
+      "min_calls": 1.533333,
+      "CPM": 3.533333
+    },
+    {
+      "UserName": "Robert Miller",
+      "TeamName": "Intel",
+      "n_calls": 1,
+      "min_calls": 2.516666,
+      "CPM": 3.516666
+    },
+    {
+      "UserName": "Alec Wyhs",
+      "TeamName": "Intel",
+      "n_calls": 2,
+      "min_calls": 1.466666,
+      "CPM": 3.466666
+    },
+    {
+      "UserName": "Eric Pankau",
+      "TeamName": "Intel",
+      "n_calls": 2,
+      "min_calls": 1.316666,
+      "CPM": 3.316666
+    },
+    {
+      "UserName": "Nathan Mueller",
+      "TeamName": "F5",
+      "n_calls": 2,
+      "min_calls": 1.266666,
+      "CPM": 3.266666
+    },
+    {
+      "UserName": "Eric Reynolds",
+      "TeamName": "Intel",
+      "n_calls": 1,
+      "min_calls": 2.216666,
+      "CPM": 3.216666
+    },
+    {
+      "UserName": "Christian Gaines",
+      "TeamName": "SAP",
+      "n_calls": 2,
+      "min_calls": 1.183333,
+      "CPM": 3.183333
+    },
+    {
+      "UserName": "Josh Dunn",
+      "TeamName": "Salesforce",
+      "n_calls": 1,
+      "min_calls": 2.116666,
+      "CPM": 3.116666
+    },
+    {
+      "UserName": "Justin Sandilands",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 1.116666,
+      "CPM": 3.116666
+    },
+    {
+      "UserName": "Jenna Hafey",
+      "TeamName": "Adobe",
+      "n_calls": 2,
+      "min_calls": 1.116666,
+      "CPM": 3.116666
+    },
+    {
+      "UserName": "Shane Cashman",
+      "TeamName": "Open Source",
+      "n_calls": 2,
+      "min_calls": 1.050000,
+      "CPM": 3.050000
+    },
+    {
+      "UserName": "Tina Chiao",
+      "TeamName": "VMware",
+      "n_calls": 2,
+      "min_calls": 1.033333,
+      "CPM": 3.033333
+    },
+    {
+      "UserName": "Griffin Stevens",
+      "TeamName": "Open Source",
+      "n_calls": 1,
+      "min_calls": 1.900000,
+      "CPM": 2.900000
+    },
+    {
+      "UserName": "Mary Warmkessel",
+      "TeamName": "IC Team",
+      "n_calls": 2,
+      "min_calls": 0.883333,
+      "CPM": 2.883333
+    },
+    {
+      "UserName": "Brian Snell",
+      "TeamName": "Other",
+      "n_calls": 1,
+      "min_calls": 1.766666,
+      "CPM": 2.766666
+    },
+    {
+      "UserName": "Nikhil Porecha",
+      "TeamName": "Symantec",
+      "n_calls": 1,
+      "min_calls": 1.616666,
+      "CPM": 2.616666
+    },
+    {
+      "UserName": "Rhonda Afinni",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 1.583333,
+      "CPM": 2.583333
+    },
+    {
+      "UserName": "Chelsea DiMatteo",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 1.350000,
+      "CPM": 2.350000
+    },
+    {
+      "UserName": "Jake Ronza",
+      "TeamName": "Adobe",
+      "n_calls": 1,
+      "min_calls": 1.250000,
+      "CPM": 2.250000
+    },
+    {
+      "UserName": "Brendan Ball",
+      "TeamName": "F5",
+      "n_calls": 1,
+      "min_calls": 1.216666,
+      "CPM": 2.216666
+    },
+    {
+      "UserName": "Lauren Rollins",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 1.216666,
+      "CPM": 2.216666
+    },
+    {
+      "UserName": "Ashley Ruffing",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 1.200000,
+      "CPM": 2.200000
+    },
+    {
+      "UserName": "Braelyn Rasco",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 1.200000,
+      "CPM": 2.200000
+    },
+    {
+      "UserName": "Kelly McCranie",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 1.200000,
+      "CPM": 2.200000
+    },
+    {
+      "UserName": "Ash Harding",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 1.183333,
+      "CPM": 2.183333
+    },
+    {
+      "UserName": "Leanna Lombardi",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 1.166666,
+      "CPM": 2.166666
+    },
+    {
+      "UserName": "Victoria Ritter",
+      "TeamName": "Salesforce",
+      "n_calls": 1,
+      "min_calls": 1.050000,
+      "CPM": 2.050000
+    },
+    {
+      "UserName": "Amanda Palmieri",
+      "TeamName": "Customer Operations",
+      "n_calls": 1,
+      "min_calls": 1.000000,
+      "CPM": 2.000000
+    },
+    {
+      "UserName": "Danielle Wade",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 0.916666,
+      "CPM": 1.916666
+    },
+    {
+      "UserName": "Micky Bezuayehu",
+      "TeamName": "EMC",
+      "n_calls": 1,
+      "min_calls": 0.833333,
+      "CPM": 1.833333
+    },
+    {
+      "UserName": "Erin White",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 0.816666,
+      "CPM": 1.816666
+    },
+    {
+      "UserName": "Nicole Foss",
+      "TeamName": "Marketing",
+      "n_calls": 1,
+      "min_calls": 0.783333,
+      "CPM": 1.783333
+    },
+    {
+      "UserName": "Stephanie Mersman",
+      "TeamName": "Symantec",
+      "n_calls": 1,
+      "min_calls": 0.783333,
+      "CPM": 1.783333
+    },
+    {
+      "UserName": "Jeb Beidleman",
+      "TeamName": "Intel",
+      "n_calls": 1,
+      "min_calls": 0.766666,
+      "CPM": 1.766666
+    },
+    {
+      "UserName": "Ethan Palmer",
+      "TeamName": "VMware",
+      "n_calls": 1,
+      "min_calls": 0.716666,
+      "CPM": 1.716666
+    },
+    {
+      "UserName": "Daria Hoobchaak",
+      "TeamName": "Contracts",
+      "n_calls": 1,
+      "min_calls": 0.650000,
+      "CPM": 1.650000
+    },
+    {
+      "UserName": "Catalina King",
+      "TeamName": "F5",
+      "n_calls": 1,
+      "min_calls": 0.616666,
+      "CPM": 1.616666
+    },
+    {
+      "UserName": "Hillary Van Beek",
+      "TeamName": "Adobe",
+      "n_calls": 1,
+      "min_calls": 0.533333,
+      "CPM": 1.533333
+    },
+    {
+      "UserName": "Kevin Pillow",
+      "TeamName": "IT",
+      "n_calls": 1,
+      "min_calls": 0.383333,
+      "CPM": 1.383333
+    },
+    {
+      "UserName": "Joe Baires",
+      "TeamName": "Symantec",
+      "n_calls": 1,
+      "min_calls": 0.350000,
+      "CPM": 1.350000
+    },
+    {
+      "UserName": "Ben Alkire",
+      "TeamName": "Splunk",
+      "n_calls": 1,
+      "min_calls": 0.333333,
+      "CPM": 1.333333
+    },
+    {
+      "UserName": "Brandon Smyth",
+      "TeamName": "VMware",
+      "n_calls": 1,
+      "min_calls": 0.300000,
+      "CPM": 1.300000
+    },
+    {
+      "UserName": "Clinton Werth",
+      "TeamName": "IT",
+      "n_calls": 1,
+      "min_calls": 0.250000,
+      "CPM": 1.250000
+    }
+  ],
+  "ReportData": null,
+  "ReportDataTemp": null
+}

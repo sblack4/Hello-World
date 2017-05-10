@@ -1,0 +1,531 @@
+﻿<!--{% extends "layout.html" %}
+
+{% block content %}-->
+
+<!--<script src="https://zoomdata.carahsoft.com/zoomdata/sdk/2.0/zoomdata-client.js"></script>-->
+<script src="/static/scripts/zoomdata-client.js"></script>
+<script src="/static/scripts/jquery-1.10.2.js"></script>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+body {
+  font-family: "Source Sans Pro";
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFFFFF;
+}
+
+table.dataTable {
+  width: 80%;
+  margin: 0 auto;
+  clear: both;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+</style>
+
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+
+<h1>vizlocation</h1>
+<div id="visualization" style="width: 94vw; height:400px; padding:10px; top:20%; float:left"></div>
+
+
+<div style='width:60%; font-size:10pt; margin:15px; padding: 5px; margin-left:auto; margin-right:auto'>
+    <table class='dataTable' id='presentation' style='font-size:10pt'>
+        <thead style='text-align:left;'>
+            <tr>
+                <th>Sales Rep</th>
+                <th>Vendor</th>
+                <th>Quote Total</th>
+            </tr>
+        </thead>
+        <!--JS will insert data into dataContents -->
+        <tbody id='dataContents'></tbody>
+    </table>
+</div>
+
+
+
+
+<p>I am teh enigma</p>
+
+
+
+<script>
+    /*
+    VMware Quotes Today -- https://zoomdata.carahsoft.com/zoomdata/service/sources/key?source=VMware+Quotes+Today&expirationDate=2017-01-01T19:15:30.000 
+    
+    {"id":"57a8f480c2dcf35dde533873","accountId":"570e6a59c2dcf03b84dbbf22","created":"2016-08-08 21:07:12.892","expire":"2017-01-01 19:15:30.000","createdBy":"admin","description":null,"securityKeyType":"SOURCE","objectIds":["577fdc80c2dc400fdcecc632"]}
+
+    VMWARE QUOTES 123 -- https://zoomdata.carahsoft.com/zoomdata/service/sources/key?source=VMware+Quotes+Today(1)(2)(3)&expirationDate=2017-01-01T19:15:30.000 
+
+    {"id":"57a8e62fc2dcf35dde0f34d8","accountId":"570e6a59c2dcf03b84dbbf22","created":"2016-08-08 20:06:07.018","expire":"2017-01-01 19:15:30.000","createdBy":"admin","description":null,"securityKeyType":"SOURCE","objectIds":["57a8e517c2dcf35dde0a3bcc"]}
+
+    */
+
+
+    var applicationConfig = {
+        secure: false,
+        host: 'zoomdata.carahsoft.com',
+        port: 443,
+        path: '/zoomdata'
+    };
+    var credentialsConfig = {
+        key: "57a8f480c2dcf35dde533873"
+    };
+    var queryConfig = {
+        tz: 'EST',
+        time: {
+            timeField: 'create_datetime'
+        },
+        player: {
+            speed: 1,
+            pauseAfterRead: true,
+            timeWindowScale: 'ROLLING'
+        },
+        //filters: [{
+
+        //    path: 'endusertype',
+        //        operation: 'NOTIN',
+        //        value: ['Null']
+
+        //}],
+        //groups: [{
+        //    name: 'endusertype',
+        //    limit: 40,
+        //    sort: {
+        //        dir: 'asc',
+        //        name: 'endusertype'
+        //    }
+        //}],
+        fields: [
+            //{ name: 'quotetotal', limit:40 },
+            { name: 'username', limit: 40 },
+            {name: 'endusertype', limit: 40}
+        ],
+        metrics: [{
+            name: 'quotetotal',
+            func: 'sum'
+        }]
+    };
+
+    var vizLocation = document.getElementById('visualization');
+    //console.log(vizLocation);
+
+    /*************** Attempt -1 ***************/
+    ZoomdataSDK.createClient({
+        credentials: credentialsConfig,
+        application: applicationConfig
+    }).then(function(client) {        window.client = client;        return client.createQuery({name: 'VMware Quotes Today'}, queryConfig);    })  .then(function(theQuery) {      window.client.visualize({
+            element: vizLocation,
+            query: theQuery,
+            visualization: 'Bars',
+            variables: {
+                //"Chart Name": "Bars",
+                //"Chart Description": "",
+                //"Bar Height": 'quotetotal:sum:{\"colorNumb\":0,\"legendType\":\"palette\",\"colors\":[],\"colorSet\":\"ZoomPalette\",\"autoShowColorLegend\":true}',
+                //"Group By": '{\"name\":\"endusertype\",\"limit\":20,\"sort\":{\"name\":\"quotetotal\",\"dir\":\"asc\",\"metricFunc\":\"sum\"}}'
+            }
+        }).catch(function (Error) {
+            console.log("catch1 ", Error)
+        });
+    }).catch(function (Error) {
+        console.log("catch 2", Error)
+    });
+
+
+    /*************** Attempt 0 ***************/
+
+    //ZoomdataSDK.createClient({
+    //    credentials: credentialsConfig,
+    //    application: applicationConfig
+    //})
+    //.then(function (client) {
+    //    window.client = client;
+    //    console.log(window.client);
+    //    return window.client.createQuery({
+    //        name: 'VMware Quotes Today'
+    //    }, queryConfig);
+    //})
+    //.then(function (theQuery) {
+    //    console.log(theQuery);
+    //    return window.client.visualize({
+    //        element: vizLocation,
+    //        query: theQuery,
+    //        visualization: 'Bars: Multiple Metrics',
+    //        variables: {
+    //            "Chart Name": "Bars",
+    //            "Chart Description": "",
+    //            "Bar Height": "quotetotal:sum:{\"colorNumb\":0,\"legendType\":\"palette\",\"colors\":[],\"colorSet\":\"ZoomPalette\",\"autoShowColorLegend\":true}",
+    //            "Group By": "{\"name\":\"endusertype\",\"limit\":20,\"sort\":{\"name\":\"quotetotal\",\"dir\":\"asc\",\"metricFunc\":\"sum\"}}"
+    //        }
+    //    })
+    //    .then(function (result) {
+    //        console.log(result);
+    //        window.viz = result; 
+    //    });
+    //});
+
+
+    var queryConfig = {
+        tz: 'EST',
+        time: {
+            timeField: 'create_datetime'
+        },
+        player: {
+            speed: 1,
+            pauseAfterRead: true,
+            timeWindowScale: 'ROLLING'
+        },
+        //filters: [
+        //    {
+        //        path: 'vendor',
+        //        operation: 'IN',
+        //        value: ['VMware', 'Nutanix']
+        //    }
+        //],
+        groups: [{
+            name: 'username',
+            limit: 40,
+            sort: {
+                dir: 'asc',
+                name: 'quotetotal'
+            }
+        }
+        , {
+            name: 'vendor',
+            limit: 200,
+            sort: {
+                dir: 'asc',
+                name: 'quotetotal'
+            }
+        }
+        ],
+        metrics: [{
+            name: 'quotetotal',
+            func: 'sum'
+        }]
+    };
+
+    ZoomdataSDK.createClient({
+        credentials: credentialsConfig,
+        application: applicationConfig
+    })
+    // Create the query
+    .then(function (client) {
+        window.client = client;
+        console.log(window.client);
+        return window.client.createQuery({
+            name: 'VMware Quotes Today'
+        }, queryConfig);
+    })
+    .then(function (result) {
+        // Run the query and output the values
+        console.log("runquery is a go");
+        console.log(result);
+        return window.client.runQuery(result, function (queryData) {
+            console.log("preparing for queryData");
+            console.log(queryData);
+            console.log(queryData.length);
+            var numDatas = queryData.length;
+            var ctr;
+            var $newRow;
+            for (ctr = 0; ctr < numDatas; ctr++) {
+                $newRow = $("<tr><td>" + queryData[ctr].group[0] + "</td><td>" + queryData[ctr].group[1] + "</td><td>$" + (queryData[ctr].current.metrics.quotetotal.sum).toFixed(2) + "</td></tr>");
+                $("#dataContents").append($newRow);
+            }
+            // $('#presentation').DataTable();
+            
+            
+
+        }, function (msg) {
+           // console.log("Oh, snap! An error on the query: ", msg);
+        }
+        );
+    })
+    .catch(function (error) {
+        // The client library returns user friendly error messages
+        //console.log("Error: " + error);
+    });
+
+
+
+
+
+</script>
+
+
+
+
+
+
+<script>
+
+    /*
+     credentialsCongif url https://zoomdata.carahsoft.com/zoomdata/service/sources/key?source=AI+Live+2&expirationDate=2017-01-01T19:15:30.000
+     {"id":"57a4ba19c2dc378ce60152e4","accountId":"570e6a59c2dcf03b84dbbf22","created":"2016-08-05 16:08:57.813","expire":"2017-01-01 19:15:30.000","createdBy":"admin","description":null,"securityKeyType":"SOURCE","objectIds":["57729221c2dcfeb9ce52c07f"]}
+
+     {"id":"57a4bb95c2dc378ce607a4db"
+     ,"accountId":"570e6a59c2dcf03b84dbbf22"
+     ,"created":"2016-08-05 16:08:57.813"
+     ,"expire":"2017-01-01 19:15:30.000"
+     ,"createdBy":"admin"
+     ,"description":null
+     ,"securityKeyType":"SOURCE"
+     ,"objectIds":["57729221c2dcfeb9ce52c07f"]  ... this is  the data source ID https://zoomdata.carahsoft.com/zoomdata/admin.html#source/57729221c2dcfeb9ce52c07f
+     }
+     this is the only chart ... https://zoomdata.carahsoft.com/zoomdata/visualization/5772938dc2dcfeb9ce52ea39
+
+    */
+    //$(document).ready(function () {
+    //    console.log("ready!");
+
+    //    var applicationConfig = {
+    //        secure: false,
+    //        host: 'zoomdata.carahsoft.com',
+    //        port: 443,
+    //        path: '/zoomdata'
+    //    };
+
+    //    var credentialsConfig = {
+    //        key: "57a4bb95c2dc378ce607a4db"
+    //    };
+
+
+    //    var queryConfig = {
+    //        tz: 'EST',
+    //        time: {
+    //            timeField: 'datebooked'
+    //            //timeField: 'Date Booked'
+    //        },
+    //        player: {
+    //            speed: 1,
+    //            pauseAfterRead: true,
+    //            timeWindowScale: 'ROLLING'
+    //        },
+    //        //filters: [
+    //        //    {
+    //        //        path: 'ai_age_hrs',
+    //        //        //path: 'Ai Age ( Hrs )',
+    //        //        operation: 'BETWEEN',
+    //        //        value: [0,200000]
+    //        //    }
+    //        //],
+    //        groups: [{
+    //            name: 'sales_rep',
+    //            //name: 'Sales Rep',
+    //            limit: 200,
+    //            sort: {
+    //                dir: 'asc',
+    //                name: 'ai_age_hrs'
+    //                //name: 'Ai Age ( Hrs )'
+    //            }
+    //        }, {
+    //            name: 'vendor',
+    //            //name: 'Vendor',
+    //            limit: 200,
+    //            sort: {
+    //                dir: 'asc',
+    //                name: 'ai_age_hrs'
+    //                //name: 'Ai Age ( Hrs )'
+    //            }
+    //        }],
+    //        metrics: [{
+    //            name: 'ai_age_hrs',
+    //            //name: 'Ai Age ( Hrs )',
+    //            func: 'avg'
+    //        }]
+    //    };
+    //    var vizLocation = $('#vizLocation');
+    //    console.log(vizLocation);
+
+    //    /************** Try -2.0 **************/
+
+    //    //var theClient = ZoomdataSDK.createClient({
+    //    //    credentials: credentialsConfig,
+    //    //    application: applicationConfig
+    //    //});
+    //    //window.client = theClient;
+
+    //    //var theQuery = theClient.createQuery({
+    //    //    name: 'AI Live 2'
+    //    //}, queryConfig);
+
+
+    //    //window.theClient.runQuery(theQuery, function (dataObject) {
+    //    //    console.log('Data obj returned: ', dataObject);
+    //    //});
+
+    //    /************** Try -1.0 **************/
+
+    //    ZoomdataSDK.createClient({
+    //        credentials: credentialsConfig,
+    //        application: applicationConfig
+    //    })
+    //// Create the query
+    //.then(function (client) {
+    //    window.client = client;
+    //    console.log(window.client);
+    //    return (client.createQuery({
+    //        name: 'AI Live 2'
+    //    }, queryConfig));
+    //})
+    //.then(function (result) {
+    //    // Run the query and output the values
+    //    console.log("runquery is a go");
+    //    console.log(result);
+    //    return window.client.runQuery(result, function (queryData) {
+    //        console.log("preparing for queryData");
+    //        console.log(queryData);
+    //        console.log(queryData.length);
+    //        var numDatas = queryData.length;
+    //        var ctr;
+    //        var $newRow;
+    //        for (ctr = 0; ctr < numDatas; ctr++) {
+    //            $newRow = $("<tr><td>" + queryData[ctr].group[0] + "</td><td>" + queryData[ctr].group[1] + "</td><td>$" + (queryData[ctr].current.metrics.price.avg).toFixed(2) + "</td></tr>");
+    //            $("#dataContents").append($newRow);
+    //        }
+    //       // $('#presentation').DataTable();
+
+    //    }, function (msg) {
+    //        console.log("Oh, snap! An error on the query: ", msg);
+    //    }
+    //    );
+    //})
+    //.catch(function (error) {
+    //    // The client library returns user friendly error messages
+    //    console.log("Error: " + error);
+    //});
+
+
+        /************** Try0 **************/
+
+        //var client = ZoomdataSDK.createClient({
+        //    credentials: credentialsConfig,
+        //    application: applicationConfig
+        //});
+        //console.log(client);
+
+        //var theQuery = client.createQuery({ name: 'AI Live 2' }, queryConfig);
+
+        //client.runQuery(theQuery, function (dataObject) {
+        //    console.log('Data object returned by query: ', dataObject);
+        //});
+
+
+
+        /************** Try1 **************/
+        //    ZoomdataSDK.createClient({
+        //        application: applicationConfig,
+        //     credentials: credentialsConfig
+        //     })
+        //  .then(function (client) {
+        //      console.log(client);
+        //      try {
+        //          console.log("attempt made");
+        //          var mrpoopybutthole = client.createQuery(queryConfig);
+        //          console.log(mrpoopybutthole);
+        //          return mrpoopybutthole
+        //      }
+        //      catch (err) {
+        //          console.log(err);
+        //      }
+
+        //     }).then(function (querylol) {
+        //     console.log("query thing started");
+        //     console.log(querylol);
+        //        return client.visualize({
+        //            element: vizLocation,
+        //            query: querylol,
+        //            visualization: visualization.name,
+        //            variables: visualization.variables
+        //        });
+        //    })
+        //.catch(Error);
+
+
+        /************** Try 1.5 **************/
+        //  ZoomdataSDK.createClient({
+        //      application: applicationConfig,
+        //      credentials: credentialsConfig
+        //  })
+        //.then(function (client) {
+        //    console.log(client);
+        //    try {
+        //        console.log("attempt made");
+        //        var mrpoopybutthole = client.createQuery(queryConfig);
+        //        console.log(mrpoopybutthole);
+        //        //return mrpoopybutthole
+        //    }
+        //    catch (err) {
+        //        console.log(err);
+        //    }
+        //    console.log("okay....");
+        //    try {
+        //          console.log("query thing started");
+        //          //console.log(querylol);
+        //          //var viz = client.visualize({
+        //          //    element: vizLocation,
+        //          //    query: mrpoopybutthole,
+        //          //    visualization: visualization.name,
+        //          //    variables: visualization.variables
+        //          //})
+        //        //console.log(viz);
+
+        //          client.run(client.createQuery(queryConfig), function (dataObject) {
+        //              console.log('Data object returned by query: ', dataObject);
+        //          });
+
+        //         console.log("query");
+
+        //    }catch(err){
+        //        console.log(err);
+        //    }
+        //}, function () {
+        //    console.log("Rejects");
+        //  });
+        //        .then(function (querylol) {
+        //      console.log("query thing started");
+        //      console.log(querylol);
+        //      return client.visualize({
+        //          element: vizLocation,
+        //          query: querylol,
+        //          visualization: visualization.name,
+        //          variables: visualization.variables
+        //      });
+        //  })
+        //.catch(Error);
+
+        //Visualizing from a query configuration object
+        //Passing QueryConfig to visualize method will instruct it to construct
+        //the query. This way groups, metrics, and fields properties of
+        //queryConfig will be ignored and visualization variables will be used
+        //to determine actual groups, metrics and fields.
+
+
+        /************** Try2 **************/
+        //ZoomdataSDK.createClient({
+        //    application: applicationConfig,
+        //    credentials: credentialsConfig
+        //}).then(function (client) {
+        //    console.log("visualize block");
+        //    client.visualize({
+        //        element: element,
+        //        config: client.createQuery(queryConfig),
+        //        source: { name: 'AI Live 2' },
+        //        visualization: visualization.name,
+        //        variables: visualization.variables
+        //    });
+        //});
+        //    .on("error", function () {
+        //    alert("error")
+        //});
+
+   // });
+</script>
+
+        <!--{% endblock %}-->

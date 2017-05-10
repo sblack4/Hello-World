@@ -1,0 +1,7 @@
+{
+	"name": "QlikAPIs",
+	"type": "mashup",
+	"description": "Mashup example based on Helpdesk demo app",
+	"author": "StevenBlack",
+	"allowPosition": true
+}

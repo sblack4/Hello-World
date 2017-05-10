@@ -1,0 +1,567 @@
+{
+  "ReportTitle": "TestingTestingImJustSuggestingCSharpMightBeTheBestThingExceptFordotdotdot",
+  "query": "SELECT \r\n\tUsers.UserName \r\n\t, Teams.TeamName\r\n\r\n\t, COUNT(Occs.Order_ID) AS n_orders\r\n\t, SUM(Occs.TotalOrder) AS sum_order\r\nFROM Users \r\n\tLEFT OUTER JOIN Teams ON Teams.Team_ID = Users.Team_ID AND Teams.Organization_ID = 1\r\n\tLEFT OUTER JOIN Occs ON Occs.User_ID = Users.User_ID AND Occs.Organization_ID = 1\r\nWHERE (1=1)\r\n\tAND Users.Organization_ID = 1\r\n\tAND Occs.DateBooked  = '2016-11-30'\r\nGROUP BY UserName, TeamName \r\n",
+  "HeaderInfo": null,
+  "dt": [
+    {
+      "UserName": "Brett LeVine",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 1899.16
+    },
+    {
+      "UserName": "Brian Withers",
+      "TeamName": "Adobe",
+      "n_orders": 3,
+      "sum_order": 1317.50
+    },
+    {
+      "UserName": "Bryce Sutherland",
+      "TeamName": "Adobe",
+      "n_orders": 2,
+      "sum_order": 20272.56
+    },
+    {
+      "UserName": "Clay O'Connor",
+      "TeamName": "Adobe",
+      "n_orders": 2,
+      "sum_order": 2397.04
+    },
+    {
+      "UserName": "Elliot Dean",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 30000.00
+    },
+    {
+      "UserName": "Glenna Golding",
+      "TeamName": "Adobe",
+      "n_orders": 2,
+      "sum_order": 22425.78
+    },
+    {
+      "UserName": "Jennifer Tran Nguyen",
+      "TeamName": "Adobe",
+      "n_orders": 12,
+      "sum_order": 5868.75
+    },
+    {
+      "UserName": "Joel Quinones",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 756.00
+    },
+    {
+      "UserName": "Josh Green",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 48587.40
+    },
+    {
+      "UserName": "Kelsey Leek",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 725.67
+    },
+    {
+      "UserName": "Kyle Cooper",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 0.00
+    },
+    {
+      "UserName": "Lara Silva",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 49.00
+    },
+    {
+      "UserName": "Matt Heflin",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 21092.40
+    },
+    {
+      "UserName": "Matthew C. Jones",
+      "TeamName": "Adobe",
+      "n_orders": 2,
+      "sum_order": 52656.92
+    },
+    {
+      "UserName": "Nancy Milad",
+      "TeamName": "Adobe",
+      "n_orders": 6,
+      "sum_order": 23751.35
+    },
+    {
+      "UserName": "Page Torney",
+      "TeamName": "Adobe",
+      "n_orders": 2,
+      "sum_order": 3486.57
+    },
+    {
+      "UserName": "Seth Money",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 2092.50
+    },
+    {
+      "UserName": "Stefan Mehl",
+      "TeamName": "Adobe",
+      "n_orders": 4,
+      "sum_order": 2830.32
+    },
+    {
+      "UserName": "Stephanie Trippeer",
+      "TeamName": "Adobe",
+      "n_orders": 1,
+      "sum_order": 465.00
+    },
+    {
+      "UserName": "Tiffany Chang",
+      "TeamName": "Adobe",
+      "n_orders": 3,
+      "sum_order": 5115.00
+    },
+    {
+      "UserName": "Eric Goycochea",
+      "TeamName": "EMC",
+      "n_orders": 2,
+      "sum_order": 16492.21
+    },
+    {
+      "UserName": "Jessica Robertson",
+      "TeamName": "F5",
+      "n_orders": 1,
+      "sum_order": 0.00
+    },
+    {
+      "UserName": "Mariah Morgan",
+      "TeamName": "F5",
+      "n_orders": 4,
+      "sum_order": 81022.04
+    },
+    {
+      "UserName": "Melissa Bowen",
+      "TeamName": "F5",
+      "n_orders": 2,
+      "sum_order": 65524.64
+    },
+    {
+      "UserName": "Nate Pavlot",
+      "TeamName": "F5",
+      "n_orders": 1,
+      "sum_order": 109626.90
+    },
+    {
+      "UserName": "Travis Saa",
+      "TeamName": "F5",
+      "n_orders": 2,
+      "sum_order": 310266.98
+    },
+    {
+      "UserName": "Elyse Conroy",
+      "TeamName": "Google",
+      "n_orders": 2,
+      "sum_order": 73630.50
+    },
+    {
+      "UserName": "Jordan Arvoy",
+      "TeamName": "Google",
+      "n_orders": 2,
+      "sum_order": 4235.00
+    },
+    {
+      "UserName": "Eric Mast",
+      "TeamName": "HP",
+      "n_orders": 1,
+      "sum_order": 303243.92
+    },
+    {
+      "UserName": "Megan Wyman",
+      "TeamName": "HP",
+      "n_orders": 1,
+      "sum_order": 15373.67
+    },
+    {
+      "UserName": "Amanda Nieves",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 16330.00
+    },
+    {
+      "UserName": "Dan Waite",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 15557.85
+    },
+    {
+      "UserName": "David Niedfeldt",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 726.72
+    },
+    {
+      "UserName": "Dylan Byars",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 105263.16
+    },
+    {
+      "UserName": "Elizabeth Heinz",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 418.50
+    },
+    {
+      "UserName": "Eric Pankau",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 6026.86
+    },
+    {
+      "UserName": "Jeb Beidleman",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 21607.00
+    },
+    {
+      "UserName": "Jenna Tabatabaian",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 23570.00
+    },
+    {
+      "UserName": "Jennifer Goncalves",
+      "TeamName": "Intel",
+      "n_orders": 2,
+      "sum_order": 649157.54
+    },
+    {
+      "UserName": "Kevin Dyer",
+      "TeamName": "Intel",
+      "n_orders": 2,
+      "sum_order": 62804.40
+    },
+    {
+      "UserName": "Mitchell Sheets",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 35625.00
+    },
+    {
+      "UserName": "Nathanael Hale",
+      "TeamName": "Intel",
+      "n_orders": 4,
+      "sum_order": 204114.90
+    },
+    {
+      "UserName": "Nicholas Cumba",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 2315.90
+    },
+    {
+      "UserName": "Nick Pham",
+      "TeamName": "Intel",
+      "n_orders": 4,
+      "sum_order": 9551.28
+    },
+    {
+      "UserName": "Robert Miller",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 0.00
+    },
+    {
+      "UserName": "Travis von Schmidt",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 80351.95
+    },
+    {
+      "UserName": "Virginia Foley",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 1134.00
+    },
+    {
+      "UserName": "Zachary Alire",
+      "TeamName": "Intel",
+      "n_orders": 1,
+      "sum_order": 4579.00
+    },
+    {
+      "UserName": "Brandon Walsh",
+      "TeamName": "Open Source",
+      "n_orders": 1,
+      "sum_order": 242.46
+    },
+    {
+      "UserName": "Clay Taylor",
+      "TeamName": "Open Source",
+      "n_orders": 3,
+      "sum_order": 11550.26
+    },
+    {
+      "UserName": "Hunter MacBain",
+      "TeamName": "Open Source",
+      "n_orders": 1,
+      "sum_order": 24694.74
+    },
+    {
+      "UserName": "James Betz",
+      "TeamName": "Open Source",
+      "n_orders": 3,
+      "sum_order": 118711.38
+    },
+    {
+      "UserName": "Michael Bisacquino",
+      "TeamName": "Open Source",
+      "n_orders": 1,
+      "sum_order": 1278426.27
+    },
+    {
+      "UserName": "Nicholas DiDonato",
+      "TeamName": "Open Source",
+      "n_orders": 2,
+      "sum_order": 189691.79
+    },
+    {
+      "UserName": "Sean Cooper",
+      "TeamName": "Open Source",
+      "n_orders": 2,
+      "sum_order": 1682.99
+    },
+    {
+      "UserName": "Shaya Assareh",
+      "TeamName": "Open Source",
+      "n_orders": 2,
+      "sum_order": 11845.21
+    },
+    {
+      "UserName": "Steve Moxham",
+      "TeamName": "Open Source",
+      "n_orders": 1,
+      "sum_order": 9543.70
+    },
+    {
+      "UserName": "Teri Liles",
+      "TeamName": "Open Source",
+      "n_orders": 1,
+      "sum_order": 2287.68
+    },
+    {
+      "UserName": "William Rose",
+      "TeamName": "Open Source",
+      "n_orders": 1,
+      "sum_order": 6809.80
+    },
+    {
+      "UserName": "Beth Drake",
+      "TeamName": "Salesforce",
+      "n_orders": 2,
+      "sum_order": 26892.18
+    },
+    {
+      "UserName": "Jack Weisbrod",
+      "TeamName": "Salesforce",
+      "n_orders": 1,
+      "sum_order": 1616.83
+    },
+    {
+      "UserName": "Zak Kennedy",
+      "TeamName": "Salesforce",
+      "n_orders": 3,
+      "sum_order": 17103.30
+    },
+    {
+      "UserName": "Amanda Miller",
+      "TeamName": "SAP",
+      "n_orders": 3,
+      "sum_order": 645834.36
+    },
+    {
+      "UserName": "Steven Hand",
+      "TeamName": "SAP",
+      "n_orders": 1,
+      "sum_order": 1143600.00
+    },
+    {
+      "UserName": "Alex Hall",
+      "TeamName": "Splunk",
+      "n_orders": 1,
+      "sum_order": 1800.00
+    },
+    {
+      "UserName": "Dallon Cochran",
+      "TeamName": "Splunk",
+      "n_orders": 1,
+      "sum_order": 435106.63
+    },
+    {
+      "UserName": "Martin Frishe",
+      "TeamName": "Splunk",
+      "n_orders": 2,
+      "sum_order": 7459.58
+    },
+    {
+      "UserName": "Travis Mueller",
+      "TeamName": "Splunk",
+      "n_orders": 1,
+      "sum_order": 5822.45
+    },
+    {
+      "UserName": "Will Schreiber",
+      "TeamName": "Splunk",
+      "n_orders": 1,
+      "sum_order": 68345.31
+    },
+    {
+      "UserName": "Alexandra Edeline",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 17765.00
+    },
+    {
+      "UserName": "Blair Monroe",
+      "TeamName": "Symantec",
+      "n_orders": 2,
+      "sum_order": 267986.28
+    },
+    {
+      "UserName": "Caroline Filippone",
+      "TeamName": "Symantec",
+      "n_orders": 2,
+      "sum_order": 166459.46
+    },
+    {
+      "UserName": "Jessica Robinson",
+      "TeamName": "Symantec",
+      "n_orders": 3,
+      "sum_order": 8310.94
+    },
+    {
+      "UserName": "John Ragan",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 44800.00
+    },
+    {
+      "UserName": "Matt Ingram",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 4397.50
+    },
+    {
+      "UserName": "Nick Nguyen",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 1444.75
+    },
+    {
+      "UserName": "Patrice Edwards",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 31852.00
+    },
+    {
+      "UserName": "Stephanie Mersman",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 21758.16
+    },
+    {
+      "UserName": "Stuart Bost",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 293541.75
+    },
+    {
+      "UserName": "Todd Lancaster",
+      "TeamName": "Symantec",
+      "n_orders": 1,
+      "sum_order": 152080.52
+    },
+    {
+      "UserName": "Cameron Parsons",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 46024.64
+    },
+    {
+      "UserName": "Candace Mansfield",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 100324.02
+    },
+    {
+      "UserName": "Christina Cafiero",
+      "TeamName": "VMware",
+      "n_orders": 2,
+      "sum_order": 36230.60
+    },
+    {
+      "UserName": "Daniela Fiore",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 45918.37
+    },
+    {
+      "UserName": "Evan Lyons",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 1224684.37
+    },
+    {
+      "UserName": "Heather Bean",
+      "TeamName": "VMware",
+      "n_orders": 4,
+      "sum_order": 65332.21
+    },
+    {
+      "UserName": "James Briar",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 7529556.00
+    },
+    {
+      "UserName": "James Wells",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 165922.88
+    },
+    {
+      "UserName": "Jason Cayanong",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 5956.37
+    },
+    {
+      "UserName": "Kelly Miller",
+      "TeamName": "VMware",
+      "n_orders": 2,
+      "sum_order": 1866.87
+    },
+    {
+      "UserName": "Mark Davis",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 2454.82
+    },
+    {
+      "UserName": "Matt Penny",
+      "TeamName": "VMware",
+      "n_orders": 3,
+      "sum_order": 7188.62
+    },
+    {
+      "UserName": "Michelle Carl",
+      "TeamName": "VMware",
+      "n_orders": 1,
+      "sum_order": 104000.00
+    }
+  ],
+  "ReportData": null,
+  "ReportDataTemp": null
+}
